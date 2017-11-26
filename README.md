@@ -1,6 +1,8 @@
 # Agm-Direction
 this is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps)
 
+![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
+
 ## Install
 ```bash
 git clone https://github.com/explooosion/Agm-Direction.git
