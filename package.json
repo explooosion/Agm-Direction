@@ -1,6 +1,15 @@
 {
   "name": "agm-direction",
+  "description": "directive for agm",
   "version": "0.1.0",
+  "author": "Robby",
+  "repository": "koa-deploy",
+  "keywords": [
+    "angular2",
+    "agm",
+    "googlemap",
+    "direction"
+  ],
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -37,5 +46,9 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.3.3"
-  }
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "homepage": "https://github.com/explooosion/Agm-Direction"
 }
