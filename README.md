@@ -1,5 +1,5 @@
 # Agm-Direction
-[![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/js/agm-direction) 
+[![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/for/js/agm-direction) 
 [![dependencies Status](https://david-dm.org/explooosion/agm-direction.svg)](https://david-dm.org/)  
 
 This is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps)
