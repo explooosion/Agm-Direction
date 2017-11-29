@@ -1,9 +1,12 @@
 {
   "name": "agm-direction",
   "description": "directive for agm",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Robby",
-  "repository": "agm-direction",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/explooosion/Agm-Direction"
+  },
   "keywords": [
     "angular2",
     "agm",
