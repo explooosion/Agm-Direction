@@ -3,7 +3,7 @@
   "description": "directive for agm",
   "version": "0.1.0",
   "author": "Robby",
-  "repository": "koa-deploy",
+  "repository": "agm-direction",
   "keywords": [
     "angular2",
     "agm",
@@ -16,7 +16,6 @@
     "start": "ng serve",
     "build": "ng build"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
