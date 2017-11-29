@@ -2,7 +2,7 @@
 [![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/for/js/agm-direction) 
 [![dependencies Status](https://david-dm.org/explooosion/Agm-Direction.svg)](https://david-dm.org/)  
 
-This is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps)
+[Agm-Direction](https://github.com/explooosion/Agm-Direction) is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps)
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
 
