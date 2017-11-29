@@ -26,7 +26,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
-import { AgmCoreModule } from '@agm/core'; import { AgmDirectionModule } from 'agm-direction';
+import { AgmCoreModule } from '@agm/core'; 
+import { AgmDirectionModule } from 'agm-direction';
 
 @NgModule({
   declarations: [
