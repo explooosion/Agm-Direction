@@ -1,4 +1,7 @@
 # Agm-Direction
+[![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/js/agm-direction) 
+[![dependencies Status](https://david-dm.org/explooosion/agm-direction.svg)](https://david-dm.org/)  
+
 this is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps)
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
@@ -9,9 +12,9 @@ this is the directive for [@agm/core](https://github.com/SebastianM/angular-goog
   npm install --save @agm/core
   ```
 + install agm-direction
-```bash
-npm install --save agm-direction
-```
+  ```bash
+  npm install --save agm-direction
+  ```
 
 ## Import 
 
@@ -45,12 +48,35 @@ export class AppModule { }
 ```
 
 ## Use
++ HTML
 ```html
 <agm-map [latitude]="lat" [longitude]="lng">
 
   <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
 
 </agm-map>
+```
+
++ TS
+```ts
+  lat: Number = 24.799448;
+  lng: Number = 120.979021;
+  zoom: Number = 14;
+
+  dir = undefined;
+
+  constructor() { }
+
+  ngOnInit() {
+
+  }
+
+  public getDirection() {
+    this.dir = {
+      origin: { lat: 24.799448, lng: 120.979021 },
+      destination: { lat: 24.799524, lng: 120.975017 }
+    }
+  }
 ```
 
 ## Attribute
