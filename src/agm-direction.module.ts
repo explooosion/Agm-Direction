@@ -20,5 +20,3 @@ import { AgmDirection } from './agm-directions.directive';
   ]
 })
 export class AgmDirectionModule { }
-
-export { AgmDirection };

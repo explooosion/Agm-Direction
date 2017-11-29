@@ -4,7 +4,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { MapComponent } from './component/map/map.component';
 
-import { AgmDirectionModule } from '../../agm-direction/agm-direction.module';
+import { AgmDirectionModule } from '../../src/agm-direction.module';
 
 @NgModule({
   declarations: [
