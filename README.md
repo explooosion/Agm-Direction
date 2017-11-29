@@ -2,7 +2,7 @@
 [![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/js/agm-direction) 
 [![dependencies Status](https://david-dm.org/explooosion/agm-direction.svg)](https://david-dm.org/)  
 
-this is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps)
+This is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps)
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
 
@@ -24,10 +24,9 @@ this is the directive for [@agm/core](https://github.com/SebastianM/angular-goog
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 
-import { AgmDirectionModule } from 'agm-direction';
+import { AgmCoreModule } from '@agm/core'; import { AgmDirectionModule } from 'agm-direction';
 
 @NgModule({
   declarations: [
@@ -35,10 +34,10 @@ import { AgmDirectionModule } from 'agm-direction';
   ],
   imports: [
     BrowserModule,
-    AgmCoreModule.forRoot({
+    AgmCoreModule.forRoot({ // @agm/core
       apiKey: 'your key',
     }),
-    AgmDirectionModule
+    AgmDirectionModule      // agm-direction
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -64,12 +63,6 @@ export class AppModule { }
   zoom: Number = 14;
 
   dir = undefined;
-
-  constructor() { }
-
-  ngOnInit() {
-
-  }
 
   public getDirection() {
     this.dir = {
