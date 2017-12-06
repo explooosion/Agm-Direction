@@ -2,7 +2,7 @@
 [![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/for/js/agm-direction)   
 
 [Agm-Direction](https://github.com/explooosion/Agm-Direction) is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps)
-+ Angular 2+ 
++ Angular 2+ （Not Support Angular 5+）
 + Google Map API 
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
@@ -56,6 +56,8 @@ export class AppModule { }
   <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
 
 </agm-map>
+
+<button type="button" (click)="getDirection()">Get</button>
 ```
 
 + TS
