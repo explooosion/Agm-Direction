@@ -60,6 +60,13 @@ export class AppModule { }
 <button type="button" (click)="getDirection()">Get</button>
 ```
 
++ CSS
+```css
+agm-map {
+    height: 400px;
+}
+```
+
 + TS
 ```ts
   lat: Number = 24.799448;
