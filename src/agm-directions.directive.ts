@@ -1,4 +1,4 @@
-import { Directive, Input, OnChanges, OnInit, EventEmitter, SimpleChange } from '@angular/core';
+import { Directive, Input, OnChanges, OnInit, EventEmitter } from '@angular/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 
 declare var google: any;
@@ -7,8 +7,8 @@ declare var google: any;
 })
 export class AgmDirection implements OnChanges, OnInit {
 
-  @Input() origin: { lat, lng };
-  @Input() destination: { lat, lng };
+  @Input() origin: { lat: Number, lng: Number };
+  @Input() destination: { lat: Number, lng: Number };
   @Input() waypoints: Object = [];
   @Input() travelMode: String = 'DRIVING';
   @Input() optimizeWaypoints: Boolean = true;
@@ -24,7 +24,7 @@ export class AgmDirection implements OnChanges, OnInit {
     this.directionDraw();
   }
 
-  ngOnChanges(changes: { [key: string]: SimpleChange }) {
+  ngOnChanges() {
     this.directionDraw();
   }
 
@@ -46,7 +46,7 @@ export class AgmDirection implements OnChanges, OnInit {
         waypoints: this.waypoints,
         optimizeWaypoints: this.optimizeWaypoints,
         travelMode: this.travelMode
-      }, (response, status) => {
+      }, (response: any, status: any) => {
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
         }

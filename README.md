@@ -2,7 +2,7 @@
 [![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/for/js/agm-direction)   
 
 [Agm-Direction](https://github.com/explooosion/Agm-Direction) is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps)
-+ Angular 2+ （Not Support Angular 5+）
++ Angular 2+
 + Google Map API 
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
@@ -83,3 +83,20 @@ export class AppModule { }
 + travelMode: String = 'DRIVING';
 + optimizeWaypoints: Boolean = true;
 
+
+## Warning
+
+Now it's ***not*** support Angular5+
+  
+![error](https://user-images.githubusercontent.com/11458959/32315694-202ee1de-bfe8-11e7-87cf-42394526d447.png)  
+
+You can use ___--aot___  to fix this error：
+```bash
+ng serve --aot
+```
+
+
+Or following the Angular issues：
++ [is not part of the compilation output, angular 5](https://github.com/angular/angular/issues/20741)
+
++ [Angular v5.0.0 is not part of the compilation output. Please check the other error messages for details.](https://github.com/angular/angular/issues/20091)
