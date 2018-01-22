@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@types/core-js": "0.9.36",
-    "typescript": "~2.3.3"
+    "typescript": "^2.3.3"
   },
   "license": "MIT",
   "homepage": "https://github.com/explooosion/Agm-Direction"
