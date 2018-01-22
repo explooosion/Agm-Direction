@@ -17,6 +17,23 @@
   npm install --save agm-direction
   ```
 
+## Option
+If there are errors, please refer to the settings:
+![Imgur](https://i.imgur.com/LBDFQ6V.png)
+
++ ``tsconfig.app.json``
+```json
+{
+  
+  // extends, compilerOptions ...
+
+  "include": [
+    "../src/*",
+    "../node_modules/agm-direction/*"
+  ],
+}  
+```
+
 ## Import 
 
 + @agm/core
