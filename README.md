@@ -17,23 +17,6 @@
   npm install --save agm-direction
   ```
 
-## Option
-If there are errors, please refer to the settings:
-![Imgur](https://i.imgur.com/LBDFQ6V.png)
-
-+ ``tsconfig.app.json``
-```json
-{
-  
-  // extends, compilerOptions ...
-
-  "include": [
-    "../src/*",
-    "../node_modules/agm-direction/*"
-  ],
-}  
-```
-
 ## Import 
 
 + @agm/core
@@ -110,8 +93,23 @@ agm-map {
 
 ## Warning
 
-Now it's ***not*** support Angular5+
+#### The mission file seems to be part of a third. TS files...
+![Imgur](https://i.imgur.com/LBDFQ6V.png)
+
++ ``tsconfig.app.json``
+```
+{
   
+  // extends, compilerOptions ...
+
+  "include": [
+    "../src/*",
+    "../node_modules/agm-direction/*"
+  ],
+}  
+```
+
+#### is not part of the compilation output. Please check...
 ![error](https://user-images.githubusercontent.com/11458959/32315694-202ee1de-bfe8-11e7-87cf-42394526d447.png)  
 
 You can use ___--aot___  to fix this error：
