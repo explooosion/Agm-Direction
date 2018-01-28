@@ -89,7 +89,10 @@ agm-map {
 + waypoints: Object = [];
 + travelMode: String = 'DRIVING';
 + optimizeWaypoints: Boolean = true;
++ visible: Boolean = true;
 
+## Remove Direction
++ You can set `[visible]=false` .
 
 ## Warning
 
