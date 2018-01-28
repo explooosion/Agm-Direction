@@ -11,8 +11,9 @@ export declare class AgmDirection implements OnChanges, OnInit {
         lng: Number;
     };
     waypoints: Object;
-    travelMode: String;
-    optimizeWaypoints: Boolean;
+    travelMode: string;
+    optimizeWaypoints: boolean;
+    visible: boolean;
     directionsService: any;
     directionsDisplay: any;
     constructor(gmapsApi: GoogleMapsAPIWrapper);

@@ -17,6 +17,7 @@ var AgmDirection = (function () {
         this.waypoints = [];
         this.travelMode = 'DRIVING';
         this.optimizeWaypoints = true;
+        this.visible = true;
         this.directionsService = new google.maps.DirectionsService;
         this.directionsDisplay = undefined;
     }
@@ -24,7 +25,16 @@ var AgmDirection = (function () {
         this.directionDraw();
     };
     AgmDirection.prototype.ngOnChanges = function () {
-        this.directionDraw();
+        /**
+         * When visible is false then remove the direction layer
+         */
+        if (!this.visible) {
+            this.directionsDisplay.setMap(null);
+            this.directionsDisplay = undefined;
+        }
+        else {
+            this.directionDraw();
+        }
     };
     /**
      * This event is fired when the user creating or updating this direction
@@ -71,6 +81,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Boolean)
 ], AgmDirection.prototype, "optimizeWaypoints", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], AgmDirection.prototype, "visible", void 0);
 AgmDirection = __decorate([
     core_1.Directive({
         selector: 'agm-direction'

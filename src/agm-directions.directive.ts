@@ -10,8 +10,9 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() origin: { lat: Number, lng: Number };
   @Input() destination: { lat: Number, lng: Number };
   @Input() waypoints: Object = [];
-  @Input() travelMode: String = 'DRIVING';
-  @Input() optimizeWaypoints: Boolean = true;
+  @Input() travelMode: string = 'DRIVING';
+  @Input() optimizeWaypoints: boolean = true;
+  @Input() visible: boolean = true;
 
   public directionsService = new google.maps.DirectionsService;
   public directionsDisplay: any = undefined;
@@ -25,13 +26,24 @@ export class AgmDirection implements OnChanges, OnInit {
   }
 
   ngOnChanges() {
-    this.directionDraw();
+
+    /**
+     * When visible is false then remove the direction layer
+     */
+    if (!this.visible) {
+      this.directionsDisplay.setMap(null);
+      this.directionsDisplay = undefined;
+    } else {
+      this.directionDraw();
+    }
+
   }
 
   /**
    * This event is fired when the user creating or updating this direction
    */
   private directionDraw() {
+
 
     this.gmapsApi.getNativeMap().then(map => {
 
@@ -55,5 +67,6 @@ export class AgmDirection implements OnChanges, OnInit {
     });
 
   }
+
 }
 
