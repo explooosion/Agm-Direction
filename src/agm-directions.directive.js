@@ -18,6 +18,7 @@ var AgmDirection = (function () {
         this.travelMode = 'DRIVING';
         this.optimizeWaypoints = true;
         this.visible = true;
+        this.panel = undefined;
         this.directionsService = new google.maps.DirectionsService;
         this.directionsDisplay = undefined;
     }
@@ -29,6 +30,7 @@ var AgmDirection = (function () {
          * When visible is false then remove the direction layer
          */
         if (!this.visible) {
+            this.directionsDisplay.setPanel(null);
             this.directionsDisplay.setMap(null);
             this.directionsDisplay = undefined;
         }
@@ -45,6 +47,12 @@ var AgmDirection = (function () {
             if (typeof _this.directionsDisplay === 'undefined') {
                 _this.directionsDisplay = new google.maps.DirectionsRenderer;
                 _this.directionsDisplay.setMap(map);
+            }
+            if (typeof _this.panel === 'undefined') {
+                _this.directionsDisplay.setPanel(null);
+            }
+            else {
+                _this.directionsDisplay.setPanel(_this.panel);
             }
             _this.directionsService.route({
                 origin: _this.origin,
@@ -85,6 +93,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Boolean)
 ], AgmDirection.prototype, "visible", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], AgmDirection.prototype, "panel", void 0);
 AgmDirection = __decorate([
     core_1.Directive({
         selector: 'agm-direction'
