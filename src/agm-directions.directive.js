@@ -18,7 +18,6 @@ var AgmDirection = (function () {
         this.travelMode = 'DRIVING';
         this.optimizeWaypoints = true;
         this.visible = true;
-        this.panel = undefined;
         this.directionsService = new google.maps.DirectionsService;
         this.directionsDisplay = undefined;
     }
