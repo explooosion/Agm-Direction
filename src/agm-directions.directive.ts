@@ -13,7 +13,7 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() travelMode: string = 'DRIVING';
   @Input() optimizeWaypoints: boolean = true;
   @Input() visible: boolean = true;
-  @Input() panel: object = undefined;
+  @Input() panel: any = undefined;
 
   public directionsService = new google.maps.DirectionsService;
   public directionsDisplay: any = undefined;
