@@ -9,11 +9,12 @@ export class AgmDirection implements OnChanges, OnInit {
 
   @Input() origin: { lat: Number, lng: Number };
   @Input() destination: { lat: Number, lng: Number };
-  @Input() waypoints: Object = [];
+  @Input() waypoints: object = [];
   @Input() travelMode: string = 'DRIVING';
   @Input() optimizeWaypoints: boolean = true;
   @Input() visible: boolean = true;
   @Input() renderOptions: any;
+  @Input() panel: object | undefined;
 
   public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
@@ -32,6 +33,7 @@ export class AgmDirection implements OnChanges, OnInit {
      * When visible is false then remove the direction layer
      */
     if (!this.visible) {
+      this.directionsDisplay.setPanel(null);
       this.directionsDisplay.setMap(null);
       this.directionsDisplay = undefined;
     } else {
@@ -54,6 +56,11 @@ export class AgmDirection implements OnChanges, OnInit {
 
       if (typeof this.directionsService === 'undefined') {
         this.directionsService = new google.maps.DirectionsService;
+      }
+      if (typeof this.panel === 'undefined') {
+        this.directionsDisplay.setPanel(null);
+      } else {
+        this.directionsDisplay.setPanel(this.panel);
       }
 
       this.directionsService.route({

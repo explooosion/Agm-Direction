@@ -10,11 +10,12 @@ export declare class AgmDirection implements OnChanges, OnInit {
         lat: Number;
         lng: Number;
     };
-    waypoints: Object;
+    waypoints: object;
     travelMode: string;
     optimizeWaypoints: boolean;
     visible: boolean;
     renderOptions: any;
+    panel: object | undefined;
     directionsService: any;
     directionsDisplay: any;
     constructor(gmapsApi: GoogleMapsAPIWrapper);

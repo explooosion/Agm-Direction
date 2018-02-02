@@ -86,13 +86,37 @@ agm-map {
 ## Attribute
 + origin: { lat, lng };
 + destination: { lat, lng };
-+ waypoints: Object = [];
-+ travelMode: String = 'DRIVING';
-+ optimizeWaypoints: Boolean = true;
-+ visible: Boolean = true;
++ waypoints: object = [];
++ travelMode: string = 'DRIVING';
++ optimizeWaypoints: boolean = true;
++ visible: boolean = true;
++ panel: object = undefined;
 
 ## Remove Direction
 + You can set `[visible]=false` .
+
+## Show Panel Direction
+ [
+Displaying text directions with setPanel()](https://developers.google.com/maps/documentation/javascript/examples/directions-panel?hl=zh-tw)
+
++ HTML
+```html
+<agm-direction [panel]="myPanel"></agm-direction>
+<div #myPanel></div>
+```
+
+Or you can use function:
++ HTML
+```html
+<agm-direction [panel]="setPanel()"></agm-direction>
+<div id="myPanel"></div>
+```
++ TS
+```typescript
+function setPanel(){
+   return document.querySelector('#myPanel'); 
+}
+```
 
 ## Warning
 
