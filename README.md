@@ -1,23 +1,33 @@
 # Agm-Direction
-[![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/for/js/agm-direction)   
+
+[![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/js/agm-direction)
+[![npm](https://img.shields.io/npm/dm/localeval.svg)](https://github.com/explooosion/Agm-Direction)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Dependency Status](https://david-dm.org/explooosion/Agm-Direction.svg?theme=shields.io)](https://david-dm.org/explooosion/Agm-Direction)
 
 [Agm-Direction](https://github.com/explooosion/Agm-Direction) is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps)
+
 + Angular 2+
 + Google Map API 
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
 
-## Install
-+ you must install @agm/core
+## Installation
+
+Installation is done using the
+[`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
+
++ You must install @agm/core
   ```bash
   npm install --save @agm/core
   ```
-+ install agm-direction
+
++ Install agm-direction
   ```bash
   npm install --save agm-direction
   ```
 
-## Import 
+## Importing Modules
 
 + @agm/core
 + agm-direction
@@ -27,8 +37,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
-import { AgmCoreModule } from '@agm/core'; 
-import { AgmDirectionModule } from 'agm-direction';
+import { AgmCoreModule } from '@agm/core';            // @agm/core
+import { AgmDirectionModule } from 'agm-direction';   // agm-direction
 
 @NgModule({
   declarations: [
@@ -45,88 +55,130 @@ import { AgmDirectionModule } from 'agm-direction';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
 ```
 
-## Use
+## Usage
+
 + HTML
-```html
-<agm-map [latitude]="lat" [longitude]="lng">
 
-  <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
+  ```html
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
+  </agm-map>
 
-</agm-map>
-
-<button type="button" (click)="getDirection()">Get</button>
-```
+  <button type="button" (click)="getDirection()">Get</button>
+  ```
 
 + CSS
-```css
-agm-map {
-    height: 400px;
-}
-```
 
-+ TS
-```ts
-  lat: Number = 24.799448;
-  lng: Number = 120.979021;
-  zoom: Number = 14;
-
-  dir = undefined;
-
-  public getDirection() {
-    this.dir = {
-      origin: { lat: 24.799448, lng: 120.979021 },
-      destination: { lat: 24.799524, lng: 120.975017 }
-    }
+  ```css
+  agm-map {
+      height: 400px;
   }
-```
+  ```
 
-## Attribute
-+ origin: { lat, lng };
-+ destination: { lat, lng };
-+ waypoints: object = [];
-+ travelMode: string = 'DRIVING';
-+ optimizeWaypoints: boolean = true;
-+ visible: boolean = true;
-+ panel: object = undefined;
-
-## Remove Direction
-+ You can set `[visible]=false` .
-
-## Show Panel Direction
- [
-Displaying text directions with setPanel()](https://developers.google.com/maps/documentation/javascript/examples/directions-panel?hl=zh-tw)
-
-+ HTML
-```html
-<agm-direction [panel]="myPanel"></agm-direction>
-<div #myPanel></div>
-```
-
-Or you can use function:
-+ HTML
-```html
-<agm-direction [panel]="setPanel()"></agm-direction>
-<div id="myPanel"></div>
-```
 + TS
-```typescript
-function setPanel(){
-   return document.querySelector('#myPanel'); 
-}
-```
+
+  ```ts
+    lat: Number = 24.799448;
+    lng: Number = 120.979021;
+    zoom: Number = 14;
+
+    dir = undefined;
+
+    public getDirection() {
+      this.dir = {
+        origin: { lat: 24.799448, lng: 120.979021 },
+        destination: { lat: 24.799524, lng: 120.975017 }
+      }
+    }
+  ```
+
+## Properties
+
++  @Input() `origin`: { lat: Number, lng: Number };
++  @Input() `destination`: { lat: Number, lng: Number };
++  @Input() `waypoints`: object = [];
++  @Input() `travelMode`: string = 'DRIVING';
++  @Input() `optimizeWaypoints`: boolean = true;
++  @Input() `visible`: boolean = true;
++  @Input() `renderOptions`: any;
++  @Input() `panel`: object | undefined;
+
+## Options
+
+#### Remove Direction
+
++ HTML
+
+  ```html
+  <agm-direction ... [visible]="show"></agm-direction>
+  ```
+
++ TS
+
+  ```ts
+  this.show = false
+  ```
+
+#### Show Panel Direction
+
+Use of the DirectionsRenderer object to display a directions [panel](https://developers.google.com/maps/documentation/javascript/examples/directions-panel?hl=zh-tw).
+
++ HTML
+
+  ```html
+  <agm-direction ... [panel]="myPanel"></agm-direction>
+  <div #myPanel></div>
+  ```
+
+Or you could define a function using the panel:
+
++ HTML
+  ```html
+  <agm-direction ... [panel]="setPanel()"></agm-direction>
+  <div id="myPanel"></div>
+  ```
+
++ TS
+
+  ```ts
+  function setPanel(){
+    return document.querySelector('#myPanel'); 
+  }
+  ```
+
+#### DirectionsRendererOptions
+
+This object defines the properties that can be set on a [DirectionsRenderer](https://developers.google.com/maps/documentation/javascript/reference#DirectionsRendererOptions) object.
+
++ HTML
+
+  ```html
+  <agm-direction ... [renderOptions]="options"></agm-direction>
+  ```
+
++ TS
+
+  ```ts
+  options = {
+    suppressMarkers: true,
+    draggable: true,
+    ...
+  };
+  ```
 
 ## Warning
 
-#### The mission file seems to be part of a third. TS files...
+####  Part of a third
+
+The mission file seems to be part of a third. TS files...
 ![Imgur](https://i.imgur.com/LBDFQ6V.png)
 
-+ ``tsconfig.app.json``
+Please include it in `tsconfig.app.json`
+
 ```
 {
-  
   // extends, compilerOptions ...
 
   "include": [
@@ -136,10 +188,13 @@ function setPanel(){
 }  
 ```
 
-#### is not part of the compilation output. Please check...
+#### The compilation output
+
+is not part of the compilation output. Please check...
+
 ![error](https://user-images.githubusercontent.com/11458959/32315694-202ee1de-bfe8-11e7-87cf-42394526d447.png)  
 
-You can use ___--aot___  to fix this error：
+You can use `--aot`  to fix this error：
 ```bash
 ng serve --aot
 ```
