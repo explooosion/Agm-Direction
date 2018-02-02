@@ -14,6 +14,7 @@ export declare class AgmDirection implements OnChanges, OnInit {
     travelMode: string;
     optimizeWaypoints: boolean;
     visible: boolean;
+    renderOptions: any;
     panel: object | undefined;
     directionsService: any;
     directionsDisplay: any;

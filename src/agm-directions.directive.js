@@ -18,7 +18,7 @@ var AgmDirection = (function () {
         this.travelMode = 'DRIVING';
         this.optimizeWaypoints = true;
         this.visible = true;
-        this.directionsService = new google.maps.DirectionsService;
+        this.directionsService = undefined;
         this.directionsDisplay = undefined;
     }
     AgmDirection.prototype.ngOnInit = function () {
@@ -44,8 +44,11 @@ var AgmDirection = (function () {
         var _this = this;
         this.gmapsApi.getNativeMap().then(function (map) {
             if (typeof _this.directionsDisplay === 'undefined') {
-                _this.directionsDisplay = new google.maps.DirectionsRenderer;
+                _this.directionsDisplay = new google.maps.DirectionsRenderer(_this.renderOptions);
                 _this.directionsDisplay.setMap(map);
+            }
+            if (typeof _this.directionsService === 'undefined') {
+                _this.directionsService = new google.maps.DirectionsService;
             }
             if (typeof _this.panel === 'undefined') {
                 _this.directionsDisplay.setPanel(null);
@@ -92,6 +95,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Boolean)
 ], AgmDirection.prototype, "visible", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], AgmDirection.prototype, "renderOptions", void 0);
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)

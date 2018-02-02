@@ -13,9 +13,10 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() travelMode: string = 'DRIVING';
   @Input() optimizeWaypoints: boolean = true;
   @Input() visible: boolean = true;
+  @Input() renderOptions: any;
   @Input() panel: object | undefined;
 
-  public directionsService = new google.maps.DirectionsService;
+  public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
 
   constructor(
@@ -49,10 +50,13 @@ export class AgmDirection implements OnChanges, OnInit {
     this.gmapsApi.getNativeMap().then(map => {
 
       if (typeof this.directionsDisplay === 'undefined') {
-        this.directionsDisplay = new google.maps.DirectionsRenderer;
+        this.directionsDisplay = new google.maps.DirectionsRenderer(this.renderOptions);
         this.directionsDisplay.setMap(map);
       }
 
+      if (typeof this.directionsService === 'undefined') {
+        this.directionsService = new google.maps.DirectionsService;
+      }
       if (typeof this.panel === 'undefined') {
         this.directionsDisplay.setPanel(null);
       } else {
