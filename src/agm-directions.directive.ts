@@ -42,6 +42,7 @@ export class AgmDirection implements OnChanges, OnInit {
        */
       if (obj.renderOptions) {
         if (obj.renderOptions.firstChange === false) {
+          this.directionsDisplay.setPanel(null);
           this.directionsDisplay.setMap(null);
           this.directionsDisplay = undefined;
         }
