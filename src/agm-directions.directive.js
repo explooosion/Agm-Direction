@@ -24,7 +24,7 @@ var AgmDirection = (function () {
     AgmDirection.prototype.ngOnInit = function () {
         this.directionDraw();
     };
-    AgmDirection.prototype.ngOnChanges = function () {
+    AgmDirection.prototype.ngOnChanges = function (obj) {
         /**
          * When visible is false then remove the direction layer
          */
@@ -34,6 +34,15 @@ var AgmDirection = (function () {
             this.directionsDisplay = undefined;
         }
         else {
+            /**
+             * When renderOptions are not first change then reset the display
+             */
+            if (obj.renderOptions) {
+                if (obj.renderOptions.firstChange === false) {
+                    this.directionsDisplay.setMap(null);
+                    this.directionsDisplay = undefined;
+                }
+            }
             this.directionDraw();
         }
     };

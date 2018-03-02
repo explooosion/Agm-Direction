@@ -20,7 +20,7 @@ export declare class AgmDirection implements OnChanges, OnInit {
     directionsDisplay: any;
     constructor(gmapsApi: GoogleMapsAPIWrapper);
     ngOnInit(): void;
-    ngOnChanges(): void;
+    ngOnChanges(obj: any): void;
     /**
      * This event is fired when the user creating or updating this direction
      */
