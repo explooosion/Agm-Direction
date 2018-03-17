@@ -1,0 +1,34 @@
+{
+  "name": "agm-direction",
+  "description": "directive for agm",
+  "version": "0.4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/explooosion/Agm-Direction"
+  },
+  "author": {
+    "name": "Robby",
+    "email": "ta7382@gmail.com"
+  },
+  "keywords": [
+    "angular2",
+    "agm",
+    "googlemap",
+    "direction"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/explooosion/Agm-Direction",
+  "bugs": {
+    "url": "https://github.com/explooosion/Agm-Direction/issues"
+  },
+  "main": "agm-direction.umd.js",
+  "module": "agm-direction.js",
+  "jsnext:main": "agm-direction.js",
+  "typings": "agm-direction.d.ts",
+  "peerDependencies": {
+    "@agm/core": "^1.0.0-beta.2",
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
