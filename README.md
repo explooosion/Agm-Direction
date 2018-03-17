@@ -17,7 +17,7 @@
 Installation is done using the
 [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
-+ You must install @agm/core
++ Install @agm/core
   ```bash
   npm install --save @agm/core
   ```
