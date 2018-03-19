@@ -103,8 +103,8 @@ export class AppModule { }
 +  @Input() `optimizeWaypoints`: boolean = true
 +  @Input() `visible`: boolean = true
 +  @Input() `renderOptions`: any
-+  @Input() `drivingOptions`: any = undefined;
-+  @Input() `transitOptions`: any = undefined;
++  @Input() `drivingOptions`: any = undefined
++  @Input() `transitOptions`: any = undefined
 +  @Input() `panel`: object | undefined
 
 ## Options
