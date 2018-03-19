@@ -14,6 +14,8 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() optimizeWaypoints: boolean = true;
   @Input() visible: boolean = true;
   @Input() renderOptions: any;
+  @Input() drivingOptions: any = undefined;
+  @Input() transitOptions: any = undefined;
   @Input() panel: object | undefined;
 
   public directionsService: any = undefined;
@@ -78,7 +80,9 @@ export class AgmDirection implements OnChanges, OnInit {
         destination: this.destination,
         waypoints: this.waypoints,
         optimizeWaypoints: this.optimizeWaypoints,
-        travelMode: this.travelMode
+        travelMode: this.travelMode,
+        drivingOptions: this.drivingOptions,
+        transitOptions: this.transitOptions,
       }, (response: any, status: any) => {
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
