@@ -150,7 +150,7 @@ Or you could define a function using the panel:
   }
   ```
 
-#### DirectionsRendererOptions
+#### Directions Renderer Options
 
 This object defines the properties that can be set on a [DirectionsRenderer](https://developers.google.com/maps/documentation/javascript/reference#DirectionsRendererOptions) object.
 
@@ -172,6 +172,33 @@ This object defines the properties that can be set on a [DirectionsRenderer](htt
     ...
   };
   ```
+
+#### Directions Service
+
+You can calculate directions (using a variety of methods of transportation) by using the [DirectionsService](https://developers.google.com/maps/documentation/javascript/directions?hl=en-US) object. 
+
+1. [Driving Options](https://developers.google.com/maps/documentation/javascript/directions?hl=en-US#DrivingOptions) - drivingOptions
+
+2. [Transit Options](https://developers.google.com/maps/documentation/javascript/directions?hl=en-US#TransitOptions) - transitOptions
+
++ HTML
+```HTML
+ <agm-direction ... [transitOptions]="transitOptions" [travelMode]="travelMode"></agm-direction>
+
+ <!-- or -->
+
+<agm-direction ... [drivingOptions]="drivingOptions"></agm-direction>
+
+```
+
++ TS
+```ts
+ transitOptions = {
+      departureTime: new Date('2018/03/20 12:00'),
+      modes: ['BUS'],
+ };
+ travelMode = 'TRANSIT';
+```
 
 ## Document
 Less useful [document](https://robby570.tw/Agm-Direction/).
