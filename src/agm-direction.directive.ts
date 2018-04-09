@@ -9,13 +9,16 @@ export class AgmDirection implements OnChanges, OnInit {
 
   @Input() origin: { lat: Number, lng: Number };
   @Input() destination: { lat: Number, lng: Number };
-  @Input() waypoints: object = [];
   @Input() travelMode: string = 'DRIVING';
-  @Input() optimizeWaypoints: boolean = true;
-  @Input() visible: boolean = true;
-  @Input() renderOptions: any;
-  @Input() drivingOptions: any = undefined;
   @Input() transitOptions: any = undefined;
+  @Input() drivingOptions: any = undefined;
+  @Input() waypoints: object = [];
+  @Input() optimizeWaypoints: boolean = true;
+  @Input() provideRouteAlternatives: boolean = false;
+  @Input() avoidHighways: boolean = false;
+  @Input() avoidTolls: boolean = false;
+  @Input() renderOptions: any;
+  @Input() visible: boolean = true;
   @Input() panel: object | undefined;
 
   public directionsService: any = undefined;
@@ -78,11 +81,14 @@ export class AgmDirection implements OnChanges, OnInit {
       this.directionsService.route({
         origin: this.origin,
         destination: this.destination,
+        travelMode: this.travelMode,
+        transitOptions: this.transitOptions,
+        drivingOptions: this.drivingOptions,
         waypoints: this.waypoints,
         optimizeWaypoints: this.optimizeWaypoints,
-        travelMode: this.travelMode,
-        drivingOptions: this.drivingOptions,
-        transitOptions: this.transitOptions,
+        provideRouteAlternatives: this.provideRouteAlternatives,
+        avoidHighways: this.avoidHighways,
+        avoidTolls: this.avoidTolls,
       }, (response: any, status: any) => {
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
