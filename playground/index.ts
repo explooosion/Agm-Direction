@@ -25,7 +25,7 @@ class AppComponent {
   lng: Number = 120.979021;
   zoom: Number = 14;
 
-  dir = undefined;
+  dir: any = undefined;
 
   getDirection() {
     this.dir = {
