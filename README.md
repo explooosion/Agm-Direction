@@ -5,7 +5,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Dependency Status](https://david-dm.org/explooosion/Agm-Direction.svg?theme=shields.io)](https://david-dm.org/explooosion/Agm-Direction)
 
-[Agm-Direction](https://github.com/explooosion/Agm-Direction) is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps)
+[Agm-Direction](https://github.com/explooosion/Agm-Direction) is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps) (not official)
 
 + Angular 2+
 + Google Map API 
@@ -96,16 +96,27 @@ export class AppModule { }
 
 ## Properties
 
-+  @Input() `origin`: { lat: Number, lng: Number }
-+  @Input() `destination`: { lat: Number, lng: Number }
-+  @Input() `waypoints`: object = []
-+  @Input() `travelMode`: string = 'DRIVING'
-+  @Input() `optimizeWaypoints`: boolean = true
-+  @Input() `visible`: boolean = true
-+  @Input() `renderOptions`: any
-+  @Input() `drivingOptions`: any = undefined
-+  @Input() `transitOptions`: any = undefined
-+  @Input() `panel`: object | undefined
+The `DirectionsRequest` object literal contains the following fields:
+
+```ts
+{
+  origin: { lat: Number, lng: Number },
+  destination: { lat: Number, lng: Number },
+  travelMode: string = 'DRIVING',
+  transitOptions: any = undefined,
+  drivingOptions: any = undefined,
+  waypoints: object = [],
+  optimizeWaypoints: boolean = true,
+  provideRouteAlternatives: boolean = false,
+  avoidHighways: boolean = false,
+  avoidTolls: boolean = false,
+  renderOptions: any,
+  visible: boolean = true,
+  panel: object | undefined
+}
+```
+
+👉 [More fields](https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsRequests)
 
 ## Options
 
