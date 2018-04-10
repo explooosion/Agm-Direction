@@ -2,8 +2,10 @@
 
 [![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/js/agm-direction)
 [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://github.com/explooosion/Agm-Direction)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Dependency Status](https://david-dm.org/explooosion/Agm-Direction.svg?theme=shields.io)](https://david-dm.org/explooosion/Agm-Direction)
+[![GitHub license](https://img.shields.io/github/license/explooosion/Agm-Direction.svg)](https://github.com/explooosion/Agm-Direction)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+
 
 [Agm-Direction](https://github.com/explooosion/Agm-Direction) is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps) (not official)
 
