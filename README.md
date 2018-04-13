@@ -98,7 +98,11 @@ export class AppModule { }
 
 ## Properties
 
+#### Input
+
 The `DirectionsRequest` object literal contains the following fields:
+
+👉 [DirectionsRequest](https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsRequests)
 
 ```ts
 {
@@ -118,9 +122,19 @@ The `DirectionsRequest` object literal contains the following fields:
 }
 ```
 
-👉 [More fields](https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsRequests)
+#### Output
 
-## Options
+The `DirectionsResult` object will emit when sending a directions request.
+
+👉 [DirectionsResult](https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults)
+
+```ts
+{
+  onChange: EventEmitter<any> = new EventEmitter<any>(),
+}
+```
+
+## Featured
 
 #### Remove Direction
 
@@ -150,6 +164,7 @@ Use of the DirectionsRenderer object to display a directions [panel](https://dev
 Or you could define a function using the panel:
 
 + HTML
+
   ```html
   <agm-direction ... [panel]="setPanel()"></agm-direction>
   <div id="myPanel"></div>
@@ -195,23 +210,46 @@ You can calculate directions (using a variety of methods of transportation) by u
 2. [Transit Options](https://developers.google.com/maps/documentation/javascript/directions?hl=en-US#TransitOptions) - transitOptions
 
 + HTML
-```HTML
- <agm-direction ... [transitOptions]="transitOptions" [travelMode]="travelMode"></agm-direction>
 
- <!-- or -->
+  ```HTML
+  <agm-direction ... [transitOptions]="transitOptions" [travelMode]="travelMode"></agm-direction>
 
-<agm-direction ... [drivingOptions]="drivingOptions"></agm-direction>
+  <!-- or -->
 
-```
+  <agm-direction ... [drivingOptions]="drivingOptions"></agm-direction>
+
+  ```
 
 + TS
-```ts
- transitOptions = {
-      departureTime: new Date('2018/03/20 12:00'),
-      modes: ['BUS'],
- };
- travelMode = 'TRANSIT';
-```
+
+  ```ts
+  transitOptions = {
+        departureTime: new Date('2018/03/20 12:00'),
+        modes: ['BUS'],
+  };
+  travelMode = 'TRANSIT';
+  ```
+
+## Event
+
+#### Remove Direction
+
+[DirectionsResult ](https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults) is a result when sending a directions request to the DirectionsService.
+
++ HTML
+
+  ```html
+  <agm-direction ... (onChange)="dirChange($event)"></agm-direction>
+  ```
+
++ TS
+
+  ```ts
+  dirChange(event:any){
+    console.log(event);
+    // You can do anything.
+  }
+  ```
 
 ## Document
 Less useful [document](https://robby570.tw/Agm-Direction/).
