@@ -7,15 +7,16 @@ import { Component } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AgmCoreModule } from '@agm/core';
-import { SampleModule } from 'agm-direction';
+import { AgmDirectionModule } from 'agm-direction';
 
 @Component({
   selector: 'app',
   template: `
   <h1>Agm-Direction Playground - <a href="https://github.com/explooosion/Agm-Direction" target="_blank">Github</a></h1>
   <button type="button" (click)="getDirection()">Get</button>
+  <button type="button" (click)="rmDirection()">Remove</button>
   <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
+    <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination" [visible]="visible" [waypoints]="waypoints" (onChange)="dirChange($event)"></agm-direction>
   </agm-map>
   `
 })
@@ -27,11 +28,26 @@ class AppComponent {
 
   dir: any = undefined;
 
+  waypoints = [{ location: { lat: 24.798824, lng: 120.979451 }, stopover: false, }];
+
+  visible: boolean = true;
+
   getDirection() {
     this.dir = {
       origin: { lat: 24.799448, lng: 120.979021 },
-      destination: { lat: 24.799524, lng: 120.975017 }
+      destination: { lat: 24.799524, lng: 120.975017 },
     }
+    this.visible = true;
+  }
+
+  rmDirection() {
+    this.visible = false;
+  }
+
+
+
+  dirChange(event: any) {
+    console.log(event)
   }
 
 }
@@ -44,7 +60,7 @@ class AppComponent {
     AgmCoreModule.forRoot({ // @agm/core
       apiKey: '',
     }),
-    SampleModule
+    AgmDirectionModule
   ]
 })
 class AppModule { }
