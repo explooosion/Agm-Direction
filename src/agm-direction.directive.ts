@@ -1,4 +1,4 @@
-import { Directive, Input, OnChanges, OnInit, EventEmitter, ElementRef } from '@angular/core';
+import { Directive, Input, Output, OnChanges, OnInit, EventEmitter, ElementRef } from '@angular/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 
 declare var google: any;
@@ -21,11 +21,13 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() visible: boolean = true;
   @Input() panel: object | undefined;
 
+  @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
+
   public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
 
   constructor(
-    private gmapsApi: GoogleMapsAPIWrapper
+    private gmapsApi: GoogleMapsAPIWrapper,
   ) { }
 
   ngOnInit() {
@@ -38,10 +40,13 @@ export class AgmDirection implements OnChanges, OnInit {
      * When visible is false then remove the direction layer
      */
     if (!this.visible) {
-      this.directionsDisplay.setPanel(null);
-      this.directionsDisplay.setMap(null);
-      this.directionsDisplay = undefined;
+      try {
+        this.directionsDisplay.setPanel(null);
+        this.directionsDisplay.setMap(null);
+        this.directionsDisplay = undefined;
+      } catch (e) { }
     } else {
+
       /**
        * When renderOptions are not first change then reset the display
        */
@@ -72,6 +77,7 @@ export class AgmDirection implements OnChanges, OnInit {
       if (typeof this.directionsService === 'undefined') {
         this.directionsService = new google.maps.DirectionsService;
       }
+
       if (typeof this.panel === 'undefined') {
         this.directionsDisplay.setPanel(null);
       } else {
@@ -92,12 +98,18 @@ export class AgmDirection implements OnChanges, OnInit {
       }, (response: any, status: any) => {
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
+          /**
+           * Emit The DirectionsResult Object
+           * https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults
+           */
+          this.onChange.emit(response);
         }
       });
 
     });
 
   }
+
 
 }
 
