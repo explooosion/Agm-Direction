@@ -26,6 +26,8 @@ export class AgmDirection implements OnChanges, OnInit {
   public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
 
+  private isFirstChange: boolean = true;
+
   constructor(
     private gmapsApi: GoogleMapsAPIWrapper,
   ) { }
@@ -46,6 +48,8 @@ export class AgmDirection implements OnChanges, OnInit {
         this.directionsDisplay = undefined;
       } catch (e) { }
     } else {
+
+      if (this.isFirstChange) return;
 
       /**
        * When renderOptions are not first change then reset the display
