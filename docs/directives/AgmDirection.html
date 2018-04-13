@@ -367,6 +367,10 @@
                                             <span class="modifier">Public</span>
                                         <a href="#directionsService">directionsService</a>
                                     </li>
+                                    <li>
+                                            <span class="modifier">Private</span>
+                                        <a href="#isFirstChange">isFirstChange</a>
+                                    </li>
                                 </ul>
                             </td>
                         </tr>
@@ -470,7 +474,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/agm-direction.directive.ts:27</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/agm-direction.directive.ts:29</a></div>
                                         </td>
                                     </tr>
             
@@ -866,7 +870,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/agm-direction.directive.ts:68</a></div>
+                                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/agm-direction.directive.ts:72</a></div>
                                         </td>
                                     </tr>
             
@@ -905,7 +909,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/agm-direction.directive.ts:37</a></div>
+                                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/agm-direction.directive.ts:39</a></div>
                                         </td>
                                     </tr>
             
@@ -974,7 +978,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/agm-direction.directive.ts:33</a></div>
+                                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/agm-direction.directive.ts:35</a></div>
                                         </td>
                                     </tr>
             
@@ -1076,6 +1080,46 @@
             
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="isFirstChange"></a>
+                                    <span class="name">
+                                        <b>
+                                            <span class="modifier">Private</span>
+                                        isFirstChange
+                                        </b>
+                                        <a href="#isFirstChange"><span class="fa fa-link"></span></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-reset"></span><code>isFirstChange:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Default value : </i><code>true</code>
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/agm-direction.directive.ts:29</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
             </section>
 
 
@@ -1111,6 +1155,8 @@ export class AgmDirection implements OnChanges, OnInit {
   public directionsService: any &#x3D; undefined;
   public directionsDisplay: any &#x3D; undefined;
 
+  private isFirstChange: boolean &#x3D; true;
+
   constructor(
     private gmapsApi: GoogleMapsAPIWrapper,
   ) { }
@@ -1131,6 +1177,8 @@ export class AgmDirection implements OnChanges, OnInit {
         this.directionsDisplay &#x3D; undefined;
       } catch (e) { }
     } else {
+
+      if (this.isFirstChange) return;
 
       /**
        * When renderOptions are not first change then reset the display
