@@ -49,7 +49,10 @@ export class AgmDirection implements OnChanges, OnInit {
       } catch (e) { }
     } else {
 
-      if (this.isFirstChange) return;
+      if (this.isFirstChange) {
+        this.isFirstChange = false;
+        return;
+      }
 
       /**
        * When renderOptions are not first change then reset the display
