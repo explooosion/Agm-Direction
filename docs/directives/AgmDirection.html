@@ -870,7 +870,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/agm-direction.directive.ts:72</a></div>
+                                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/agm-direction.directive.ts:75</a></div>
                                         </td>
                                     </tr>
             
@@ -1178,7 +1178,10 @@ export class AgmDirection implements OnChanges, OnInit {
       } catch (e) { }
     } else {
 
-      if (this.isFirstChange) return;
+      if (this.isFirstChange) {
+        this.isFirstChange &#x3D; false;
+        return;
+      }
 
       /**
        * When renderOptions are not first change then reset the display
