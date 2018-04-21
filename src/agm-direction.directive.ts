@@ -20,6 +20,7 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() renderOptions: any;
   @Input() visible: boolean = true;
   @Input() panel: object | undefined;
+  @Input() markerOptions: { origin: any, destination: any };
 
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
 
@@ -27,6 +28,9 @@ export class AgmDirection implements OnChanges, OnInit {
   public directionsDisplay: any = undefined;
 
   private isFirstChange: boolean = true;
+
+  private originMarker = undefined;
+  private destinationMarker = undefined;
 
   constructor(
     private gmapsApi: GoogleMapsAPIWrapper,
@@ -37,12 +41,15 @@ export class AgmDirection implements OnChanges, OnInit {
   }
 
   ngOnChanges(obj: any) {
-
     /**
      * When visible is false then remove the direction layer
      */
     if (!this.visible) {
       try {
+        if (this.originMarker !== 'undefined') {
+          this.originMarker.setMap(null);
+          this.destinationMarker.setMap(null);
+        }
         this.directionsDisplay.setPanel(null);
         this.directionsDisplay.setMap(null);
         this.directionsDisplay = undefined;
@@ -59,6 +66,10 @@ export class AgmDirection implements OnChanges, OnInit {
        */
       if (obj.renderOptions) {
         if (obj.renderOptions.firstChange === false) {
+          if (this.originMarker !== 'undefined') {
+            this.originMarker.setMap(null);
+            this.destinationMarker.setMap(null);
+          }
           this.directionsDisplay.setPanel(null);
           this.directionsDisplay.setMap(null);
           this.directionsDisplay = undefined;
@@ -109,15 +120,46 @@ export class AgmDirection implements OnChanges, OnInit {
            * Emit The DirectionsResult Object
            * https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults
            */
+
+          // Custom Markers 
+          if (this.markerOptions !== undefined) {
+            var _route = response.routes[0].legs[0];
+            // Origin Marker
+            this.markerOptions.origin.map = map;
+            this.markerOptions.origin.position = _route.start_location;
+            this.originMarker = this.setMarker(map, this.originMarker, this.markerOptions.origin, _route.start_address);
+            // Destination Marker
+            this.markerOptions.destination.map = map;
+            this.markerOptions.destination.position = _route.end_location;
+            this.destinationMarker = this.setMarker(map, this.destinationMarker, this.markerOptions.destination, _route.end_address);
+          }
           this.onChange.emit(response);
         }
       });
-
     });
-
   }
 
-
+  /**
+   * Custom Origin and Destination Icon
+   * 
+   * @private
+   * @param {any} map map
+   * @param {any} marker marker
+   * @param {any} markerOpts properties
+   * @param {string} content marker's infowindow content
+   * @returns {any} marker
+   * @memberof AgmDirection
+   */
+  private setMarker(map: any, marker: any, markerOpts: any, content: string) {
+    const infowindow = new google.maps.InfoWindow({
+      content: content,
+    });
+    marker = new google.maps.Marker(markerOpts);
+    marker.addListener('click', () => {
+      infowindow.open(map, marker);
+    });
+    return marker;
+  }
 }
 
 
