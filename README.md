@@ -14,6 +14,10 @@
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
 
+### Feature
+
+- [CustomIcons](#CustomIcons)
+
 ## Installation
 
 Installation is done using the
@@ -118,7 +122,8 @@ The `DirectionsRequest` object literal contains the following fields:
   avoidTolls: boolean = false,
   renderOptions: any,
   visible: boolean = true,
-  panel: object | undefined
+  panel: object | undefined,
+  markerOptions: { origin: any, destination: any },
 }
 ```
 
@@ -228,6 +233,38 @@ You can calculate directions (using a variety of methods of transportation) by u
         modes: ['BUS'],
   };
   travelMode = 'TRANSIT';
+  ```
+
+#### <a id="CustomIcons">Custom Icons</a>
+
+You can change the icons of origin and destination.
+
+👉 [MarkerOptions](https://developers.google.com/maps/documentation/javascript/reference?hl=zh-tw#MarkerOptions)
+
++ HTML
+
+  ```HTML
+  <agm-direction ... [renderOptions]="renderOpts" [markerOptions]="markerOpts"></agm-direction>
+  ```
+
++ TS
+
+  ```ts
+  renderOpts = {
+    suppressMarkers: true,
+  };
+
+  markerOpts = {
+    origin: {
+      icon: 'http://image.ibb.co/bZ3wLn/origin.png',
+    },
+    destination: {
+      icon: 'https://image.ibb.co/cLwp5n/678111_map_marker_256.png',
+      label: 'marker label',
+      opacity: 0.8,
+      // ... properties
+    },
+  };
   ```
 
 ## Event
