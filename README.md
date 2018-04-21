@@ -16,7 +16,12 @@
 
 ### Feature
 
-- [CustomIcons](#CustomIcons)
+- [Remove Direction](#RemoveDirection)
+- [Custom Icons](#CustomIcons)
+- [Show Panel Direction](#ShowPanelDirection)
+- [Directions Renderer Options](#DirectionsRendererOptions)
+- [Directions Service](#DirectionsService)
+- [Custom Icons](#CustomIcons)
 
 ## Installation
 
@@ -141,6 +146,8 @@ The `DirectionsResult` object will emit when sending a directions request.
 
 ## Featured
 
+<a id="RemoveDirection"></a>
+
 #### Remove Direction
 
 + HTML
@@ -154,6 +161,8 @@ The `DirectionsResult` object will emit when sending a directions request.
   ```ts
   this.show = false
   ```
+
+<a id="ShowPanelDirection"></a> 
 
 #### Show Panel Direction
 
@@ -183,6 +192,8 @@ Or you could define a function using the panel:
   }
   ```
 
+<a id="DirectionsRendererOptions"></a>
+
 #### Directions Renderer Options
 
 This object defines the properties that can be set on a [DirectionsRenderer](https://developers.google.com/maps/documentation/javascript/reference#DirectionsRendererOptions) object.
@@ -205,6 +216,8 @@ This object defines the properties that can be set on a [DirectionsRenderer](htt
     ...
   };
   ```
+
+<a id="DirectionsService"></a>
 
 #### Directions Service
 
@@ -235,7 +248,9 @@ You can calculate directions (using a variety of methods of transportation) by u
   travelMode = 'TRANSIT';
   ```
 
-#### <a id="CustomIcons">Custom Icons</a>
+<a id="CustomIcons"></a>
+
+#### Custom Icons
 
 You can change the icons of origin and destination.
 
@@ -256,10 +271,10 @@ You can change the icons of origin and destination.
 
   markerOpts = {
     origin: {
-      icon: 'http://image.ibb.co/bZ3wLn/origin.png',
+      icon: 'your-icon-url',
     },
     destination: {
-      icon: 'https://image.ibb.co/cLwp5n/678111_map_marker_256.png',
+      icon: 'your-icon-url',
       label: 'marker label',
       opacity: 0.8,
       // ... properties
