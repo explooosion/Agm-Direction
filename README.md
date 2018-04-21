@@ -17,7 +17,6 @@
 ### Feature
 
 - [Remove Direction](#RemoveDirection)
-- [Custom Icons](#CustomIcons)
 - [Show Panel Direction](#ShowPanelDirection)
 - [Directions Renderer Options](#DirectionsRendererOptions)
 - [Directions Service](#DirectionsService)
