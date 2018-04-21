@@ -81,14 +81,14 @@
                                     <a href="./modules/AgmDirectionModule.html" >AgmDirectionModule</a>
                                         <li class="chapter inner">
                                             <div class="simple menu-toggler" data-toggle="collapse"
-                                                    data-target="#xs-directives-links-module-AgmDirectionModule-c822c451-b202-496b-b24f-8bacedbcdb33"
+                                                    data-target="#xs-directives-links-module-AgmDirectionModule-9adf0061-57c9-4865-95b6-19fa2f07d498"
                                                 >
                                                 <span class="fa fa-fw fa-code"></span>
                                                 <span>Directives</span>
                                                 <span class="fa fa-angle-down"></span>
                                             </div>
                                             <ul class="links collapse"
-                                                    id="xs-directives-links-module-AgmDirectionModule-c822c451-b202-496b-b24f-8bacedbcdb33"
+                                                    id="xs-directives-links-module-AgmDirectionModule-9adf0061-57c9-4865-95b6-19fa2f07d498"
                                                 >
                                                     <li class="link">
                                                         <a href="./directives/AgmDirection.html" >AgmDirection</a>
@@ -100,14 +100,14 @@
                                     <a href="./modules/AppModule.html" >AppModule</a>
                                         <li class="chapter inner">
                                             <div class="simple menu-toggler" data-toggle="collapse"
-                                                    data-target="#xs-components-links-module-AppModule-d11393ad-efcb-4bd6-9fc1-3d506bd1c5da"
+                                                    data-target="#xs-components-links-module-AppModule-27e0be3a-44fd-4811-a1e9-6e65118732b3"
                                                 >
                                                 <span class="fa fa-fw fa-cogs"></span>
                                                 <span>Components</span>
                                                 <span class="fa fa-angle-down"></span>
                                             </div>
                                             <ul class="links collapse"
-                                                    id="xs-components-links-module-AppModule-d11393ad-efcb-4bd6-9fc1-3d506bd1c5da"
+                                                    id="xs-components-links-module-AppModule-27e0be3a-44fd-4811-a1e9-6e65118732b3"
                                                 >
                                                     <li class="link">
                                                         <a href="./components/AppComponent.html" >AppComponent</a>
@@ -219,14 +219,14 @@
                                            <a href="./modules/AgmDirectionModule.html" >AgmDirectionModule</a>
                                                <li class="chapter inner">
                                                    <div class="simple menu-toggler" data-toggle="collapse"
-                                                           data-target="#directives-links-module-AgmDirectionModule-c822c451-b202-496b-b24f-8bacedbcdb33"
+                                                           data-target="#directives-links-module-AgmDirectionModule-9adf0061-57c9-4865-95b6-19fa2f07d498"
                    >
                                                        <span class="fa fa-fw fa-code"></span>
                                                        <span>Directives</span>
                                                        <span class="fa fa-angle-down"></span>
                                                    </div>
                                                    <ul class="links collapse"
-                                                           id="directives-links-module-AgmDirectionModule-c822c451-b202-496b-b24f-8bacedbcdb33"
+                                                           id="directives-links-module-AgmDirectionModule-9adf0061-57c9-4865-95b6-19fa2f07d498"
                    >
                                                            <li class="link">
                                                                <a href="./directives/AgmDirection.html" >AgmDirection</a>
@@ -238,14 +238,14 @@
                                            <a href="./modules/AppModule.html" >AppModule</a>
                                                <li class="chapter inner">
                                                    <div class="simple menu-toggler" data-toggle="collapse"
-                                                           data-target="#components-links-module-AppModule-d11393ad-efcb-4bd6-9fc1-3d506bd1c5da"
+                                                           data-target="#components-links-module-AppModule-27e0be3a-44fd-4811-a1e9-6e65118732b3"
                    >
                                                        <span class="fa fa-fw fa-cogs"></span>
                                                        <span>Components</span>
                                                        <span class="fa fa-angle-down"></span>
                                                    </div>
                                                    <ul class="links collapse"
-                                                           id="components-links-module-AppModule-d11393ad-efcb-4bd6-9fc1-3d506bd1c5da"
+                                                           id="components-links-module-AppModule-27e0be3a-44fd-4811-a1e9-6e65118732b3"
                    >
                                                            <li class="link">
                                                                <a href="./components/AppComponent.html" >AppComponent</a>
@@ -306,6 +306,15 @@
 <li>Google Map API </li>
 </ul>
 <p><img src="https://i.imgur.com/DCIoXqS.jpg" alt="Agm-Direction" class="img-responsive"></p>
+<h3 id="feature">Feature</h3>
+<ul>
+<li><a href="#RemoveDirection">Remove Direction</a></li>
+<li><a href="#CustomIcons">Custom Icons</a></li>
+<li><a href="#ShowPanelDirection">Show Panel Direction</a></li>
+<li><a href="#DirectionsRendererOptions">Directions Renderer Options</a></li>
+<li><a href="#DirectionsService">Directions Service</a></li>
+<li><a href="#CustomIcons">Custom Icons</a></li>
+</ul>
 <h2 id="installation">Installation</h2>
 <p>Installation is done using the
 <a href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally"><code>npm install</code> command</a>:</p>
@@ -384,13 +393,15 @@ export class AppModule { }</code></pre><h2 id="usage">Usage</h2>
   avoidTolls: boolean = false,
   renderOptions: any,
   visible: boolean = true,
-  panel: object | undefined
+  panel: object | undefined,
+  markerOptions: { origin: any, destination: any },
 }</code></pre><h4 id="output">Output</h4>
 <p>The <code>DirectionsResult</code> object will emit when sending a directions request.</p>
 <p>👉 <a href="https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults">DirectionsResult</a></p>
 <pre class="line-numbers"><code class="language-ts">{
   onChange: EventEmitter&lt;any&gt; = new EventEmitter&lt;any&gt;(),
 }</code></pre><h2 id="featured">Featured</h2>
+<p><a id="RemoveDirection"></a></p>
 <h4 id="remove-direction">Remove Direction</h4>
 <ul>
 <li><p>HTML</p>
@@ -398,6 +409,7 @@ export class AppModule { }</code></pre><h2 id="usage">Usage</h2>
 <li><p>TS</p>
 <pre class="line-numbers"><code class="language-ts">this.show = false</code></pre></li>
 </ul>
+<p><a id="ShowPanelDirection"></a> </p>
 <h4 id="show-panel-direction">Show Panel Direction</h4>
 <p>Use of the DirectionsRenderer object to display a directions <a href="https://developers.google.com/maps/documentation/javascript/examples/directions-panel?hl=zh-tw">panel</a>.</p>
 <ul>
@@ -415,6 +427,7 @@ export class AppModule { }</code></pre><h2 id="usage">Usage</h2>
   return document.querySelector(&#39;#myPanel&#39;); 
 }</code></pre></li>
 </ul>
+<p><a id="DirectionsRendererOptions"></a></p>
 <h4 id="directions-renderer-options">Directions Renderer Options</h4>
 <p>This object defines the properties that can be set on a <a href="https://developers.google.com/maps/documentation/javascript/reference#DirectionsRendererOptions">DirectionsRenderer</a> object.</p>
 <ul>
@@ -430,6 +443,7 @@ export class AppModule { }</code></pre><h2 id="usage">Usage</h2>
   ...
 };</code></pre></li>
 </ul>
+<p><a id="DirectionsService"></a></p>
 <h4 id="directions-service">Directions Service</h4>
 <p>You can calculate directions (using a variety of methods of transportation) by using the <a href="https://developers.google.com/maps/documentation/javascript/directions?hl=en-US">DirectionsService</a> object. </p>
 <ol>
@@ -451,6 +465,30 @@ export class AppModule { }</code></pre><h2 id="usage">Usage</h2>
 };
 travelMode = &#39;TRANSIT&#39;;</code></pre></li>
 </ol>
+<p><a id="CustomIcons"></a></p>
+<h4 id="custom-icons">Custom Icons</h4>
+<p>You can change the icons of origin and destination.</p>
+<p>👉 <a href="https://developers.google.com/maps/documentation/javascript/reference?hl=zh-tw#MarkerOptions">MarkerOptions</a></p>
+<ul>
+<li><p>HTML</p>
+<pre class="line-numbers"><code class="language-HTML">&lt;agm-direction ... [renderOptions]=&quot;renderOpts&quot; [markerOptions]=&quot;markerOpts&quot;&gt;&lt;/agm-direction&gt;</code></pre></li>
+<li><p>TS</p>
+<pre class="line-numbers"><code class="language-ts">renderOpts = {
+  suppressMarkers: true,
+};
+
+markerOpts = {
+  origin: {
+    icon: &#39;your-icon-url&#39;,
+  },
+  destination: {
+    icon: &#39;your-icon-url&#39;,
+    label: &#39;marker label&#39;,
+    opacity: 0.8,
+    // ... properties
+  },
+};</code></pre></li>
+</ul>
 <h2 id="event">Event</h2>
 <h4 id="remove-direction">Remove Direction</h4>
 <p><a href="https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults">DirectionsResult </a> is a result when sending a directions request to the DirectionsService.</p>
