@@ -9,8 +9,9 @@
 
 [Agm-Direction](https://github.com/explooosion/Agm-Direction) is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps) (not official)
 
-+ Angular 2+
-+ Google Map API 
+- Angular 2+
+- Google Map API
+- [Playground](https://stackblitz.com/edit/angular-lwchvs)  
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
 

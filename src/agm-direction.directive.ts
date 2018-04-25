@@ -46,7 +46,7 @@ export class AgmDirection implements OnChanges, OnInit {
      */
     if (!this.visible) {
       try {
-        if (this.originMarker !== 'undefined') {
+        if (typeof this.originMarker !== 'undefined') {
           this.originMarker.setMap(null);
           this.destinationMarker.setMap(null);
         }
@@ -64,9 +64,9 @@ export class AgmDirection implements OnChanges, OnInit {
       /**
        * When renderOptions are not first change then reset the display
        */
-      if (obj.renderOptions) {
+      if (typeof obj.renderOptions !== 'undefined') {
         if (obj.renderOptions.firstChange === false) {
-          if (this.originMarker !== 'undefined') {
+          if (typeof this.originMarker !== 'undefined') {
             this.originMarker.setMap(null);
             this.destinationMarker.setMap(null);
           }
@@ -122,16 +122,35 @@ export class AgmDirection implements OnChanges, OnInit {
            */
 
           // Custom Markers 
-          if (this.markerOptions !== undefined) {
+
+          if (typeof this.markerOptions !== 'undefined') {
+            try {
+              if (typeof this.originMarker !== 'undefined') {
+                google.maps.event.clearListeners(this.originMarker, 'click');
+                this.originMarker.setMap(null);
+              }
+              if (typeof this.destinationMarker !== 'undefined') {
+                google.maps.event.clearListeners(this.destinationMarker, 'click');
+                this.destinationMarker.setMap(null);
+              }
+            } catch (err) {
+              console.error('Can not reset custom marker.', err);
+            }
+
             var _route = response.routes[0].legs[0];
             // Origin Marker
-            this.markerOptions.origin.map = map;
-            this.markerOptions.origin.position = _route.start_location;
-            this.originMarker = this.setMarker(map, this.originMarker, this.markerOptions.origin, _route.start_address);
-            // Destination Marker
-            this.markerOptions.destination.map = map;
-            this.markerOptions.destination.position = _route.end_location;
-            this.destinationMarker = this.setMarker(map, this.destinationMarker, this.markerOptions.destination, _route.end_address);
+            try {
+              this.markerOptions.origin.map = map;
+              this.markerOptions.origin.position = _route.start_location;
+              this.originMarker = this.setMarker(map, this.originMarker, this.markerOptions.origin, _route.start_address);
+              // Destination Marker
+              this.markerOptions.destination.map = map;
+              this.markerOptions.destination.position = _route.end_location;
+              this.destinationMarker = this.setMarker(map, this.destinationMarker, this.markerOptions.destination, _route.end_address);
+            } catch (err) {
+              console.error('MarkerOptions error.', err)
+            }
+
           }
           this.onChange.emit(response);
         }
