@@ -90,6 +90,10 @@ export class AgmDirection implements OnChanges, OnInit {
       if (typeof this.directionsDisplay === 'undefined') {
         this.directionsDisplay = new google.maps.DirectionsRenderer(this.renderOptions);
         this.directionsDisplay.setMap(map);
+        this.directionsDisplay.addListener('directions_changed', () => {
+          // #18 issue - listener for dragable routes
+          this.onChange.emit(this.directionsDisplay.getDirections());
+        });
       }
 
       if (typeof this.directionsService === 'undefined') {
@@ -150,9 +154,8 @@ export class AgmDirection implements OnChanges, OnInit {
             } catch (err) {
               console.error('MarkerOptions error.', err)
             }
-
           }
-          this.onChange.emit(response);
+
         }
       });
     });

@@ -16,7 +16,7 @@ import { AgmDirectionModule } from 'agm-direction';
   <button type="button" (click)="getDirection()">Get</button>
   <button type="button" (click)="rmDirection()">Remove</button>
   <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination" [visible]="visible" [renderOptions]="renderOpts" [markerOptions]="markerOpts"></agm-direction>
+    <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination" [visible]="visible" [renderOptions]="renderOpts" (onChange)="dirChange($event)"></agm-direction>
   </agm-map>
   `
 })
@@ -31,18 +31,7 @@ class AppComponent {
   visible: boolean = true;
 
   renderOpts = {
-    suppressMarkers: true,
-  };
-
-  markerOpts = {
-    origin: {
-      icon: 'http://image.ibb.co/bZ3wLn/origin.png',
-    },
-    destination: {
-      icon: 'https://image.ibb.co/cLwp5n/678111_map_marker_256.png',
-      label: 'marker label',
-      opacity: 0.5,
-    },
+    draggable: true,
   };
 
   getDirection() {
@@ -57,6 +46,10 @@ class AppComponent {
     this.visible = false;
   }
 
+  dirChange(event: any) {
+    console.log(event);
+    // You can do anything.
+  }
 }
 
 @NgModule({
