@@ -81,14 +81,14 @@
                                     <a href="../modules/AgmDirectionModule.html" >AgmDirectionModule</a>
                                         <li class="chapter inner">
                                             <div class="simple menu-toggler" data-toggle="collapse"
-                                                    data-target="#xs-directives-links-module-AgmDirectionModule-ad75b487-83d3-4894-a21e-f517bb5cc108"
+                                                    data-target="#xs-directives-links-module-AgmDirectionModule-e4154da5-a2f0-4c96-9ca8-94af745f02a3"
                                                 >
                                                 <span class="fa fa-fw fa-code"></span>
                                                 <span>Directives</span>
                                                 <span class="fa fa-angle-down"></span>
                                             </div>
                                             <ul class="links collapse"
-                                                    id="xs-directives-links-module-AgmDirectionModule-ad75b487-83d3-4894-a21e-f517bb5cc108"
+                                                    id="xs-directives-links-module-AgmDirectionModule-e4154da5-a2f0-4c96-9ca8-94af745f02a3"
                                                 >
                                                     <li class="link">
                                                         <a href="../directives/AgmDirection.html" >AgmDirection</a>
@@ -100,14 +100,14 @@
                                     <a href="../modules/AppModule.html" >AppModule</a>
                                         <li class="chapter inner">
                                             <div class="simple menu-toggler" data-toggle="collapse"
-                                                    data-target="#xs-components-links-module-AppModule-782ec802-938e-43c0-aec2-6c7f8fab7a45"
+                                                    data-target="#xs-components-links-module-AppModule-4715ab1c-154e-4f48-963c-9f4f2f21ce21"
                                                 >
                                                 <span class="fa fa-fw fa-cogs"></span>
                                                 <span>Components</span>
                                                 <span class="fa fa-angle-down"></span>
                                             </div>
                                             <ul class="links collapse"
-                                                    id="xs-components-links-module-AppModule-782ec802-938e-43c0-aec2-6c7f8fab7a45"
+                                                    id="xs-components-links-module-AppModule-4715ab1c-154e-4f48-963c-9f4f2f21ce21"
                                                 >
                                                     <li class="link">
                                                         <a href="../components/AppComponent.html"  data-type="entity-link" data-context="sub-entity" data-context-id="modules" class="active" >AppComponent</a>
@@ -219,14 +219,14 @@
                                            <a href="../modules/AgmDirectionModule.html" >AgmDirectionModule</a>
                                                <li class="chapter inner">
                                                    <div class="simple menu-toggler" data-toggle="collapse"
-                                                           data-target="#directives-links-module-AgmDirectionModule-ad75b487-83d3-4894-a21e-f517bb5cc108"
+                                                           data-target="#directives-links-module-AgmDirectionModule-e4154da5-a2f0-4c96-9ca8-94af745f02a3"
                    >
                                                        <span class="fa fa-fw fa-code"></span>
                                                        <span>Directives</span>
                                                        <span class="fa fa-angle-down"></span>
                                                    </div>
                                                    <ul class="links collapse"
-                                                           id="directives-links-module-AgmDirectionModule-ad75b487-83d3-4894-a21e-f517bb5cc108"
+                                                           id="directives-links-module-AgmDirectionModule-e4154da5-a2f0-4c96-9ca8-94af745f02a3"
                    >
                                                            <li class="link">
                                                                <a href="../directives/AgmDirection.html" >AgmDirection</a>
@@ -238,14 +238,14 @@
                                            <a href="../modules/AppModule.html" >AppModule</a>
                                                <li class="chapter inner">
                                                    <div class="simple menu-toggler" data-toggle="collapse"
-                                                           data-target="#components-links-module-AppModule-782ec802-938e-43c0-aec2-6c7f8fab7a45"
+                                                           data-target="#components-links-module-AppModule-4715ab1c-154e-4f48-963c-9f4f2f21ce21"
                    >
                                                        <span class="fa fa-fw fa-cogs"></span>
                                                        <span>Components</span>
                                                        <span class="fa fa-angle-down"></span>
                                                    </div>
                                                    <ul class="links collapse"
-                                                           id="components-links-module-AppModule-782ec802-938e-43c0-aec2-6c7f8fab7a45"
+                                                           id="components-links-module-AppModule-4715ab1c-154e-4f48-963c-9f4f2f21ce21"
                    >
                                                            <li class="link">
                                                                <a href="../components/AppComponent.html"  data-type="entity-link" data-context="sub-entity" data-context-id="modules" class="active" >AppComponent</a>
@@ -356,7 +356,7 @@
 &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;getDirection()&quot;&gt;Get&lt;/button&gt;
 &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;rmDirection()&quot;&gt;Remove&lt;/button&gt;
 &lt;agm-map [latitude]&#x3D;&quot;lat&quot; [longitude]&#x3D;&quot;lng&quot;&gt;
-  &lt;agm-direction *ngIf&#x3D;&quot;dir&quot; [origin]&#x3D;&quot;dir.origin&quot; [destination]&#x3D;&quot;dir.destination&quot; [visible]&#x3D;&quot;visible&quot; [renderOptions]&#x3D;&quot;renderOpts&quot; [markerOptions]&#x3D;&quot;markerOpts&quot;&gt;&lt;/agm-direction&gt;
+  &lt;agm-direction *ngIf&#x3D;&quot;dir&quot; [origin]&#x3D;&quot;dir.origin&quot; [destination]&#x3D;&quot;dir.destination&quot; [visible]&#x3D;&quot;visible&quot; [renderOptions]&#x3D;&quot;renderOpts&quot; (onChange)&#x3D;&quot;dirChange($event)&quot;&gt;&lt;/agm-direction&gt;
 &lt;/agm-map&gt;
 </code></pre></td>
             </tr>
@@ -389,9 +389,6 @@
                                 <a href="#lng">lng</a>
                             </li>
                             <li>
-                                <a href="#markerOpts">markerOpts</a>
-                            </li>
-                            <li>
                                 <a href="#renderOpts">renderOpts</a>
                             </li>
                             <li>
@@ -411,6 +408,9 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                <a href="#dirChange">dirChange</a>
+                            </li>
                             <li>
                                 <a href="#getDirection">getDirection</a>
                             </li>
@@ -438,6 +438,75 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <a name="dirChange"></a>
+                            <span class="name">
+                                <b>
+                                dirChange
+                                </b>
+                                <a href="#dirChange"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>dirChange(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">playground/index.ts:49</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                        <td>event</td>
+                                                        
+                                                            <td>
+                                                                        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                            </td>
+                                                        
+                                                        <td>
+                                                                no
+                                                        </td>
+                                                        
+    
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <a name="getDirection"></a>
                             <span class="name">
                                 <b>
@@ -456,7 +525,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">playground/index.ts:48</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">playground/index.ts:37</a></div>
                                 </td>
                             </tr>
     
@@ -493,7 +562,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">playground/index.ts:56</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">playground/index.ts:45</a></div>
                                 </td>
                             </tr>
     
@@ -636,54 +705,6 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="markerOpts"></a>
-                            <span class="name">
-                                <b>
-                                markerOpts
-                                </b>
-                                <a href="#markerOpts"><span class="fa fa-link"></span></a>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>markerOpts:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-    </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-    
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value : </i><code>{
-        origin: {
-          icon: &#x27;http://image.ibb.co/bZ3wLn/origin.png&#x27;,
-        },
-        destination: {
-          icon: &#x27;https://image.ibb.co/cLwp5n/678111_map_marker_256.png&#x27;,
-          label: &#x27;marker label&#x27;,
-          opacity: 0.5,
-        },
-      }</code>
-                            </td>
-                        </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">playground/index.ts:37</a></div>
-                                </td>
-                            </tr>
-    
-    
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
                             <a name="renderOpts"></a>
                             <span class="name">
                                 <b>
@@ -708,7 +729,7 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Default value : </i><code>{
-        suppressMarkers: true,
+        draggable: true,
       }</code>
                             </td>
                         </tr>
@@ -820,7 +841,7 @@ import { AgmDirectionModule } from &#x27;agm-direction&#x27;;
   &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;getDirection()&quot;&gt;Get&lt;/button&gt;
   &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;rmDirection()&quot;&gt;Remove&lt;/button&gt;
   &lt;agm-map [latitude]&#x3D;&quot;lat&quot; [longitude]&#x3D;&quot;lng&quot;&gt;
-    &lt;agm-direction *ngIf&#x3D;&quot;dir&quot; [origin]&#x3D;&quot;dir.origin&quot; [destination]&#x3D;&quot;dir.destination&quot; [visible]&#x3D;&quot;visible&quot; [renderOptions]&#x3D;&quot;renderOpts&quot; [markerOptions]&#x3D;&quot;markerOpts&quot;&gt;&lt;/agm-direction&gt;
+    &lt;agm-direction *ngIf&#x3D;&quot;dir&quot; [origin]&#x3D;&quot;dir.origin&quot; [destination]&#x3D;&quot;dir.destination&quot; [visible]&#x3D;&quot;visible&quot; [renderOptions]&#x3D;&quot;renderOpts&quot; (onChange)&#x3D;&quot;dirChange($event)&quot;&gt;&lt;/agm-direction&gt;
   &lt;/agm-map&gt;
   &#x60;
 })
@@ -835,18 +856,7 @@ class AppComponent {
   visible: boolean &#x3D; true;
 
   renderOpts &#x3D; {
-    suppressMarkers: true,
-  };
-
-  markerOpts &#x3D; {
-    origin: {
-      icon: &#x27;http://image.ibb.co/bZ3wLn/origin.png&#x27;,
-    },
-    destination: {
-      icon: &#x27;https://image.ibb.co/cLwp5n/678111_map_marker_256.png&#x27;,
-      label: &#x27;marker label&#x27;,
-      opacity: 0.5,
-    },
+    draggable: true,
   };
 
   getDirection() {
@@ -861,6 +871,10 @@ class AppComponent {
     this.visible &#x3D; false;
   }
 
+  dirChange(event: any) {
+    console.log(event);
+    // You can do anything.
+  }
 }
 
 @NgModule({
@@ -904,7 +918,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1>Agm-Direction Playground - <a href="https://github.com/explooosion/Agm-Direction" target="_blank">Github</a></h1><button type="button" (click)="getDirection()">Get</button><button type="button" (click)="rmDirection()">Remove</button><agm-map [latitude]="lat" [longitude]="lng">  <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination" [visible]="visible" [renderOptions]="renderOpts" [markerOptions]="markerOpts"></agm-direction></agm-map></div>'
+        var COMPONENT_TEMPLATE = '<div><h1>Agm-Direction Playground - <a href="https://github.com/explooosion/Agm-Direction" target="_blank">Github</a></h1><button type="button" (click)="getDirection()">Get</button><button type="button" (click)="rmDirection()">Remove</button><agm-map [latitude]="lat" [longitude]="lng">  <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination" [visible]="visible" [renderOptions]="renderOpts" (onChange)="dirChange($event)"></agm-direction></agm-map></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app'}];
     var DIRECTIVES = [{'name': 'AgmDirection', 'selector': 'agm-direction'}];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};

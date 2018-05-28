@@ -1,7 +1,7 @@
 {
   "name": "agm-direction",
   "description": "directive for agm (not official)",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/explooosion/Agm-Direction"
@@ -27,8 +27,8 @@
   "typings": "agm-direction.d.ts",
   "peerDependencies": {
     "@agm/core": "^1.0.0-beta.2",
-    "@angular/core": "^4.0.0",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
+    "@angular/core": "^5.0.0",
+    "rxjs": "^5.5.2",
+    "zone.js": "^0.8.14"
   }
 }
