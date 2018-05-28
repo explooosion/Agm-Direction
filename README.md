@@ -13,6 +13,8 @@
 - Google Map API
 - [Playground](https://stackblitz.com/edit/angular-lwchvs)  
 
+👉 [Start Reading](http://robby570.tw/Agm-Direction-Docs/) (🚧not yet)
+
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
 
 ### Feature
