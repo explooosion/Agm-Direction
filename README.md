@@ -13,17 +13,10 @@
 - Google Map API
 - [Playground](https://stackblitz.com/edit/angular-lwchvs)  
 
-👉 [Start Reading](http://robby570.tw/Agm-Direction-Docs/) (🚧not yet)
+How to use?  
+👉 [Start Reading](http://robby570.tw/Agm-Direction-Docs/)
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
-
-### Feature
-
-- [Remove Direction](#RemoveDirection)
-- [Show Panel Direction](#ShowPanelDirection)
-- [Directions Renderer Options](#DirectionsRendererOptions)
-- [Directions Service](#DirectionsService)
-- [Custom Icons](#CustomIcons)
 
 ## Installation
 
@@ -42,10 +35,10 @@ Installation is done using the
 
 ## Importing Modules
 
-+ @agm/core
-+ agm-direction
+📦 [@agm/core](https://www.npmjs.com/package/@agm/core)  
+📦 [agm-direction](https://www.npmjs.com/package/agm-direction)  
 
-```ts
+```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -72,241 +65,46 @@ export class AppModule { }
 
 ## Usage
 
-+ HTML
+HTML
 
-  ```html
-  <button type="button" (click)="getDirection()">Get</button>
+```html
+<button type="button" (click)="getDirection()">Get</button>
 
-  <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
-  </agm-map>
-  ```
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-direction *ngIf="dir" 
+    [origin]="dir.origin" [destination]="dir.destination">
+  </agm-direction>
+</agm-map>
+```
 
-+ CSS
+CSS
 
-  ```css
-  agm-map {
-      height: 400px;
-  }
-  ```
-
-+ TS
-
-  ```ts
-    lat: Number = 24.799448;
-    lng: Number = 120.979021;
-    zoom: Number = 14;
-
-    dir = undefined;
-
-    getDirection() {
-      this.dir = {
-        origin: { lat: 24.799448, lng: 120.979021 },
-        destination: { lat: 24.799524, lng: 120.975017 }
-      }
-    }
-  ```
-
-## Properties
-
-#### Input
-
-The `DirectionsRequest` object literal contains the following fields:
-
-👉 [DirectionsRequest](https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsRequests)
-
-```ts
-{
-  origin: { lat: Number, lng: Number },
-  destination: { lat: Number, lng: Number },
-  travelMode: string = 'DRIVING',
-  transitOptions: any = undefined,
-  drivingOptions: any = undefined,
-  waypoints: object = [],
-  optimizeWaypoints: boolean = true,
-  provideRouteAlternatives: boolean = false,
-  avoidHighways: boolean = false,
-  avoidTolls: boolean = false,
-  renderOptions: any,
-  visible: boolean = true,
-  panel: object | undefined,
-  markerOptions: { origin: any, destination: any },
+```css
+agm-map {
+    height: 400px;
 }
 ```
 
-#### Output
+TS
 
-The `DirectionsResult` object will emit when sending a directions request.
+```typescript
+public lat: Number = 24.799448;
+public lng: Number = 120.979021;
+public zoom: Number = 14;
 
-👉 [DirectionsResult](https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults)
+public dir = undefined;
 
-```ts
-{
-  onChange: EventEmitter<any> = new EventEmitter<any>(),
+getDirection() {
+  this.dir = {
+    origin: { lat: 24.799448, lng: 120.979021 },
+    destination: { lat: 24.799524, lng: 120.975017 }
+  }
 }
 ```
-
-## Featured
-
-<a id="RemoveDirection"></a>
-
-#### Remove Direction
-
-+ HTML
-
-  ```html
-  <agm-direction ... [visible]="show"></agm-direction>
-  ```
-
-+ TS
-
-  ```ts
-  this.show = false
-  ```
-
-<a id="ShowPanelDirection"></a> 
-
-#### Show Panel Direction
-
-Use of the DirectionsRenderer object to display a directions [panel](https://developers.google.com/maps/documentation/javascript/examples/directions-panel?hl=zh-tw).
-
-+ HTML
-
-  ```html
-  <agm-direction ... [panel]="myPanel"></agm-direction>
-  <div #myPanel></div>
-  ```
-
-Or you could define a function using the panel:
-
-+ HTML
-
-  ```html
-  <agm-direction ... [panel]="setPanel()"></agm-direction>
-  <div id="myPanel"></div>
-  ```
-
-+ TS
-
-  ```ts
-  function setPanel(){
-    return document.querySelector('#myPanel'); 
-  }
-  ```
-
-<a id="DirectionsRendererOptions"></a>
-
-#### Directions Renderer Options
-
-This object defines the properties that can be set on a [DirectionsRenderer](https://developers.google.com/maps/documentation/javascript/reference#DirectionsRendererOptions) object.
-
-+ HTML
-
-  ```html
-  <agm-direction ... [renderOptions]="options"></agm-direction>
-  ```
-
-+ TS
-
-  ```ts
-  options = {
-    suppressMarkers: true,
-    draggable: true,
-    markerOptions: {
-      icon: 'my_marker.png'
-    },
-    ...
-  };
-  ```
-
-<a id="DirectionsService"></a>
-
-#### Directions Service
-
-You can calculate directions (using a variety of methods of transportation) by using the [DirectionsService](https://developers.google.com/maps/documentation/javascript/directions?hl=en-US) object. 
-
-1. [Driving Options](https://developers.google.com/maps/documentation/javascript/directions?hl=en-US#DrivingOptions) - drivingOptions
-
-2. [Transit Options](https://developers.google.com/maps/documentation/javascript/directions?hl=en-US#TransitOptions) - transitOptions
-
-+ HTML
-
-  ```HTML
-  <agm-direction ... [transitOptions]="transitOptions" [travelMode]="travelMode"></agm-direction>
-
-  <!-- or -->
-
-  <agm-direction ... [drivingOptions]="drivingOptions"></agm-direction>
-
-  ```
-
-+ TS
-
-  ```ts
-  transitOptions = {
-        departureTime: new Date('2018/03/20 12:00'),
-        modes: ['BUS'],
-  };
-  travelMode = 'TRANSIT';
-  ```
-
-<a id="CustomIcons"></a>
-
-#### Custom Icons
-
-You can change the icons of origin and destination.
-
-👉 [MarkerOptions](https://developers.google.com/maps/documentation/javascript/reference?hl=zh-tw#MarkerOptions)
-
-+ HTML
-
-  ```HTML
-  <agm-direction ... [renderOptions]="renderOpts" [markerOptions]="markerOpts"></agm-direction>
-  ```
-
-+ TS
-
-  ```ts
-  renderOpts = {
-    suppressMarkers: true,
-  };
-
-  markerOpts = {
-    origin: {
-      icon: 'your-icon-url',
-    },
-    destination: {
-      icon: 'your-icon-url',
-      label: 'marker label',
-      opacity: 0.8,
-      // ... properties
-    },
-  };
-  ```
-
-## Event
-
-#### Remove Direction
-
-[DirectionsResult ](https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults) is a result when sending a directions request to the DirectionsService.
-
-+ HTML
-
-  ```html
-  <agm-direction ... (onChange)="dirChange($event)"></agm-direction>
-  ```
-
-+ TS
-
-  ```ts
-  dirChange(event:any){
-    console.log(event);
-    // You can do anything.
-  }
-  ```
 
 ## Document
-Less useful [document](https://robby570.tw/Agm-Direction/).
+- Document [Agm-Direction-Docs](https://robby570.tw/Agm-Direction-Docs/)
+- Less useful [AgmDirectionModule](https://robby570.tw/Agm-Direction/)
 
 ## Generator 
 This library generated by [generator-angular2-library](https://github.com/jvandemo/generator-angular2-library).
