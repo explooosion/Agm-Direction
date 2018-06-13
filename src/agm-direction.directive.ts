@@ -1,4 +1,4 @@
-import { Directive, Input, Output, OnChanges, OnInit, EventEmitter, ElementRef } from '@angular/core';
+import { Directive, Input, Output, OnChanges, OnInit, EventEmitter } from '@angular/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 
 declare var google: any;
@@ -7,8 +7,16 @@ declare var google: any;
 })
 export class AgmDirection implements OnChanges, OnInit {
 
-  @Input() origin: { lat: Number, lng: Number };
-  @Input() destination: { lat: Number, lng: Number };
+  /**
+   * LatLng | String | google.maps.Place
+   */
+  @Input() origin: any;
+
+  /**
+   * LatLng | String | google.maps.Place
+   */
+  @Input() destination: any;
+
   @Input() travelMode: string = 'DRIVING';
   @Input() transitOptions: any = undefined;
   @Input() drivingOptions: any = undefined;
@@ -126,7 +134,6 @@ export class AgmDirection implements OnChanges, OnInit {
            */
 
           // Custom Markers 
-
           if (typeof this.markerOptions !== 'undefined') {
             try {
               if (typeof this.originMarker !== 'undefined') {
