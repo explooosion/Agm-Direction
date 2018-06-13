@@ -1,7 +1,7 @@
 {
   "name": "agm-direction",
   "description": "directive for agm (not official)",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "scripts": {
     "build": "gulp build",
     "build:watch": "gulp",
@@ -39,6 +39,7 @@
     "@angular/compiler": "^5.0.0",
     "@angular/compiler-cli": "^5.0.0",
     "@angular/core": "^5.0.0",
+    "@angular/forms": "^5.0.0",
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@compodoc/compodoc": "^1.0.0-beta.10",
