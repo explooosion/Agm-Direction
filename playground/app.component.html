@@ -1,0 +1,9 @@
+<h1>Agm-Direction Playground -
+    <a href="https://github.com/explooosion/Agm-Direction" target="_blank">Github</a>
+</h1>
+<input type="text" [(ngModel)]="origin">
+<input type="text" [(ngModel)]="destination">
+<agm-map [latitude]="lat" [longitude]="lng">
+    <agm-direction [origin]="origin" [destination]="destination" (onChange)="dirChange($event)">
+    </agm-direction>
+</agm-map>
