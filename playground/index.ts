@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AgmCoreModule } from '@agm/core';
-import { AgmDirectionModule } from 'agm-direction';
+import { AgmDirectionModule } from '../dist';
 
 @Component({
   selector: 'app',
@@ -17,26 +17,27 @@ import { AgmDirectionModule } from 'agm-direction';
 })
 class AppComponent {
 
-  routes = []
-
-  origin: String = '';
-  destination: String = '';
   lat: Number = 24.799448;
   lng: Number = 120.979021;
   zoom: Number = 14;
 
-  renderOpts = {
-    draggable: true,
-  };
-
-  getDirection() {
-    this.origin = 'Taipei Main Station';
-    this.destination = 'Taiwan Presidential Office';
+  origin: String = 'Taipei Main Station';
+  destination: String = 'National Taiwan University of Science and Technology';
+  renderOptions = {
+    suppressMarkers: true,
   }
+  markerOptions = {
+    origin: {
+      icon: 'https://i.imgur.com/7teZKif.png',
+    },
+    destination: {
+      icon: 'https://i.imgur.com/7teZKif.png',
+      infoWindow: `<h4>Hello<h4><a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>`
+    },
+  };
 
   dirChange(event: any) {
     console.log(event);
-    this.routes.push(event)
   }
 }
 
@@ -47,7 +48,7 @@ class AppComponent {
     BrowserModule,
     FormsModule,
     AgmCoreModule.forRoot({ // @agm/core
-      apiKey: '',
+      apiKey: 'AIzaSyDFTKbcSXEN22pUx3zfaabEOGyy7oOZtmI',
     }),
     AgmDirectionModule
   ]

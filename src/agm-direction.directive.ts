@@ -93,7 +93,7 @@ export class AgmDirection implements OnChanges, OnInit {
    */
   private directionDraw() {
 
-    this.gmapsApi.getNativeMap().then(map => {
+    this.gmapsApi.getNativeMap().then((map: any) => {
 
       if (typeof this.directionsDisplay === 'undefined') {
         this.directionsDisplay = new google.maps.DirectionsRenderer(this.renderOptions);
@@ -128,6 +128,7 @@ export class AgmDirection implements OnChanges, OnInit {
       }, (response: any, status: any) => {
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
+
           /**
            * Emit The DirectionsResult Object
            * https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults
@@ -148,16 +149,30 @@ export class AgmDirection implements OnChanges, OnInit {
               console.error('Can not reset custom marker.', err);
             }
 
-            var _route = response.routes[0].legs[0];
-            // Origin Marker
+            const _route = response.routes[0].legs[0];
             try {
-              this.markerOptions.origin.map = map;
-              this.markerOptions.origin.position = _route.start_location;
-              this.originMarker = this.setMarker(map, this.originMarker, this.markerOptions.origin, _route.start_address);
+              // Origin Marker
+              if (typeof this.markerOptions.origin !== 'undefined') {
+                this.markerOptions.origin.map = map;
+                this.markerOptions.origin.position = _route.start_location;
+                this.originMarker = this.setMarker(
+                  map,
+                  this.originMarker,
+                  this.markerOptions.origin,
+                  _route.start_address
+                );
+              }
               // Destination Marker
-              this.markerOptions.destination.map = map;
-              this.markerOptions.destination.position = _route.end_location;
-              this.destinationMarker = this.setMarker(map, this.destinationMarker, this.markerOptions.destination, _route.end_address);
+              if (typeof this.markerOptions.destination !== 'undefined') {
+                this.markerOptions.destination.map = map;
+                this.markerOptions.destination.position = _route.end_location;
+                this.destinationMarker = this.setMarker(
+                  map,
+                  this.destinationMarker,
+                  this.markerOptions.destination,
+                  _route.end_address
+                );
+              }
             } catch (err) {
               console.error('MarkerOptions error.', err)
             }
@@ -172,16 +187,18 @@ export class AgmDirection implements OnChanges, OnInit {
    * Custom Origin and Destination Icon
    * 
    * @private
-   * @param {any} map map
-   * @param {any} marker marker
-   * @param {any} markerOpts properties
+   * @param {object} map map
+   * @param {object} marker marker
+   * @param {object} markerOpts properties
    * @param {string} content marker's infowindow content
-   * @returns {any} marker
+   * @returns {object} marker
    * @memberof AgmDirection
    */
   private setMarker(map: any, marker: any, markerOpts: any, content: string) {
     const infowindow = new google.maps.InfoWindow({
-      content: content,
+      // #21 issue - change marker infoWindow
+      // default: _route.end_address
+      content: typeof markerOpts.infoWindow === 'undefined' ? content : markerOpts.infoWindow,
     });
     marker = new google.maps.Marker(markerOpts);
     marker.addListener('click', () => {
