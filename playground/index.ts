@@ -32,7 +32,10 @@ class AppComponent {
     },
     destination: {
       icon: 'https://i.imgur.com/7teZKif.png',
-      infoWindow: `<h4>Hello<h4><a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>`
+      infoWindow: `
+      <h4>Hello<h4>
+      <a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>
+      `
     },
   };
 
@@ -48,7 +51,7 @@ class AppComponent {
     BrowserModule,
     FormsModule,
     AgmCoreModule.forRoot({ // @agm/core
-      apiKey: 'AIzaSyDFTKbcSXEN22pUx3zfaabEOGyy7oOZtmI',
+      apiKey: '',
     }),
     AgmDirectionModule
   ]
