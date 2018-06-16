@@ -39,12 +39,12 @@ Installation is done using the
 📦 [agm-direction](https://www.npmjs.com/package/agm-direction)  
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
+import { AppComponent } from './app.component'
 
-import { AgmCoreModule } from '@agm/core';            // @agm/core
-import { AgmDirectionModule } from 'agm-direction';   // agm-direction
+import { AgmCoreModule } from '@agm/core'            // @agm/core
+import { AgmDirectionModule } from 'agm-direction'   // agm-direction
 
 @NgModule({
   declarations: [
@@ -68,11 +68,8 @@ export class AppModule { }
 HTML
 
 ```html
-<button type="button" (click)="getDirection()">Get</button>
-
 <agm-map [latitude]="lat" [longitude]="lng">
-  <agm-direction *ngIf="dir" 
-    [origin]="dir.origin" [destination]="dir.destination">
+  <agm-direction [origin]="origin" [destination]="destination">
   </agm-direction>
 </agm-map>
 ```
@@ -88,17 +85,22 @@ agm-map {
 TS
 
 ```typescript
-public lat: Number = 24.799448;
-public lng: Number = 120.979021;
-public zoom: Number = 14;
+public lat: Number = 24.799448
+public lng: Number = 120.979021
 
-public dir = undefined;
+public origin: {}
+public destination: {}
+
+ngOnInit() {
+  this.getDirection()
+}
 
 getDirection() {
-  this.dir = {
-    origin: { lat: 24.799448, lng: 120.979021 },
-    destination: { lat: 24.799524, lng: 120.975017 }
-  }
+  this.origin = { lat: 24.799448, lng: 120.979021 }
+  this.destination = { lat: 24.799524, lng: 120.975017 }
+
+  // this.origin = 'Taipei Main Station'
+  // this.destination = 'Taiwan Presidential Office'
 }
 ```
 
