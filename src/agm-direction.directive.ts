@@ -33,7 +33,7 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() infoWindow: InfoWindow = undefined;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
-  // @Output() sendInfowindow: EventEmitter<InfoWindow> = new EventEmitter<InfoWindow>();
+  @Output() sendInfoWindow: EventEmitter<InfoWindow> = new EventEmitter<InfoWindow>();
 
   public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
@@ -102,7 +102,7 @@ export class AgmDirection implements OnChanges, OnInit {
         this.directionsDisplay = new google.maps.DirectionsRenderer(this.renderOptions);
         this.directionsDisplay.setMap(map);
         this.directionsDisplay.addListener('directions_changed', () => {
-          // #18 issue - listener for dragable routes
+          // #18 - listener for dragable routes
           this.onChange.emit(this.directionsDisplay.getDirections());
         });
       }
@@ -193,15 +193,16 @@ export class AgmDirection implements OnChanges, OnInit {
    * @private
    * @param {GoogleMap} map map
    * @param {Marker} marker marker
-   * @param {Object} markerOpts properties
-   * @param {String} content marker's infowindow content
+   * @param {any} markerOpts properties
+   * @param {string} content marker's infowindow content
    * @returns {Marker} new marker
    * @memberof AgmDirection
    */
   private setMarker(map: GoogleMap, marker: Marker, markerOpts: any, content: string) {
     if (typeof this.infoWindow === 'undefined') {
+      // #27 - infowindow
       this.infoWindow = new google.maps.InfoWindow({});
-      // this.sendInfowindow.emit(this.infoWindow);
+      this.sendInfoWindow.emit(this.infoWindow);
     }
     marker = new google.maps.Marker(markerOpts);
     marker.addListener('click', () => {
