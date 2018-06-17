@@ -45,7 +45,6 @@ import { AppComponent } from './app.component'
 
 import { AgmCoreModule } from '@agm/core'            // @agm/core
 import { AgmDirectionModule } from 'agm-direction'   // agm-direction
-import { InfoWindow } from '@agm/core/services/google-maps-types'; // google map types
 
 @NgModule({
   declarations: [
