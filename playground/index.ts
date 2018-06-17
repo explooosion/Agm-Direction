@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AgmCoreModule } from '@agm/core';
-import { InfoWindow } from '@agm/core/services/google-maps-types';
 import { AgmDirectionModule } from '../dist';
 
 @Component({
@@ -33,22 +32,13 @@ class AppComponent {
     },
     destination: {
       icon: 'https://i.imgur.com/7teZKif.png',
-      infoWindow: `
-      <h4>Hello<h4>
-      <a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>
-      `
     },
   };
-
-  infowindow: InfoWindow = undefined;
 
   dirChange(event: any) {
     console.log(event);
   }
 
-  obtainInfowindow(window: InfoWindow) {
-    this.infowindow = window
-  }
 }
 
 @NgModule({

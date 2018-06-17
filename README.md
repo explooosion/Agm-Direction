@@ -105,44 +105,6 @@ getDirection() {
 }
 ```
 
-## Allow only one marker Infowindow to be open at one time 
-
-HTML
-
-```html
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-direction [origin]="origin" [destination]="destination" [infowindow]="infowindow" (sendInfowindow)="obtainInfowindow($event)">
-  </agm-direction>
-</agm-map>
-```
-
-TS
-
-```typescript
-public lat: Number = 24.799448
-public lng: Number = 120.979021
-
-public origin: {}
-public destination: {}
-public infowindow: InfoWindow = undefined
-
-ngOnInit() {
-  this.getDirection()
-}
-
-getDirection() {
-  this.origin = { lat: 24.799448, lng: 120.979021 }
-  this.destination = { lat: 24.799524, lng: 120.975017 }
-
-  // this.origin = 'Taipei Main Station'
-  // this.destination = 'Taiwan Presidential Office'
-}
-
-obtainInfowindow(window: InfoWindow) {
-  this.infowindow = window
-}
-```
-
 ## Document
 - Document [Agm-Direction-Docs](https://robby570.tw/Agm-Direction-Docs/)
 - Less useful [AgmDirectionModule](https://robby570.tw/Agm-Direction/)

@@ -1,6 +1,6 @@
 import { Directive, Input, Output, OnChanges, OnInit, EventEmitter } from '@angular/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
-import { InfoWindow } from '@agm/core/services/google-maps-types';
+import { InfoWindow, Marker, GoogleMap } from '@agm/core/services/google-maps-types';
 
 declare var google: any;
 @Directive({
@@ -30,18 +30,18 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() visible: boolean = true;
   @Input() panel: object | undefined;
   @Input() markerOptions: { origin: any, destination: any };
-  @Input() infowindow: InfoWindow = undefined;
+  @Input() infoWindow: InfoWindow = undefined;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
-  @Output() sendInfowindow: EventEmitter<InfoWindow> = new EventEmitter<InfoWindow>();
+  // @Output() sendInfowindow: EventEmitter<InfoWindow> = new EventEmitter<InfoWindow>();
 
   public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
 
   private isFirstChange: boolean = true;
 
-  private originMarker = undefined;
-  private destinationMarker = undefined;
+  private originMarker: Marker = undefined;
+  private destinationMarker: Marker = undefined;
 
   constructor(
     private gmapsApi: GoogleMapsAPIWrapper,
@@ -96,7 +96,7 @@ export class AgmDirection implements OnChanges, OnInit {
    */
   private directionDraw() {
 
-    this.gmapsApi.getNativeMap().then((map: any) => {
+    this.gmapsApi.getNativeMap().then((map: GoogleMap) => {
 
       if (typeof this.directionsDisplay === 'undefined') {
         this.directionsDisplay = new google.maps.DirectionsRenderer(this.renderOptions);
@@ -129,6 +129,7 @@ export class AgmDirection implements OnChanges, OnInit {
         avoidHighways: this.avoidHighways,
         avoidTolls: this.avoidTolls,
       }, (response: any, status: any) => {
+
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
 
@@ -190,26 +191,24 @@ export class AgmDirection implements OnChanges, OnInit {
    * Custom Origin and Destination Icon
    * 
    * @private
-   * @param {object} map map
-   * @param {object} marker marker
-   * @param {object} markerOpts properties
-   * @param {string} content marker's infowindow content
-   * @returns {object} marker
+   * @param {GoogleMap} map map
+   * @param {Marker} marker marker
+   * @param {Object} markerOpts properties
+   * @param {String} content marker's infowindow content
+   * @returns {Marker} new marker
    * @memberof AgmDirection
    */
-  private setMarker(map: any, marker: any, markerOpts: any, content: string) {
-    if (this.infowindow === undefined) { 
-      this.infowindow = new google.maps.InfoWindow({});
-      this.sendInfowindow.emit(this.infowindow);
+  private setMarker(map: GoogleMap, marker: Marker, markerOpts: any, content: string) {
+    if (typeof this.infoWindow === 'undefined') {
+      this.infoWindow = new google.maps.InfoWindow({});
+      // this.sendInfowindow.emit(this.infoWindow);
     }
     marker = new google.maps.Marker(markerOpts);
     marker.addListener('click', () => {
       const infowindoContent: string = typeof markerOpts.infoWindow === 'undefined' ? content : markerOpts.infoWindow
-      this.infowindow.setContent(infowindoContent);
-      this.infowindow.open(map, marker);
+      this.infoWindow.setContent(infowindoContent);
+      this.infoWindow.open(map, marker);
     });
     return marker;
   }
 }
-
-
