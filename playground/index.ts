@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AgmCoreModule } from '@agm/core';
+import { InfoWindow } from '@agm/core/services/google-maps-types';
 import { AgmDirectionModule } from '../dist';
 
 @Component({
@@ -39,8 +40,14 @@ class AppComponent {
     },
   };
 
+  infowindow: InfoWindow = undefined;
+
   dirChange(event: any) {
     console.log(event);
+  }
+
+  obtainInfowindow(window: InfoWindow) {
+    this.infowindow = window
   }
 }
 
