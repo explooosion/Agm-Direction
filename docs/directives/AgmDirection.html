@@ -80,14 +80,14 @@
                         <a href="modules/AgmDirectionModule.html" data-type="entity-link">AgmDirectionModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-directives-links-module-AgmDirectionModule-34eb2add-8c81-4644-a13d-ccfc4c62a241"
+                                        data-target="#xs-directives-links-module-AgmDirectionModule-feaf66ea-95d7-4be6-8043-6ee178006598"
                                     >
                                     <span class="fa fa-fw fa-code"></span>
                                     <span>Directives</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-directives-links-module-AgmDirectionModule-34eb2add-8c81-4644-a13d-ccfc4c62a241"
+                                        id="xs-directives-links-module-AgmDirectionModule-feaf66ea-95d7-4be6-8043-6ee178006598"
                                     >
                                         <li class="link">
                                             <a href="directives/AgmDirection.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AgmDirection</a>
@@ -99,14 +99,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-1b863391-89a3-4639-b57d-d724f1f413a3"
+                                        data-target="#xs-components-links-module-AppModule-5a54e3e3-06cf-41e8-aa18-6fc401363731"
                                     >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-1b863391-89a3-4639-b57d-d724f1f413a3"
+                                        id="xs-components-links-module-AppModule-5a54e3e3-06cf-41e8-aa18-6fc401363731"
                                     >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -217,14 +217,14 @@
                         <a href="modules/AgmDirectionModule.html" data-type="entity-link">AgmDirectionModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#directives-links-module-AgmDirectionModule-34eb2add-8c81-4644-a13d-ccfc4c62a241"
+                                        data-target="#directives-links-module-AgmDirectionModule-feaf66ea-95d7-4be6-8043-6ee178006598"
 >
                                     <span class="fa fa-fw fa-code"></span>
                                     <span>Directives</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="directives-links-module-AgmDirectionModule-34eb2add-8c81-4644-a13d-ccfc4c62a241"
+                                        id="directives-links-module-AgmDirectionModule-feaf66ea-95d7-4be6-8043-6ee178006598"
 >
                                         <li class="link">
                                             <a href="directives/AgmDirection.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AgmDirection</a>
@@ -236,14 +236,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-1b863391-89a3-4639-b57d-d724f1f413a3"
+                                        data-target="#components-links-module-AppModule-5a54e3e3-06cf-41e8-aa18-6fc401363731"
 >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="components-links-module-AppModule-1b863391-89a3-4639-b57d-d724f1f413a3"
+                                        id="components-links-module-AppModule-5a54e3e3-06cf-41e8-aa18-6fc401363731"
 >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -475,6 +475,9 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#onChange">onChange</a>
+                            </li>
+                            <li>
+                                <a href="#sendInfoWindow">sendInfoWindow</a>
                             </li>
                         </ul>
                     </td>
@@ -904,6 +907,25 @@
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/agm-direction.directive.ts:35</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="sendInfoWindow"></a>
+                        <code>sendInfoWindow</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> type:</em>    <code>EventEmitter&lt;InfoWindow&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/agm-direction.directive.ts:36</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1437,7 +1459,7 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() infoWindow: InfoWindow &#x3D; undefined;
 
   @Output() onChange: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
-  // @Output() sendInfowindow: EventEmitter&lt;InfoWindow&gt; &#x3D; new EventEmitter&lt;InfoWindow&gt;();
+  @Output() sendInfoWindow: EventEmitter&lt;InfoWindow&gt; &#x3D; new EventEmitter&lt;InfoWindow&gt;();
 
   public directionsService: any &#x3D; undefined;
   public directionsDisplay: any &#x3D; undefined;
@@ -1506,7 +1528,7 @@ export class AgmDirection implements OnChanges, OnInit {
         this.directionsDisplay &#x3D; new google.maps.DirectionsRenderer(this.renderOptions);
         this.directionsDisplay.setMap(map);
         this.directionsDisplay.addListener(&#x27;directions_changed&#x27;, () &#x3D;&gt; {
-          // #18 issue - listener for dragable routes
+          // #18 - listener for dragable routes
           this.onChange.emit(this.directionsDisplay.getDirections());
         });
       }
@@ -1597,15 +1619,16 @@ export class AgmDirection implements OnChanges, OnInit {
    * @private
    * @param {GoogleMap} map map
    * @param {Marker} marker marker
-   * @param {Object} markerOpts properties
-   * @param {String} content marker&#x27;s infowindow content
+   * @param {any} markerOpts properties
+   * @param {string} content marker&#x27;s infowindow content
    * @returns {Marker} new marker
    * @memberof AgmDirection
    */
   private setMarker(map: GoogleMap, marker: Marker, markerOpts: any, content: string) {
     if (typeof this.infoWindow &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27;) {
+      // #27 - infowindow
       this.infoWindow &#x3D; new google.maps.InfoWindow({});
-      // this.sendInfowindow.emit(this.infoWindow);
+      this.sendInfoWindow.emit(this.infoWindow);
     }
     marker &#x3D; new google.maps.Marker(markerOpts);
     marker.addListener(&#x27;click&#x27;, () &#x3D;&gt; {

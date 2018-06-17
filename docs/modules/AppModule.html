@@ -80,14 +80,14 @@
                         <a href="modules/AgmDirectionModule.html" data-type="entity-link">AgmDirectionModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-directives-links-module-AgmDirectionModule-34eb2add-8c81-4644-a13d-ccfc4c62a241"
+                                        data-target="#xs-directives-links-module-AgmDirectionModule-feaf66ea-95d7-4be6-8043-6ee178006598"
                                     >
                                     <span class="fa fa-fw fa-code"></span>
                                     <span>Directives</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-directives-links-module-AgmDirectionModule-34eb2add-8c81-4644-a13d-ccfc4c62a241"
+                                        id="xs-directives-links-module-AgmDirectionModule-feaf66ea-95d7-4be6-8043-6ee178006598"
                                     >
                                         <li class="link">
                                             <a href="directives/AgmDirection.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AgmDirection</a>
@@ -99,14 +99,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-1b863391-89a3-4639-b57d-d724f1f413a3"
+                                        data-target="#xs-components-links-module-AppModule-5a54e3e3-06cf-41e8-aa18-6fc401363731"
                                     >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-1b863391-89a3-4639-b57d-d724f1f413a3"
+                                        id="xs-components-links-module-AppModule-5a54e3e3-06cf-41e8-aa18-6fc401363731"
                                     >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -217,14 +217,14 @@
                         <a href="modules/AgmDirectionModule.html" data-type="entity-link">AgmDirectionModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#directives-links-module-AgmDirectionModule-34eb2add-8c81-4644-a13d-ccfc4c62a241"
+                                        data-target="#directives-links-module-AgmDirectionModule-feaf66ea-95d7-4be6-8043-6ee178006598"
 >
                                     <span class="fa fa-fw fa-code"></span>
                                     <span>Directives</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="directives-links-module-AgmDirectionModule-34eb2add-8c81-4644-a13d-ccfc4c62a241"
+                                        id="directives-links-module-AgmDirectionModule-feaf66ea-95d7-4be6-8043-6ee178006598"
 >
                                         <li class="link">
                                             <a href="directives/AgmDirection.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AgmDirection</a>
@@ -236,14 +236,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-1b863391-89a3-4639-b57d-d724f1f413a3"
+                                        data-target="#components-links-module-AppModule-5a54e3e3-06cf-41e8-aa18-6fc401363731"
 >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="components-links-module-AppModule-1b863391-89a3-4639-b57d-d724f1f413a3"
+                                        id="components-links-module-AppModule-5a54e3e3-06cf-41e8-aa18-6fc401363731"
 >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -461,6 +461,7 @@ import { Component } from &#x27;@angular/core&#x27;;
 import { platformBrowserDynamic } from &#x27;@angular/platform-browser-dynamic&#x27;;
 
 import { AgmCoreModule } from &#x27;@agm/core&#x27;;
+import { InfoWindow } from &#x27;@agm/core/services/google-maps-types&#x27;;
 import { AgmDirectionModule } from &#x27;../dist&#x27;;
 
 @Component({
@@ -474,24 +475,38 @@ class AppComponent {
   lng: Number &#x3D; 120.979021;
   zoom: Number &#x3D; 14;
 
-  origin: String &#x3D; &#x27;Taipei Main Station&#x27;;
-  destination: String &#x3D; &#x27;National Taiwan University of Science and Technology&#x27;;
+  origin: Object &#x3D; { lat: 24.799448, lng: 120.979021 };
+  destination: Object &#x3D; { lat: 24.799524, lng: 120.975017 };
+
+  origin1: Object &#x3D; { lat: 24.798448, lng: 120.972021 };
+  destination1: Object &#x3D; { lat: 24.789524, lng: 120.972017 };
+
   renderOptions &#x3D; {
     suppressMarkers: true,
   }
+
   markerOptions &#x3D; {
     origin: {
       icon: &#x27;https://i.imgur.com/7teZKif.png&#x27;,
     },
     destination: {
       icon: &#x27;https://i.imgur.com/7teZKif.png&#x27;,
+      infoWindow: &#x60;
+      &lt;h4&gt;Hello&lt;h4&gt;
+      &lt;a href&#x3D;&#x27;http://www-e.ntust.edu.tw/home.php&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Taiwan Tech&lt;/a&gt;
+      &#x60;
     },
   };
+
+  infoWindow: InfoWindow &#x3D; undefined;
 
   dirChange(event: any) {
     console.log(event);
   }
 
+  obtainInfowindow(window: InfoWindow) {
+    this.infoWindow &#x3D; window
+  }
 }
 
 @NgModule({
@@ -501,7 +516,7 @@ class AppComponent {
     BrowserModule,
     FormsModule,
     AgmCoreModule.forRoot({ // @agm/core
-      apiKey: &#x27;AIzaSyDFTKbcSXEN22pUx3zfaabEOGyy7oOZtmI&#x27;,
+      apiKey: &#x27;&#x27;,
     }),
     AgmDirectionModule
   ]
