@@ -1,5 +1,6 @@
 import { Directive, Input, Output, OnChanges, OnInit, EventEmitter } from '@angular/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
+import { InfoWindow } from '@agm/core/services/google-maps-types';
 
 declare var google: any;
 @Directive({
@@ -29,8 +30,10 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() visible: boolean = true;
   @Input() panel: object | undefined;
   @Input() markerOptions: { origin: any, destination: any };
+  @Input() infowindow: InfoWindow = undefined;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() sendInfowindow: EventEmitter<InfoWindow> = new EventEmitter<InfoWindow>();
 
   public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
@@ -195,14 +198,15 @@ export class AgmDirection implements OnChanges, OnInit {
    * @memberof AgmDirection
    */
   private setMarker(map: any, marker: any, markerOpts: any, content: string) {
-    const infowindow = new google.maps.InfoWindow({
-      // #21 issue - change marker infoWindow
-      // default: _route.end_address
-      content: typeof markerOpts.infoWindow === 'undefined' ? content : markerOpts.infoWindow,
-    });
+    if (this.infowindow === undefined) { 
+      this.infowindow = new google.maps.InfoWindow({});
+      this.sendInfowindow.emit(this.infowindow);
+    }
     marker = new google.maps.Marker(markerOpts);
     marker.addListener('click', () => {
-      infowindow.open(map, marker);
+      const infowindoContent: string = typeof markerOpts.infoWindow === 'undefined' ? content : markerOpts.infoWindow
+      this.infowindow.setContent(infowindoContent);
+      this.infowindow.open(map, marker);
     });
     return marker;
   }

@@ -5,7 +5,7 @@
 <input type="text" [(ngModel)]="destination">
 <br />
 <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-direction [origin]="origin" [destination]="destination" [waypoints]="waypoints" [renderOptions]="renderOptions" [markerOptions]="markerOptions"
-        (onChange)="dirChange($event)">
+    <agm-direction [origin]="origin" [destination]="destination" [waypoints]="waypoints" [renderOptions]="renderOptions" [markerOptions]="markerOptions" [infowindow]="infowindow"
+        (onChange)="dirChange($event)" (sendInfowindow)="obtainInfowindow($event)">
     </agm-direction>
 </agm-map>
