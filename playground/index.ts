@@ -63,7 +63,7 @@ class AppComponent {
     BrowserModule,
     FormsModule,
     AgmCoreModule.forRoot({ // @agm/core
-      apiKey: '',
+      apiKey: 'AIzaSyDFTKbcSXEN22pUx3zfaabEOGyy7oOZtmI',
     }),
     AgmDirectionModule
   ]
