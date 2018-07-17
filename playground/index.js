@@ -11,27 +11,45 @@ exports.__esModule = true;
  */
 var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var core_2 = require("@angular/core");
 var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
 var core_3 = require("@agm/core");
-var agm_direction_1 = require("agm-direction");
+var dist_1 = require("../dist");
 var AppComponent = (function () {
     function AppComponent() {
         this.lat = 24.799448;
         this.lng = 120.979021;
         this.zoom = 14;
-        this.dir = undefined;
-    }
-    AppComponent.prototype.getDirection = function () {
-        this.dir = {
-            origin: { lat: 24.799448, lng: 120.979021 },
-            destination: { lat: 24.799524, lng: 120.975017 }
+        this.origin = { lat: 24.799448, lng: 120.979021 };
+        this.destination = { lat: 24.799524, lng: 120.975017 };
+        this.origin1 = { lat: 24.798448, lng: 120.972021 };
+        this.destination1 = { lat: 24.789524, lng: 120.972017 };
+        this.renderOptions = {
+            suppressMarkers: true
         };
+        this.markerOptions = {
+            origin: {
+                icon: 'https://i.imgur.com/7teZKif.png'
+            },
+            destination: {
+                icon: 'https://i.imgur.com/7teZKif.png',
+                infoWindow: "\n      <h4>Hello<h4>\n      <a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>\n      "
+            }
+        };
+        this.infoWindow = undefined;
+    }
+    AppComponent.prototype.dirChange = function (event) {
+        console.log(event);
+    };
+    AppComponent.prototype.obtainInfowindow = function (window) {
+        this.infoWindow = window;
     };
     AppComponent = __decorate([
         core_2.Component({
             selector: 'app',
-            template: "\n  <h1>Agm-Direction Playground - <a href=\"https://github.com/explooosion/Agm-Direction\" target=\"_blank\">Github</a></h1>\n  <button type=\"button\" (click)=\"getDirection()\">Get</button>\n  <agm-map [latitude]=\"lat\" [longitude]=\"lng\">\n    <agm-direction *ngIf=\"dir\" [origin]=\"dir.origin\" [destination]=\"dir.destination\"></agm-direction>\n  </agm-map>\n  "
+            templateUrl: './app.component.html',
+            styleUrls: ['./app.component.css']
         })
     ], AppComponent);
     return AppComponent;
@@ -45,10 +63,11 @@ var AppModule = (function () {
             declarations: [AppComponent],
             imports: [
                 platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
                 core_3.AgmCoreModule.forRoot({
-                    apiKey: ''
+                    apiKey: 'AIzaSyDFTKbcSXEN22pUx3zfaabEOGyy7oOZtmI'
                 }),
-                agm_direction_1.SampleModule
+                dist_1.AgmDirectionModule
             ]
         })
     ], AppModule);

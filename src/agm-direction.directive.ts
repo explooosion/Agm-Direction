@@ -18,16 +18,16 @@ export class AgmDirection implements OnChanges, OnInit {
    */
   @Input() destination: any;
 
-  @Input() travelMode: string = 'DRIVING';
+  @Input() travelMode: String = 'DRIVING';
   @Input() transitOptions: any = undefined;
   @Input() drivingOptions: any = undefined;
   @Input() waypoints: object = [];
-  @Input() optimizeWaypoints: boolean = true;
-  @Input() provideRouteAlternatives: boolean = false;
-  @Input() avoidHighways: boolean = false;
-  @Input() avoidTolls: boolean = false;
+  @Input() optimizeWaypoints: Boolean = true;
+  @Input() provideRouteAlternatives: Boolean = false;
+  @Input() avoidHighways: Boolean = false;
+  @Input() avoidTolls: Boolean = false;
   @Input() renderOptions: any;
-  @Input() visible: boolean = true;
+  @Input() visible: Boolean = true;
   @Input() panel: object | undefined;
   @Input() markerOptions: { origin: any, destination: any };
   @Input() infoWindow: InfoWindow = undefined;
@@ -38,7 +38,7 @@ export class AgmDirection implements OnChanges, OnInit {
   public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
 
-  private isFirstChange: boolean = true;
+  private isFirstChange: Boolean = true;
 
   private originMarker: Marker = undefined;
   private destinationMarker: Marker = undefined;
@@ -138,7 +138,8 @@ export class AgmDirection implements OnChanges, OnInit {
            * https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults
            */
 
-          // Custom Markers 
+          // Custom Markers
+
           if (typeof this.markerOptions !== 'undefined') {
             try {
               if (typeof this.originMarker !== 'undefined') {
@@ -189,7 +190,6 @@ export class AgmDirection implements OnChanges, OnInit {
 
   /**
    * Custom Origin and Destination Icon
-   * 
    * @private
    * @param {GoogleMap} map map
    * @param {Marker} marker marker
