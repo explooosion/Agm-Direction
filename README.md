@@ -14,7 +14,7 @@
 - [Playground](https://stackblitz.com/edit/angular-lwchvs)  
 
 How to use?  
-👉 [Start Reading](http://robby570.tw/Agm-Direction-Docs/)
+👉 [Start Reading](https://robby570.tw/Agm-Direction-Docs/)
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
 
