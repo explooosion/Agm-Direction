@@ -1,4 +1,14 @@
 language: node_js
-sudo: false
 node_js:
-- '4.2.1'
+  - "8"
+notifications:
+    email:
+        recipients:
+            - ta7382@gmail.com
+        on_failure: always
+install:
+    - npm install
+script:
+    - npm run lint
+    - npm test
+
