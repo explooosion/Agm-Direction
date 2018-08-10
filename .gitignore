@@ -1,19 +1,14 @@
-# Node
-node_modules/*
-npm-debug.log
-yarn-error.log
+$ cat .gitignore
+/node_modules
+/dist
+/documentation
+/coverage
 
-# TypeScript
-src/*.js
-src/*.map
-src/*.d.ts
+# Log Files
+*.log
 
-# JetBrains
-.idea
-.project
-.settings
-.idea/*
-*.iml
+# Pack File
+*.tgz
 
 # VS Code
 .vscode/*
@@ -25,12 +20,3 @@ Desktop.ini
 # Mac
 .DS_Store
 **/.DS_Store
-
-# Ngc generated files
-**/*.ngfactory.ts
-
-# Build files
-dist/*
-
-# Playground tmp files
-.playground
