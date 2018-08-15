@@ -54,7 +54,7 @@ import { AgmDirectionModule } from 'agm-direction'   // agm-direction
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({ // @agm/core
-      apiKey: 'your key',
+      apiKey: 'your key',   // GoogleAPIs
     }),
     AgmDirectionModule      // agm-direction
   ],
