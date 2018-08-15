@@ -13,7 +13,7 @@ import { AgmDirectionModule } from 'agm-direction';
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC1i0rNwN2qZ-4TAMCURXDLSBIv-h29PKQ',
+      apiKey: '',
     }),
     AgmDirectionModule,
   ],
