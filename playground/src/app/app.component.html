@@ -1,3 +1,5 @@
 <agm-map [latitude]="lat" [longitude]="lng">
-  <agm-direction [origin]="origin" [destination]="destination"></agm-direction>
+  <agm-direction [origin]="origin" [destination]="destination" [visible]="visible"></agm-direction>
 </agm-map>
+
+<button type="button" (click)="hide()">Hide</button>

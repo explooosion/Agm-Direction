@@ -18,7 +18,11 @@ Root directory:
 yarn pack:build
 ```
 
-## Install from pack
+## Install
+
+Choose your way:
+
+### 1. From pack
 
 ```bash
 cd playground
@@ -32,6 +36,21 @@ Example:
 
 ```bash
 yarn add agm-direction-0.7.0.tgz -S
+```
+
+### 2. From dist
+
+```bash
+cd playground
+```
+
+Add in [tsconfig.json]
+
+```json
+"paths": {
+  "@angular/*": ["node_modules/@angular/*"],
+  "@agm/*": ["node_modules/@agm/*"]
+}
 ```
 
 ## Start
