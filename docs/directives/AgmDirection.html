@@ -80,14 +80,14 @@
                         <a href="modules/AgmDirectionModule.html" data-type="entity-link">AgmDirectionModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-directives-links-module-AgmDirectionModule-93475daa-3abd-4642-827f-d9d569aa5eeb"
+                                        data-target="#xs-directives-links-module-AgmDirectionModule-85a424f0-3d2a-4da5-aab5-3784c774abc2"
                                     >
                                     <span class="fa fa-fw fa-code"></span>
                                     <span>Directives</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-directives-links-module-AgmDirectionModule-93475daa-3abd-4642-827f-d9d569aa5eeb"
+                                        id="xs-directives-links-module-AgmDirectionModule-85a424f0-3d2a-4da5-aab5-3784c774abc2"
                                     >
                                         <li class="link">
                                             <a href="directives/AgmDirection.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AgmDirection</a>
@@ -99,14 +99,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-adc3ea59-994f-4c6e-878a-ecc79964757b"
+                                        data-target="#xs-components-links-module-AppModule-6050ecbc-ae4d-45ef-ae0a-2968dc67cbb9"
                                     >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-adc3ea59-994f-4c6e-878a-ecc79964757b"
+                                        id="xs-components-links-module-AppModule-6050ecbc-ae4d-45ef-ae0a-2968dc67cbb9"
                                     >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -239,14 +239,14 @@
                         <a href="modules/AgmDirectionModule.html" data-type="entity-link">AgmDirectionModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#directives-links-module-AgmDirectionModule-93475daa-3abd-4642-827f-d9d569aa5eeb"
+                                        data-target="#directives-links-module-AgmDirectionModule-85a424f0-3d2a-4da5-aab5-3784c774abc2"
 >
                                     <span class="fa fa-fw fa-code"></span>
                                     <span>Directives</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="directives-links-module-AgmDirectionModule-93475daa-3abd-4642-827f-d9d569aa5eeb"
+                                        id="directives-links-module-AgmDirectionModule-85a424f0-3d2a-4da5-aab5-3784c774abc2"
 >
                                         <li class="link">
                                             <a href="directives/AgmDirection.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AgmDirection</a>
@@ -258,14 +258,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-adc3ea59-994f-4c6e-878a-ecc79964757b"
+                                        data-target="#components-links-module-AppModule-6050ecbc-ae4d-45ef-ae0a-2968dc67cbb9"
 >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="components-links-module-AppModule-adc3ea59-994f-4c6e-878a-ecc79964757b"
+                                        id="components-links-module-AppModule-6050ecbc-ae4d-45ef-ae0a-2968dc67cbb9"
 >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -1153,7 +1153,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="254" class="link-to-prism">src/directive/agm-direction.directive.ts:254</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="251" class="link-to-prism">src/directive/agm-direction.directive.ts:251</a></div>
                             </td>
                         </tr>
 
@@ -1641,9 +1641,6 @@ export class AgmDirection implements OnChanges, OnInit {
         avoidHighways: this.avoidHighways,
         avoidTolls: this.avoidTolls,
       }, (response: any, status: any) &#x3D;&gt; {
-
-        console.log(&#x27;response&#x27;, response);
-        console.log(&#x27;status&#x27;, status);
 
         if (status &#x3D;&#x3D;&#x3D; &#x27;OK&#x27;) {
           this.directionsDisplay.setDirections(response);
