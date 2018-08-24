@@ -21,7 +21,7 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() travelMode: String = 'DRIVING';
   @Input() transitOptions: any = undefined;
   @Input() drivingOptions: any = undefined;
-  @Input() waypoints: object = [];
+  @Input() waypoints: any = [];
   @Input() optimizeWaypoints: Boolean = true;
   @Input() provideRouteAlternatives: Boolean = false;
   @Input() avoidHighways: Boolean = false;
@@ -38,10 +38,10 @@ export class AgmDirection implements OnChanges, OnInit {
   public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
 
-  private isFirstChange: Boolean = true;
-
   private originMarker: any;
   private destinationMarker: any;
+
+  private isFirstChange: Boolean = true;
 
   constructor(
     private gmapsApi: GoogleMapsAPIWrapper,
@@ -58,7 +58,6 @@ export class AgmDirection implements OnChanges, OnInit {
      * When visible is false then remove the direction layer
      */
     if (!this.visible) {
-
       try {
         if (typeof this.originMarker !== 'undefined') {
           this.originMarker.setMap(null);
@@ -68,7 +67,6 @@ export class AgmDirection implements OnChanges, OnInit {
         this.directionsDisplay.setMap(null);
         this.directionsDisplay = undefined;
       } catch (e) { }
-
     } else {
       if (this.isFirstChange) {
         /**
@@ -148,7 +146,6 @@ export class AgmDirection implements OnChanges, OnInit {
            */
 
           // Custom Markers
-
           if (typeof this.markerOptions !== 'undefined') {
             try {
               if (typeof this.originMarker !== 'undefined') {
@@ -220,4 +217,5 @@ export class AgmDirection implements OnChanges, OnInit {
     });
     return marker;
   }
+
 }
