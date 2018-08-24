@@ -141,9 +141,6 @@ export class AgmDirection implements OnChanges, OnInit {
         avoidTolls: this.avoidTolls,
       }, (response: any, status: any) => {
 
-        console.log('response', response);
-        console.log('status', status);
-
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
 
