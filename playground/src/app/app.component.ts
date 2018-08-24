@@ -59,22 +59,6 @@ export class AppComponent {
           `,
       },
     ],
-    // waypoints: [
-    //   {
-    //     icon: 'https://i.imgur.com/7teZKif.png',
-    //     infoWindow: `
-    //       <h4>waypoints111<h4>
-    //       <a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>
-    //       `,
-    //   },
-    //   {
-    //     icon: 'https://i.imgur.com/7teZKif.png',
-    //     infoWindow: `
-    //       <h4>waypoints222<h4>
-    //       <a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>
-    //       `,
-    //   },
-    // ],
   };
 
   public visible: Boolean = true;
