@@ -1,0 +1,6 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-direction [origin]="origin" [destination]="destination" [waypoints]="waypoints" [renderOptions]="renderOptions" [markerOptions]="markerOptions"
+    (onChange)="changeHandler($event)" [visible]="visible"></agm-direction>
+</agm-map>
+
+<button type="button" (click)="hide()">Hide</button>

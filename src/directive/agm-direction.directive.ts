@@ -4,7 +4,7 @@ import { InfoWindow, Marker, GoogleMap } from '@agm/core/services/google-maps-ty
 
 declare var google: any;
 @Directive({
-  selector: 'agm-direction'
+  selector: 'agm-direction',
 })
 export class AgmDirection implements OnChanges, OnInit {
 
@@ -21,7 +21,7 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() travelMode: String = 'DRIVING';
   @Input() transitOptions: any = undefined;
   @Input() drivingOptions: any = undefined;
-  @Input() waypoints: object = [];
+  @Input() waypoints: any = [];
   @Input() optimizeWaypoints: Boolean = true;
   @Input() provideRouteAlternatives: Boolean = false;
   @Input() avoidHighways: Boolean = false;
@@ -29,8 +29,8 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() renderOptions: any;
   @Input() visible: Boolean = true;
   @Input() panel: object | undefined;
-  @Input() markerOptions: { origin: any, destination: any };
-  @Input() infoWindow: InfoWindow = undefined;
+  @Input() markerOptions: { origin: any, destination: any, waypoints: any };
+  @Input() infoWindow: InfoWindow;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
   @Output() sendInfoWindow: EventEmitter<InfoWindow> = new EventEmitter<InfoWindow>();
@@ -38,17 +38,22 @@ export class AgmDirection implements OnChanges, OnInit {
   public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
 
-  private isFirstChange: Boolean = true;
+  // Use for custom marker
+  private originMarker: any;
+  private destinationMarker: any;
+  private waypointsMarker: any = [];
 
-  private originMarker: Marker = undefined;
-  private destinationMarker: Marker = undefined;
+  // Use for visible flag
+  private isFirstChange: Boolean = true;
 
   constructor(
     private gmapsApi: GoogleMapsAPIWrapper,
   ) { }
 
   ngOnInit() {
-    this.directionDraw();
+    if (this.visible === true) {
+      this.directionDraw();
+    }
   }
 
   ngOnChanges(obj: any) {
@@ -60,14 +65,20 @@ export class AgmDirection implements OnChanges, OnInit {
         if (typeof this.originMarker !== 'undefined') {
           this.originMarker.setMap(null);
           this.destinationMarker.setMap(null);
+          this.waypointsMarker.forEach((w: any) => w.setMap(null));
         }
         this.directionsDisplay.setPanel(null);
         this.directionsDisplay.setMap(null);
         this.directionsDisplay = undefined;
       } catch (e) { }
     } else {
-
       if (this.isFirstChange) {
+        /**
+         * When visible is false at the first time
+         */
+        if (typeof this.directionsDisplay === 'undefined') {
+          this.directionDraw();
+        }
         this.isFirstChange = false;
         return;
       }
@@ -80,6 +91,7 @@ export class AgmDirection implements OnChanges, OnInit {
           if (typeof this.originMarker !== 'undefined') {
             this.originMarker.setMap(null);
             this.destinationMarker.setMap(null);
+            this.waypointsMarker.forEach((w: any) => w.setMap(null));
           }
           this.directionsDisplay.setPanel(null);
           this.directionsDisplay.setMap(null);
@@ -102,7 +114,6 @@ export class AgmDirection implements OnChanges, OnInit {
         this.directionsDisplay = new google.maps.DirectionsRenderer(this.renderOptions);
         this.directionsDisplay.setMap(map);
         this.directionsDisplay.addListener('directions_changed', () => {
-          // #18 - listener for dragable routes
           this.onChange.emit(this.directionsDisplay.getDirections());
         });
       }
@@ -130,6 +141,9 @@ export class AgmDirection implements OnChanges, OnInit {
         avoidTolls: this.avoidTolls,
       }, (response: any, status: any) => {
 
+        console.log('response', response);
+        console.log('status', status);
+
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
 
@@ -139,8 +153,9 @@ export class AgmDirection implements OnChanges, OnInit {
            */
 
           // Custom Markers
-
           if (typeof this.markerOptions !== 'undefined') {
+
+            // Remove origin markers
             try {
               if (typeof this.originMarker !== 'undefined') {
                 google.maps.event.clearListeners(this.originMarker, 'click');
@@ -150,10 +165,18 @@ export class AgmDirection implements OnChanges, OnInit {
                 google.maps.event.clearListeners(this.destinationMarker, 'click');
                 this.destinationMarker.setMap(null);
               }
+              this.waypointsMarker.forEach((w: any) => {
+                if (typeof w !== 'undefined') {
+                  google.maps.event.clearListeners(w, 'click');
+                  w.setMap(null);
+                }
+              });
+
             } catch (err) {
               console.error('Can not reset custom marker.', err);
             }
 
+            // Set custom markers
             const _route = response.routes[0].legs[0];
             try {
               // Origin Marker
@@ -164,9 +187,10 @@ export class AgmDirection implements OnChanges, OnInit {
                   map,
                   this.originMarker,
                   this.markerOptions.origin,
-                  _route.start_address
+                  _route.start_address,
                 );
               }
+
               // Destination Marker
               if (typeof this.markerOptions.destination !== 'undefined') {
                 this.markerOptions.destination.map = map;
@@ -175,11 +199,41 @@ export class AgmDirection implements OnChanges, OnInit {
                   map,
                   this.destinationMarker,
                   this.markerOptions.destination,
-                  _route.end_address
+                  _route.end_address,
                 );
               }
+
+              // Waypoints Marker
+              if (typeof this.markerOptions.waypoints !== 'undefined') {
+
+                this.waypoints.forEach((waypoint: any, index: number) => {
+
+                  // If waypoints are not array then set all the same
+                  if (!Array.isArray(this.markerOptions.waypoints)) {
+                    this.markerOptions.waypoints.map = map;
+                    this.markerOptions.waypoints.position = _route.via_waypoints[index];
+                    this.waypointsMarker.push(this.setMarker(
+                      map,
+                      waypoint,
+                      this.markerOptions.waypoints,
+                      _route.via_waypoints[index],
+                    ));
+                  } else {
+                    this.markerOptions.waypoints[index].map = map;
+                    this.markerOptions.waypoints[index].position = _route.via_waypoints[index];
+                    this.waypointsMarker.push(this.setMarker(
+                      map,
+                      waypoint,
+                      this.markerOptions.waypoints[index],
+                      _route.via_waypoints[index],
+                    ));
+                  }
+
+                }); // End forEach
+
+              }
             } catch (err) {
-              console.error('MarkerOptions error.', err)
+              console.error('MarkerOptions error.', err);
             }
           }
 
@@ -190,26 +244,25 @@ export class AgmDirection implements OnChanges, OnInit {
 
   /**
    * Custom Origin and Destination Icon
-   * @private
-   * @param {GoogleMap} map map
-   * @param {Marker} marker marker
-   * @param {any} markerOpts properties
-   * @param {string} content marker's infowindow content
-   * @returns {Marker} new marker
+   * @param map map
+   * @param marker marker
+   * @param markerOpts properties
+   * @param content marker's infowindow content
+   * @returns new marker
    * @memberof AgmDirection
    */
-  private setMarker(map: GoogleMap, marker: Marker, markerOpts: any, content: string) {
+  private setMarker(map: GoogleMap, marker: any, markerOpts: any, content: string) {
     if (typeof this.infoWindow === 'undefined') {
-      // #27 - infowindow
       this.infoWindow = new google.maps.InfoWindow({});
       this.sendInfoWindow.emit(this.infoWindow);
     }
     marker = new google.maps.Marker(markerOpts);
     marker.addListener('click', () => {
-      const infowindoContent: string = typeof markerOpts.infoWindow === 'undefined' ? content : markerOpts.infoWindow
+      const infowindoContent: string = typeof markerOpts.infoWindow === 'undefined' ? content : markerOpts.infoWindow;
       this.infoWindow.setContent(infowindoContent);
       this.infoWindow.open(map, marker);
     });
     return marker;
   }
+
 }
