@@ -62,12 +62,16 @@ export class AppComponent {
   };
 
   public visible: Boolean = true;
-  public changeHandler(event: any) {
-    // You can do anything.
-    console.log('aaa', event);
+
+  public onChange(event: any) {
+    console.log('onChange', event);
   }
 
-  hide() {
+  public onResponse(event: any) {
+    console.log('onResponse', event);
+  }
+
+  public hide() {
     this.visible = !this.visible;
   }
 }
