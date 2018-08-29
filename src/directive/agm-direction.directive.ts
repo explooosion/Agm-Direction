@@ -32,7 +32,12 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() markerOptions: { origin: any, destination: any, waypoints: any };
   @Input() infoWindow: InfoWindow;
 
+  // Direction change event handler
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
+
+  // Direction response for the new request
+  @Output() onResponse: EventEmitter<any> = new EventEmitter<any>();
+
   @Output() sendInfoWindow: EventEmitter<InfoWindow> = new EventEmitter<InfoWindow>();
 
   public directionsService: any = undefined;
@@ -140,6 +145,8 @@ export class AgmDirection implements OnChanges, OnInit {
         avoidHighways: this.avoidHighways,
         avoidTolls: this.avoidTolls,
       }, (response: any, status: any) => {
+
+        this.onResponse.emit(response);
 
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
