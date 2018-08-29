@@ -54,9 +54,9 @@ import { AgmDirectionModule } from 'agm-direction'   // agm-direction
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({ // @agm/core
-      apiKey: 'your key',   // GoogleAPIs
+      apiKey: 'your key',
     }),
-    AgmDirectionModule      // agm-direction
+    AgmDirectionModule,     // agm-direction
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -89,8 +89,8 @@ TS
 public lat: Number = 24.799448
 public lng: Number = 120.979021
 
-public origin: {}
-public destination: {}
+public origin: any
+public destination: any
 
 ngOnInit() {
   this.getDirection()
