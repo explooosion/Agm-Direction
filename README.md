@@ -12,7 +12,7 @@
 
 - Angular 2+
 - Google Map API
-- [Playground](https://stackblitz.com/edit/angular-lwchvs)  
+- [Playground](https://stackblitz.com/edit/agm-direction-demo)  
 
 How to use?  
 👉 [Start Reading](https://robby570.tw/Agm-Direction-Docs/)
