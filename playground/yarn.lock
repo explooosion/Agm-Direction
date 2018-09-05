@@ -409,13 +409,6 @@ agent-base@^4.1.0:
   dependencies:
     es6-promisify "^5.0.0"
 
-agm-direction@../agm-direction-0.7.0.tgz:
-  version "0.7.0"
-  resolved "../agm-direction-0.7.0.tgz#d6e707dcf82b924b6470ae8f5554249f588217d5"
-  dependencies:
-    "@agm/core" "^1.0.0-beta.3"
-    tslib "^1.9.0"
-
 ajv-errors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.0.tgz#ecf021fa108fd17dfb5e6b383f2dd233e31ffc59"
