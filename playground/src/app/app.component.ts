@@ -1,77 +1,53 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   public lat: Number = 24.799448;
   public lng: Number = 120.979021;
 
-  public origin: any = '大潤發新竹湳雅店';
-  public destination: any = '國立新竹高級中學';
+  public origin: any = 'Taichung Main Station';
+  public destination: any = 'Taichung City Government';
 
-  public waypoints: object = [
-    {
-      location: '國立新竹高級商業職業學校',
-      stopover: false,
-    },
-    {
-      location: '新竹市立建功高級中學',
-      stopover: false,
-    },
-  ];
+  public renderRoute: object = null;
 
-  public renderOptions = {
-    suppressMarkers: true,
-  };
+  public dir = [];
+  public datas = [];
 
-  public markerOptions = {
-    origin: {
-      icon: 'https://i.imgur.com/7teZKif.png',
-      infoWindow: `
-        <h4>origin<h4>
-        <a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>
-        `,
-    },
-    destination: {
-      icon: 'https://i.imgur.com/7teZKif.png',
-      infoWindow: `
-        <h4>destination<h4>
-        <a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>
-        `,
-    },
-    waypoints: [
-      {
-        icon: 'https://i.imgur.com/7teZKif.png',
-        infoWindow: `
-          <h4>waypoints111<h4>
-          <a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>
-          `,
-      },
-      {
-        icon: 'https://i.imgur.com/7teZKif.png',
-        infoWindow: `
-          <h4>waypoints222<h4>
-          <a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>
-          `,
-      },
-    ],
-  };
-
-  public visible: Boolean = true;
-
-  public onChange(event: any) {
-    console.log('onChange', event);
+  constructor(private http: Http) {
+    this.http.get('assets/data1.json').subscribe(result => { this.datas.push(result.json()); });
+    this.http.get('assets/data2.json').subscribe(result => { this.datas.push(result.json()); });
   }
+
+  async ngOnInit() {
+    // setTimeout(() => this.direction2(), 300);
+  }
+
+  // private direction2() {
+  //   this.origin = 'Taichung University of Science and Technology';
+  //   this.destination = 'Taichung Main Station';
+  // }
 
   public onResponse(event: any) {
-    console.log('onResponse', event);
+    this.dir.push(event);
   }
 
-  public hide() {
-    this.visible = !this.visible;
+  public renderfromData(index: number) {
+    // Render from memory
+    // this.renderRoute = this.dir[index];
+
+    // Render from json file (build from direction response)
+    this.renderRoute = this.datas[index - 1];
+  }
+
+  public renderNew() {
+    this.origin = 'Taichung Main Station';
+    this.destination = 'Taichung University of Science and Technology';
+    this.renderRoute = null;
   }
 }
