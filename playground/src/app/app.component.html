@@ -2,14 +2,12 @@
   <agm-direction
     [origin]="origin"
     [destination]="destination"
-    [waypoints]="waypoints"
-    [renderOptions]="renderOptions"
-    [markerOptions]="markerOptions"
-    [visible]="visible"
-    (onChange)="onChange($event)"
+    [renderRoute]="renderRoute"
     (onResponse)="onResponse($event)"
   >
   </agm-direction>
 </agm-map>
 
-<button type="button" (click)="hide()">Hide</button>
+<button type="button" (click)="renderfromData(1)">Render1</button>
+<button type="button" (click)="renderfromData(2)">Render2</button>
+<button type="button" (click)="renderNew()">RenderNew</button>
