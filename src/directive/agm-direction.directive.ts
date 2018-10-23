@@ -1,6 +1,6 @@
 import { Directive, Input, Output, OnChanges, OnInit, EventEmitter } from '@angular/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
-import { InfoWindow, Marker, GoogleMap } from '@agm/core/services/google-maps-types';
+import { InfoWindow, GoogleMap } from '@agm/core/services/google-maps-types';
 
 declare var google: any;
 @Directive({
@@ -8,16 +8,13 @@ declare var google: any;
 })
 export class AgmDirection implements OnChanges, OnInit {
 
-  /**
-   * LatLng | String | google.maps.Place
-   */
+  // LatLng | String | google.maps.Place
   @Input() origin: any;
 
-  /**
-   * LatLng | String | google.maps.Place
-   */
+  // LatLng | String | google.maps.Place
   @Input() destination: any;
 
+  // Options
   @Input() travelMode: String = 'DRIVING';
   @Input() transitOptions: any = undefined;
   @Input() drivingOptions: any = undefined;
@@ -27,12 +24,14 @@ export class AgmDirection implements OnChanges, OnInit {
   @Input() avoidHighways: Boolean = false;
   @Input() avoidTolls: Boolean = false;
   @Input() renderOptions: any;
-  @Input() visible: Boolean = true;
   @Input() panel: object | undefined;
   @Input() markerOptions: { origin: any, destination: any, waypoints: any };
   @Input() infoWindow: InfoWindow;
 
-  // Render exist directoin
+  // Remove or draw direction
+  @Input() visible: Boolean = true;
+
+  // Render exist direction
   @Input() renderRoute: any;
 
   // Direction change event handler
@@ -41,6 +40,7 @@ export class AgmDirection implements OnChanges, OnInit {
   // Direction response for the new request
   @Output() onResponse: EventEmitter<any> = new EventEmitter<any>();
 
+  // Send a custom infowindow
   @Output() sendInfoWindow: EventEmitter<InfoWindow> = new EventEmitter<InfoWindow>();
 
   public directionsService: any = undefined;
@@ -204,7 +204,6 @@ export class AgmDirection implements OnChanges, OnInit {
                     _route.start_address,
                   );
                 }
-
                 // Destination Marker
                 if (typeof this.markerOptions.destination !== 'undefined') {
                   this.markerOptions.destination.map = map;
