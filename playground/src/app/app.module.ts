@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from '../../../dist';
 
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +17,7 @@ import { AgmDirectionModule } from '../../../dist';
     BrowserModule,
     HttpModule,
     AgmCoreModule.forRoot({
-      apiKey: '',
+      apiKey: environment.googleAPIKey,
     }),
     AgmDirectionModule,
   ],
