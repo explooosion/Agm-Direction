@@ -1,90 +1,92 @@
 {
-    "name": "agm-direction",
-    "version": "0.7.4",
-    "description": "directive for agm (not official)",
-    "main": "./bundles/agm-direction.umd.js",
-    "module": "./fesm5/agm-direction.js",
-    "es2015": "./fesm2015/agm-direction.js",
-    "esm5": "./esm5/agm-direction.js",
-    "esm2015": "./esm2015/agm-direction.js",
-    "fesm5": "./fesm5/agm-direction.js",
-    "fesm2015": "./fesm2015/agm-direction.js",
-    "typings": "./agm-direction.d.ts",
-    "scripts": {
-        "build": "node build.js",
-        "pack:lib": "npm pack ./dist",
-        "pack:build": "npm run build && npm pack ./dist",
-        "publish:lib": "npm run build && npm publish ./dist",
-        "publish:lib:next": "npm run build && npm publish --tag next ./dist",
-        "compodoc": "compodoc -p tsconfig.json -d docs",
-        "compodoc:serve": "compodoc -s"
-    },
-    "author": {
-        "name": "Robby",
-        "email": "ta7382@gmail.com"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/explooosion/agm-direction.git"
-    },
-    "bugs": {
-        "url": "https://github.com/explooosion/agm-direction/issues"
-    },
-    "homepage": "https://github.com/explooosion/agm-direction",
-    "keywords": [
-        "angular2",
-        "agm",
-        "googlemap",
-        "direction"
-    ],
-    "license": "MIT",
-    "dependencies": {
-        "@agm/core": "^1.0.0-beta.5",
-        "tslib": "^1.9.3"
-    },
-    "peerDependencies": {
-        "@angular/common": ">= 7.0.0",
-        "@angular/core": ">= 7.0.0"
-    },
-    "devDependencies": {
-        "@angular/animations": "7.0.0",
-        "@angular/common": "7.0.0",
-        "@angular/compiler": "7.0.0",
-        "@angular/compiler-cli": "7.0.0",
-        "@angular/core": "7.0.0",
-        "@angular/platform-browser": "7.0.0",
-        "@angular/platform-browser-dynamic": "7.0.0",
-        "@angular/platform-server": "7.0.0",
-        "@compodoc/compodoc": "1.1.5",
-        "@types/jasmine": "2.8.9",
-        "@types/node": "10.1.4",
-        "angular2-template-loader": "0.6.2",
-        "chalk": "2.4.1",
-        "codelyzer": "4.3.0",
-        "core-js": "2.5.5",
-        "css-loader": "0.28.11",
-        "istanbul-instrumenter-loader": "3.0.1",
-        "jasmine-core": "3.1.0",
-        "node-sass": "4.9.0",
-        "raw-loader": "0.5.1",
-        "reflect-metadata": "0.1.12",
-        "rollup": "0.58.2",
-        "rollup-plugin-license": "0.6.0",
-        "rollup-plugin-node-resolve": "3.3.0",
-        "rollup-plugin-sourcemaps": "0.4.2",
-        "rxjs": "6.1.0",
-        "sass-loader": "7.0.1",
-        "shelljs": "0.8.1",
-        "source-map-loader": "0.2.3",
-        "to-string-loader": "1.1.5",
-        "ts-loader": "4.2.0",
-        "tsickle": "^0.33.0",
-        "tslint": "5.10.0",
-        "tslint-angular": "1.1.1",
-        "typescript": "3.1.1",
-        "uglify-js": "3.3.23",
-        "webpack": "4.6.0",
-        "zone.js": "0.8.26"
-    },
-    "sideEffects": false
+  "name": "agm-direction",
+  "version": "0.7.4",
+  "description": "directive for agm (not official)",
+  "main": "./bundles/agm-direction.umd.js",
+  "module": "./fesm5/agm-direction.js",
+  "es2015": "./fesm2015/agm-direction.js",
+  "esm5": "./esm5/agm-direction.js",
+  "esm2015": "./esm2015/agm-direction.js",
+  "fesm5": "./fesm5/agm-direction.js",
+  "fesm2015": "./fesm2015/agm-direction.js",
+  "typings": "./agm-direction.d.ts",
+  "scripts": {
+    "build": "node build.js",
+    "pack:lib": "npm pack ./dist",
+    "pack:build": "npm run build && npm pack ./dist",
+    "publish:lib": "npm run build && npm publish ./dist",
+    "publish:lib:next": "npm run build && npm publish --tag next ./dist",
+    "compodoc": "compodoc -p tsconfig.json -d docs",
+    "compodoc:serve": "compodoc -s"
+  },
+  "author": {
+    "name": "Robby",
+    "email": "ta7382@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/explooosion/agm-direction.git"
+  },
+  "bugs": {
+    "url": "https://github.com/explooosion/agm-direction/issues"
+  },
+  "homepage": "https://github.com/explooosion/agm-direction",
+  "keywords": [
+    "angular2",
+    "agm",
+    "googlemap",
+    "direction"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@agm/core": "^1.0.0-beta.5",
+    "tslib": "^1.9.0"
+  },
+  "peerDependencies": {
+    "@angular/common": ">= 7.0.0",
+    "@angular/core": ">= 7.0.0"
+  },
+  "devDependencies": {
+    "@angular/animations": "7.0.0",
+    "@angular/common": "7.0.0",
+    "@angular/compiler": "7.0.0",
+    "@angular/compiler-cli": "7.0.0",
+    "@angular/core": "7.0.0",
+    "@angular/platform-browser": "7.0.0",
+    "@angular/platform-browser-dynamic": "7.0.0",
+    "@angular/platform-server": "7.0.0",
+    "@compodoc/compodoc": "1.1.5",
+    "@types/jasmine": "2.8.9",
+    "@types/node": "10.12.0",
+    "angular2-template-loader": "0.6.2",
+    "chalk": "2.4.1",
+    "codelyzer": "4.5.0",
+    "core-js": "2.5.7",
+    "css-loader": "1.0.0",
+    "istanbul-instrumenter-loader": "3.0.1",
+    "jasmine-core": "3.2.0",
+    "node-sass": "4.9.4",
+    "raw-loader": "0.5.1",
+    "reflect-metadata": "0.1.12",
+    "rollup": "0.66.6",
+    "rollup-plugin-license": "0.7.0",
+    "rollup-plugin-node-resolve": "3.4.0",
+    "rollup-plugin-sourcemaps": "0.4.2",
+    "rxjs": "^6.3.3",
+    "sass-loader": "7.1.0",
+    "shelljs": "0.8.2",
+    "source-map-loader": "0.2.4",
+    "to-string-loader": "1.1.5",
+    "ts-loader": "5.2.2",
+    "tsickle": "0.33.0",
+    "tslint": "5.11.0",
+    "tslint-angular": "1.1.2",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "3.1.3",
+    "uglify-js": "3.4.9",
+    "webpack": "4.21.0",
+    "webpack-filter-warnings-plugin": "1.2.0",
+    "zone.js": "0.8.26"
+  },
+  "sideEffects": false
 }
