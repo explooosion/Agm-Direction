@@ -35,17 +35,17 @@ shell.cp(`-Rf`, [`src`, `*.ts`, `*.json`], `${OUT_DIR}`);
 /* Try to process scss files  */
 shell.echo(`Try to process scss files`);
 if (shell.exec(`node-sass -r ${OUT_DIR} -o ${OUT_DIR}`).code === 0) {
-    shell.rm(`-Rf`, `${OUT_DIR}/**/*.scss`);
-    shell.ls(`${OUT_DIR}/**/*.css`).forEach(function (file) {
-        shell.mv(file, file.replace('.css', '.scss'));
-    });
+  shell.rm(`-Rf`, `${OUT_DIR}/**/*.scss`);
+  shell.ls(`${OUT_DIR}/**/*.css`).forEach(function (file) {
+    shell.mv(file, file.replace('.css', '.scss'));
+  });
 }
 
 /* AoT compilation */
 shell.echo(`Start AoT compilation`);
 if (shell.exec(`ngc -p ${OUT_DIR}/tsconfig-build.json`).code !== 0) {
-    shell.echo(chalk.red(`Error: AoT compilation failed`));
-    shell.exit(1);
+  shell.echo(chalk.red(`Error: AoT compilation failed`));
+  shell.exit(1);
 }
 shell.echo(chalk.green(`AoT compilation completed`));
 
@@ -56,29 +56,29 @@ shell.cp(`-Rf`, [`${NPM_DIR}/src/`, `${NPM_DIR}/*.js`, `${NPM_DIR}/*.js.map`], `
 shell.echo(`Start bundling`);
 shell.echo(`Rollup package`);
 if (shell.exec(`rollup -c rollup.es.config.js -i ${NPM_DIR}/${PACKAGE}.js -o ${FESM2015_DIR}/${PACKAGE}.js`).code !== 0) {
-    shell.echo(chalk.red(`Error: Rollup package failed`));
-    shell.exit(1);
+  shell.echo(chalk.red(`Error: Rollup package failed`));
+  shell.exit(1);
 }
 
 shell.echo(`Produce ESM5/FESM5 versions`);
 shell.exec(`ngc -p ${OUT_DIR}/tsconfig-build.json --target es5 -d false --outDir ${OUT_DIR_ESM5} --sourceMap`);
 shell.cp(`-Rf`, [`${OUT_DIR_ESM5}/src/`, `${OUT_DIR_ESM5}/*.js`, `${OUT_DIR_ESM5}/*.js.map`], `${ESM5_DIR}`);
 if (shell.exec(`rollup -c rollup.es.config.js -i ${OUT_DIR_ESM5}/${PACKAGE}.js -o ${FESM5_DIR}/${PACKAGE}.js`).code !== 0) {
-    shell.echo(chalk.red(`Error: FESM5 version failed`));
-    shell.exit(1);
+  shell.echo(chalk.red(`Error: FESM5 version failed`));
+  shell.exit(1);
 }
 
 shell.echo(`Run Rollup conversion on package`);
 if (shell.exec(`rollup -c rollup.config.js -i ${FESM5_DIR}/${PACKAGE}.js -o ${BUNDLES_DIR}/${PACKAGE}.umd.js`).code !== 0) {
-    shell.echo(chalk.red(`Error: Rollup conversion failed`));
-    shell.exit(1);
+  shell.echo(chalk.red(`Error: Rollup conversion failed`));
+  shell.exit(1);
 }
 
 shell.echo(`Minifying`);
 shell.cd(`${BUNDLES_DIR}`);
-if (shell.exec(`uglifyjs ${PACKAGE}.umd.js -c --comments -o ${PACKAGE}.umd.min.js --source-map "includeSources=true,filename='${PACKAGE}.umd.min.js.map'"`).code !== 0) {
-    shell.echo(chalk.red(`Error: Minifying failed`));
-    shell.exit(1);
+if (shell.exec(`uglifyjs ${PACKAGE}.umd.js -c --comments -o ${PACKAGE}.umd.min.js --source-map "includeSources=true,content='${PACKAGE}.umd.js.map',filename='${PACKAGE}.umd.min.js.map'"`).code !== 0) {
+  shell.echo(chalk.red(`Error: Minifying failed`));
+  shell.exit(1);
 }
 shell.cd(`..`);
 shell.cd(`..`);
