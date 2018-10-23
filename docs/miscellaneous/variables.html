@@ -14,327 +14,26 @@
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
             <a href="../" class="navbar-brand">agm-direction documentation</a>
-            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-            <div id="book-search-input" role="search">
+                <div id="book-search-input" role="search">
     <input type="text" placeholder="Type to search">
 </div>
-            <nav>
-
-    <ul class="list">
-
-        <li class="title">
-            <a href="index.html" data-type="index-link">agm-direction documentation</a>
-        </li>
-
-        <li class="divider"></li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
-            <ul class="links">
-                    <li class="link">
-                        <a 
-                            
-                             href="overview.html" 
-                             href="overview.html" 
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-th"></span>Overview
-                        </a>
-                    </li>
-                    <li class="link">
-                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
-                    </li>
-                    <li class="link">
-                            <a href="license.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
-                        </a>
-                    </li>
-                    <li class="link">
-                        <a href="dependencies.html"
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-list"></span>Dependencies
-                        </a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter modules">
-            <a data-type="chapter-link" href="modules.html">
-                <div class="menu-toggler linked" data-toggle="collapse"
-                        data-target="#xs-modules-links"
-                >
-                    <span class="fa fa-fw fa-archive"></span>
-                    <span class="link-name">Modules</span>
-                    <span class="fa fa-angle-down"></span>
-                </div>
-            </a>
-            <ul class="links collapse"
-                    id="xs-modules-links"
-                >
-                    <li class="link">
-                        <a href="modules/AgmDirectionModule.html" data-type="entity-link">AgmDirectionModule</a>
-                            <li class="chapter inner">
-                                <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-directives-links-module-AgmDirectionModule-56a8110d-8e60-4645-9c55-b0f533b04c5d"
-                                    >
-                                    <span class="fa fa-fw fa-code"></span>
-                                    <span>Directives</span>
-                                    <span class="fa fa-angle-down"></span>
-                                </div>
-                                <ul class="links collapse"
-                                        id="xs-directives-links-module-AgmDirectionModule-56a8110d-8e60-4645-9c55-b0f533b04c5d"
-                                    >
-                                        <li class="link">
-                                            <a href="directives/AgmDirection.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AgmDirection</a>
-                                        </li>
-                                </ul>
-                            </li>
-                    </li>
-                    <li class="link">
-                        <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
-                            <li class="chapter inner">
-                                <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-e950a805-3481-44cd-b061-a25124299082"
-                                    >
-                                    <span class="fa fa-fw fa-cogs"></span>
-                                    <span>Components</span>
-                                    <span class="fa fa-angle-down"></span>
-                                </div>
-                                <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-e950a805-3481-44cd-b061-a25124299082"
-                                    >
-                                        <li class="link">
-                                            <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
-                                        </li>
-                                </ul>
-                            </li>
-                    </li>
-            </ul>
-        </li>
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-classes-links"
-                >
-                <span class="fa fa-fw fa-file-code-o"></span>
-                <span>Classes</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-classes-links"
-                >
-                    <li class="link">
-                        <a href="classes/AppPage.html" data-type="entity-link">AppPage</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-miscellaneous-links"
-                >
-                <span class="fa fa-fw fa-cubes"></span>
-                <span>Miscellaneous</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-miscellaneous-links"
-                >
-                    <li class="link">
-                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="coverage.html"><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
-        </li>
-
-        <li class="divider"></li>
-        <li class="copyright">
-                Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
-                            <img data-src="images/compodoc-vectorise.svg" class="img-responsive" data-type="compodoc-logo">
-                </a>
-        </li>
-
-    </ul>
-
-</nav>
+            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
            <div class="row main">
                <div class="hidden-xs menu">
-                   <nav>
-
-    <ul class="list">
-
-        <li class="title">
-            <a href="index.html" data-type="index-link">agm-direction documentation</a>
-        </li>
-
-        <li class="divider"></li>
-
-            <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
-            <ul class="links">
-                    <li class="link">
-                        <a 
-                            
-                             href="overview.html" 
-                             href="overview.html" 
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-th"></span>Overview
-                        </a>
-                    </li>
-                    <li class="link">
-                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
-                    </li>
-                    <li class="link">
-                            <a href="license.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
-                        </a>
-                    </li>
-                    <li class="link">
-                        <a href="dependencies.html"
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-list"></span>Dependencies
-                        </a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter modules">
-            <a data-type="chapter-link" href="modules.html">
-                <div class="menu-toggler linked" data-toggle="collapse"
-                        data-target="#modules-links"
-                >
-                    <span class="fa fa-fw fa-archive"></span>
-                    <span class="link-name">Modules</span>
-                    <span class="fa fa-angle-down"></span>
-                </div>
-            </a>
-            <ul class="links collapse"
-                    id="modules-links"
->
-                    <li class="link">
-                        <a href="modules/AgmDirectionModule.html" data-type="entity-link">AgmDirectionModule</a>
-                            <li class="chapter inner">
-                                <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#directives-links-module-AgmDirectionModule-56a8110d-8e60-4645-9c55-b0f533b04c5d"
->
-                                    <span class="fa fa-fw fa-code"></span>
-                                    <span>Directives</span>
-                                    <span class="fa fa-angle-down"></span>
-                                </div>
-                                <ul class="links collapse"
-                                        id="directives-links-module-AgmDirectionModule-56a8110d-8e60-4645-9c55-b0f533b04c5d"
->
-                                        <li class="link">
-                                            <a href="directives/AgmDirection.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AgmDirection</a>
-                                        </li>
-                                </ul>
-                            </li>
-                    </li>
-                    <li class="link">
-                        <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
-                            <li class="chapter inner">
-                                <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-e950a805-3481-44cd-b061-a25124299082"
->
-                                    <span class="fa fa-fw fa-cogs"></span>
-                                    <span>Components</span>
-                                    <span class="fa fa-angle-down"></span>
-                                </div>
-                                <ul class="links collapse"
-                                        id="components-links-module-AppModule-e950a805-3481-44cd-b061-a25124299082"
->
-                                        <li class="link">
-                                            <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
-                                        </li>
-                                </ul>
-                            </li>
-                    </li>
-            </ul>
-        </li>
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#classes-links"
->
-                <span class="fa fa-fw fa-file-code-o"></span>
-                <span>Classes</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="classes-links"
->
-                    <li class="link">
-                        <a href="classes/AppPage.html" data-type="entity-link">AppPage</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#miscellaneous-links"
->
-                <span class="fa fa-fw fa-cubes"></span>
-                <span>Miscellaneous</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="miscellaneous-links"
->
-                    <li class="link">
-                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
-                    </li>
-            </ul>
-        </li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="coverage.html"><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
-        </li>
-
-        <li class="divider"></li>
-        <li class="copyright">
-                Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
-                            <img data-src="images/compodoc-vectorise.svg" class="img-responsive" data-type="compodoc-logo">
-                </a>
-        </li>
-
-    </ul>
-
-</nav>
+                   <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content miscellaneous-variables">
                    <div class="content-data">
+
+
 
 
 
@@ -393,7 +92,7 @@
                             <b>
                             context
                             </b>
-                            <a href="#context"><span class="fa fa-link"></span></a>
+                            <a href="#context"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -421,7 +120,7 @@
                             <b>
                             require
                             </b>
-                            <a href="#require"><span class="fa fa-link"></span></a>
+                            <a href="#require"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -453,7 +152,7 @@
                             <b>
                             environment
                             </b>
-                            <a href="#environment"><span class="fa fa-link"></span></a>
+                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -492,7 +191,7 @@
                             <b>
                             environment
                             </b>
-                            <a href="#environment"><span class="fa fa-link"></span></a>
+                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -511,7 +210,8 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  production: false
+  production: false,
+  googleAPIKey: &#x27;AIzaSyD5g_QO7b1pBfgl9OtX6vchzZwX1Vmxo2Y&#x27;,
 }</code>
                         </td>
                     </tr>
@@ -531,7 +231,7 @@
                             <b>
                             google
                             </b>
-                            <a href="#google"><span class="fa fa-link"></span></a>
+                            <a href="#google"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -554,9 +254,10 @@
 </section>
 
 
+
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -568,6 +269,16 @@
            </div>
        </div>
 
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
        <script src="../js/libs/bootstrap-native.js"></script>
 
        <script src="../js/libs/es6-shim.min.js"></script>
@@ -577,20 +288,16 @@
 
        <script src="../js/compodoc.js"></script>
 
-        <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
-        </script>
-
-       <script src="../js/search/search.js"></script>
-       <script src="../js/search/lunr.min.js"></script>
-       <script src="../js/search/search-lunr.js"></script>
-
        <script src="../js/tabs.js"></script>
        <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
        <script src="../js/libs/prism.js"></script>
        <script src="../js/sourceCode.js"></script>
-       <script src="../js/search/search_index.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
 
 
     </body>
