@@ -15,7 +15,7 @@ import { AgmDirectionModule } from '../../../dist';
     BrowserModule,
     HttpModule,
     AgmCoreModule.forRoot({
-      apiKey: '',
+      apiKey: 'AIzaSyD5g_QO7b1pBfgl9OtX6vchzZwX1Vmxo2Y',
     }),
     AgmDirectionModule,
   ],

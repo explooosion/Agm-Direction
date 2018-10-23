@@ -1,13 +1,4 @@
 <agm-map [latitude]="lat" [longitude]="lng">
-  <agm-direction
-    [origin]="origin"
-    [destination]="destination"
-    [renderRoute]="renderRoute"
-    (onResponse)="onResponse($event)"
-  >
+  <agm-direction  [origin]="origin" [destination]="destination" [renderOptions]="renderOptions">
   </agm-direction>
 </agm-map>
-
-<button type="button" (click)="renderfromData(1)">Render1</button>
-<button type="button" (click)="renderfromData(2)">Render2</button>
-<button type="button" (click)="renderNew()">RenderNew</button>
