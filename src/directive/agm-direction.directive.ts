@@ -43,6 +43,9 @@ export class AgmDirection implements OnChanges, OnInit {
   // Send a custom infowindow
   @Output() sendInfoWindow: EventEmitter<InfoWindow> = new EventEmitter<InfoWindow>();
 
+  // Status of Directions Query (google.maps.DirectionsStatus.OVER_QUERY_LIMIT)
+  @Output() status: EventEmitter<string> = new EventEmitter<string>();
+
   public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
 
@@ -158,99 +161,111 @@ export class AgmDirection implements OnChanges, OnInit {
 
           this.onResponse.emit(response);
 
-          if (status === 'OK') {
-            this.directionsDisplay.setDirections(response);
+          // Emit Query Status
+          this.status.emit(status);
 
-            /**
-             * Emit The DirectionsResult Object
-             * https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults
-             */
+          /**
+           * DirectionsStatus
+           * https://developers.google.com/maps/documentation/javascript/directions#DirectionsStatus
+           */
+          switch (status) {
+            case 'OK':
+              this.directionsDisplay.setDirections(response);
 
-            // Custom Markers
-            if (typeof this.markerOptions !== 'undefined') {
+              /**
+               * Emit The DirectionsResult Object
+               * https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults
+               */
 
-              // Remove origin markers
-              try {
-                if (typeof this.originMarker !== 'undefined') {
-                  google.maps.event.clearListeners(this.originMarker, 'click');
-                  this.originMarker.setMap(null);
-                }
-                if (typeof this.destinationMarker !== 'undefined') {
-                  google.maps.event.clearListeners(this.destinationMarker, 'click');
-                  this.destinationMarker.setMap(null);
-                }
-                this.waypointsMarker.forEach((w: any) => {
-                  if (typeof w !== 'undefined') {
-                    google.maps.event.clearListeners(w, 'click');
-                    w.setMap(null);
+              // Custom Markers
+              if (typeof this.markerOptions !== 'undefined') {
+
+                // Remove origin markers
+                try {
+                  if (typeof this.originMarker !== 'undefined') {
+                    google.maps.event.clearListeners(this.originMarker, 'click');
+                    this.originMarker.setMap(null);
                   }
-                });
-
-              } catch (err) {
-                console.error('Can not reset custom marker.', err);
-              }
-
-              // Set custom markers
-              const _route = response.routes[0].legs[0];
-              try {
-                // Origin Marker
-                if (typeof this.markerOptions.origin !== 'undefined') {
-                  this.markerOptions.origin.map = map;
-                  this.markerOptions.origin.position = _route.start_location;
-                  this.originMarker = this.setMarker(
-                    map,
-                    this.originMarker,
-                    this.markerOptions.origin,
-                    _route.start_address,
-                  );
-                }
-                // Destination Marker
-                if (typeof this.markerOptions.destination !== 'undefined') {
-                  this.markerOptions.destination.map = map;
-                  this.markerOptions.destination.position = _route.end_location;
-                  this.destinationMarker = this.setMarker(
-                    map,
-                    this.destinationMarker,
-                    this.markerOptions.destination,
-                    _route.end_address,
-                  );
-                }
-
-                // Waypoints Marker
-                if (typeof this.markerOptions.waypoints !== 'undefined') {
-
-                  this.waypoints.forEach((waypoint: any, index: number) => {
-
-                    // If waypoints are not array then set all the same
-                    if (!Array.isArray(this.markerOptions.waypoints)) {
-                      this.markerOptions.waypoints.map = map;
-                      this.markerOptions.waypoints.position = _route.via_waypoints[index];
-                      this.waypointsMarker.push(this.setMarker(
-                        map,
-                        waypoint,
-                        this.markerOptions.waypoints,
-                        _route.via_waypoints[index],
-                      ));
-                    } else {
-                      this.markerOptions.waypoints[index].map = map;
-                      this.markerOptions.waypoints[index].position = _route.via_waypoints[index];
-                      this.waypointsMarker.push(this.setMarker(
-                        map,
-                        waypoint,
-                        this.markerOptions.waypoints[index],
-                        _route.via_waypoints[index],
-                      ));
+                  if (typeof this.destinationMarker !== 'undefined') {
+                    google.maps.event.clearListeners(this.destinationMarker, 'click');
+                    this.destinationMarker.setMap(null);
+                  }
+                  this.waypointsMarker.forEach((w: any) => {
+                    if (typeof w !== 'undefined') {
+                      google.maps.event.clearListeners(w, 'click');
+                      w.setMap(null);
                     }
+                  });
 
-                  }); // End forEach
-
+                } catch (err) {
+                  console.error('Can not reset custom marker.', err);
                 }
-              } catch (err) {
-                console.error('MarkerOptions error.', err);
-              }
-            }
 
-          }
+                // Set custom markers
+                const _route = response.routes[0].legs[0];
+                try {
+                  // Origin Marker
+                  if (typeof this.markerOptions.origin !== 'undefined') {
+                    this.markerOptions.origin.map = map;
+                    this.markerOptions.origin.position = _route.start_location;
+                    this.originMarker = this.setMarker(
+                      map,
+                      this.originMarker,
+                      this.markerOptions.origin,
+                      _route.start_address,
+                    );
+                  }
+                  // Destination Marker
+                  if (typeof this.markerOptions.destination !== 'undefined') {
+                    this.markerOptions.destination.map = map;
+                    this.markerOptions.destination.position = _route.end_location;
+                    this.destinationMarker = this.setMarker(
+                      map,
+                      this.destinationMarker,
+                      this.markerOptions.destination,
+                      _route.end_address,
+                    );
+                  }
+
+                  // Waypoints Marker
+                  if (typeof this.markerOptions.waypoints !== 'undefined') {
+
+                    this.waypoints.forEach((waypoint: any, index: number) => {
+
+                      // If waypoints are not array then set all the same
+                      if (!Array.isArray(this.markerOptions.waypoints)) {
+                        this.markerOptions.waypoints.map = map;
+                        this.markerOptions.waypoints.position = _route.via_waypoints[index];
+                        this.waypointsMarker.push(this.setMarker(
+                          map,
+                          waypoint,
+                          this.markerOptions.waypoints,
+                          _route.via_waypoints[index],
+                        ));
+                      } else {
+                        this.markerOptions.waypoints[index].map = map;
+                        this.markerOptions.waypoints[index].position = _route.via_waypoints[index];
+                        this.waypointsMarker.push(this.setMarker(
+                          map,
+                          waypoint,
+                          this.markerOptions.waypoints[index],
+                          _route.via_waypoints[index],
+                        ));
+                      }
+
+                    }); // End forEach
+
+                  }
+                } catch (err) {
+                  console.error('MarkerOptions error.', err);
+                }
+              }
+              break;
+
+            default:
+              // console.warn(status);
+              break;
+          } // End switch
 
         });
       }
