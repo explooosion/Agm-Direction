@@ -26,25 +26,23 @@ Installation is done using the
 
 - Use npm
   ```bash
-  npm install --save @agm/core
-  npm install --save agm-direction
+  npm install --save @agm/core agm-direction
   ```
 
 - Use yarn
   ```bash
-  yarn add @agm/core
-  yarn add agm-direction
+  yarn add @agm/core agm-direction
   ```
 
 ## Importing Modules
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser'
-import { NgModule } from '@angular/core'
-import { AppComponent } from './app.component'
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
 
-import { AgmCoreModule } from '@agm/core'            // @agm/core
-import { AgmDirectionModule } from 'agm-direction'   // agm-direction
+import { AgmCoreModule } from '@agm/core';            // @agm/core
+import { AgmDirectionModule } from 'agm-direction';   // agm-direction
 
 @NgModule({
   declarations: [
@@ -85,22 +83,22 @@ agm-map {
 TS
 
 ```typescript
-public lat: Number = 24.799448
-public lng: Number = 120.979021
+public lat: Number = 24.799448;
+public lng: Number = 120.979021;
 
-public origin: any
-public destination: any
+public origin: any;
+public destination: any;
 
 ngOnInit() {
-  this.getDirection()
+  this.getDirection();
 }
 
 getDirection() {
-  this.origin = { lat: 24.799448, lng: 120.979021 }
-  this.destination = { lat: 24.799524, lng: 120.975017 }
+  this.origin = { lat: 24.799448, lng: 120.979021 };
+  this.destination = { lat: 24.799524, lng: 120.975017 };
 
-  // this.origin = 'Taipei Main Station'
-  // this.destination = 'Taiwan Presidential Office'
+  // this.origin = 'Taipei Main Station';
+  // this.destination = 'Taiwan Presidential Office';
 }
 ```
 

@@ -63,13 +63,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <a href="modules/AgmDirectionModule.html" data-type="entity-link">AgmDirectionModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                    ${ isNormalMode ? 'data-target="#directives-links-module-AgmDirectionModule-44a9867577192b4130246d20e3a47e0e"' : 'data-target="#xs-directives-links-module-AgmDirectionModule-44a9867577192b4130246d20e3a47e0e"' }>
+                                    ${ isNormalMode ? 'data-target="#directives-links-module-AgmDirectionModule-97be527f21ed50e0704378b85ae5d279"' : 'data-target="#xs-directives-links-module-AgmDirectionModule-97be527f21ed50e0704378b85ae5d279"' }>
                                     <span class="icon ion-md-code-working"></span>
                                     <span>Directives</span>
                                     <span class="icon ion-ios-arrow-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                    ${ isNormalMode ? 'id="directives-links-module-AgmDirectionModule-44a9867577192b4130246d20e3a47e0e"' : 'id="xs-directives-links-module-AgmDirectionModule-44a9867577192b4130246d20e3a47e0e"' }>
+                                    ${ isNormalMode ? 'id="directives-links-module-AgmDirectionModule-97be527f21ed50e0704378b85ae5d279"' : 'id="xs-directives-links-module-AgmDirectionModule-97be527f21ed50e0704378b85ae5d279"' }>
                                         <li class="link">
                                             <a href="directives/AgmDirection.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AgmDirection</a>
                                         </li>
