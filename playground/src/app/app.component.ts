@@ -13,9 +13,22 @@ export class AppComponent {
   public origin: any = 'No. 1, Section 1, Taiwan Avenue, Central District, Taichung, Taiwan';
   public destination: any = 'No. 1 Guanqian Road, North District, Taichung City';
 
-  public renderOptions: object = { polylineOptions: { strokeColor: '#f0f' } };
+  public renderOptions = {
+    suppressMarkers: true,
+  };
 
-  getStatus(status) {
-    console.log('status', status);
-  }
+  public markerOptions = {
+    origin: {
+      icon: 'https://i.imgur.com/7teZKif.png',
+      draggable: true,
+    },
+    destination: {
+      icon: 'https://i.imgur.com/7teZKif.png',
+      draggable: true,
+      infoWindow: `
+        <h4>Hello<h4>
+        <a href='http://www-e.ntust.edu.tw/home.php' target='_blank'>Taiwan Tech</a>
+        `
+    },
+  };
 }

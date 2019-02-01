@@ -1,4 +1,9 @@
 <agm-map [latitude]="lat" [longitude]="lng">
-  <agm-direction [origin]="origin" [destination]="destination" [renderOptions]="renderOptions" (status)="getStatus($event)">
+  <agm-direction
+   [origin]="origin"
+   [destination]="destination"
+   [renderOptions]="renderOptions"
+   [markerOptions]="markerOptions"
+   >
   </agm-direction>
 </agm-map>
