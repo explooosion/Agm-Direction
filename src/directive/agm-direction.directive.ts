@@ -1,12 +1,12 @@
-import { Directive, Input, Output, OnChanges, OnInit, EventEmitter } from '@angular/core';
+import { Directive, Input, Output, OnChanges, OnInit, EventEmitter, OnDestroy } from '@angular/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
-import { InfoWindow, GoogleMap } from '@agm/core/services/google-maps-types';
+import { InfoWindow, GoogleMap, Marker } from '@agm/core/services/google-maps-types';
 
 declare var google: any;
 @Directive({
   selector: 'agm-direction',
 })
-export class AgmDirection implements OnChanges, OnInit {
+export class AgmDirection implements OnChanges, OnInit, OnDestroy {
 
   // LatLng | String | google.maps.Place
   @Input() origin: any;
@@ -46,6 +46,10 @@ export class AgmDirection implements OnChanges, OnInit {
   // Status of Directions Query (google.maps.DirectionsStatus.OVER_QUERY_LIMIT)
   @Output() status: EventEmitter<string> = new EventEmitter<string>();
 
+  // Marker drag event handler
+  @Output() originDrag: EventEmitter<any> = new EventEmitter<any>();
+  @Output() destinationDrag: EventEmitter<any> = new EventEmitter<any>();
+
   public directionsService: any = undefined;
   public directionsDisplay: any = undefined;
 
@@ -73,14 +77,8 @@ export class AgmDirection implements OnChanges, OnInit {
      */
     if (!this.visible) {
       try {
-        if (typeof this.originMarker !== 'undefined') {
-          this.originMarker.setMap(null);
-          this.destinationMarker.setMap(null);
-          this.waypointsMarker.forEach((w: any) => w.setMap(null));
-        }
-        this.directionsDisplay.setPanel(null);
-        this.directionsDisplay.setMap(null);
-        this.directionsDisplay = undefined;
+        this.removeMarkers();
+        this.removeDirections();
       } catch (e) { }
     } else {
       if (this.isFirstChange) {
@@ -99,26 +97,23 @@ export class AgmDirection implements OnChanges, OnInit {
        */
       if (typeof obj.renderOptions !== 'undefined') {
         if (obj.renderOptions.firstChange === false) {
-          if (typeof this.originMarker !== 'undefined') {
-            this.originMarker.setMap(null);
-            this.destinationMarker.setMap(null);
-            this.waypointsMarker.forEach((w: any) => w.setMap(null));
-          }
-          this.directionsDisplay.setPanel(null);
-          this.directionsDisplay.setMap(null);
-          this.directionsDisplay = undefined;
+          this.removeMarkers();
+          this.removeDirections();
         }
       }
       this.directionDraw();
     }
+  }
 
+  ngOnDestroy() {
+    this.destroyMarkers();
+    this.removeDirections();
   }
 
   /**
    * This event is fired when the user creating or updating this direction
    */
   private directionDraw() {
-
     this.gmapsApi.getNativeMap().then((map: GoogleMap) => {
 
       if (typeof this.directionsDisplay === 'undefined') {
@@ -176,30 +171,10 @@ export class AgmDirection implements OnChanges, OnInit {
                * Emit The DirectionsResult Object
                * https://developers.google.com/maps/documentation/javascript/directions?hl=en#DirectionsResults
                */
-
               // Custom Markers
               if (typeof this.markerOptions !== 'undefined') {
 
-                // Remove origin markers
-                try {
-                  if (typeof this.originMarker !== 'undefined') {
-                    google.maps.event.clearListeners(this.originMarker, 'click');
-                    this.originMarker.setMap(null);
-                  }
-                  if (typeof this.destinationMarker !== 'undefined') {
-                    google.maps.event.clearListeners(this.destinationMarker, 'click');
-                    this.destinationMarker.setMap(null);
-                  }
-                  this.waypointsMarker.forEach((w: any) => {
-                    if (typeof w !== 'undefined') {
-                      google.maps.event.clearListeners(w, 'click');
-                      w.setMap(null);
-                    }
-                  });
-
-                } catch (err) {
-                  console.error('Can not reset custom marker.', err);
-                }
+                this.destroyMarkers();
 
                 // Set custom markers
                 const _route = response.routes[0].legs[0];
@@ -214,6 +189,14 @@ export class AgmDirection implements OnChanges, OnInit {
                       this.markerOptions.origin,
                       _route.start_address,
                     );
+
+                    if (this.markerOptions.origin.draggable) {
+                      this.originMarker.addListener('dragend', () => {
+                        this.origin = this.originMarker.position;
+                        this.directionDraw();
+                        this.originDrag.emit(this.origin);
+                      });
+                    }
                   }
                   // Destination Marker
                   if (typeof this.markerOptions.destination !== 'undefined') {
@@ -225,6 +208,13 @@ export class AgmDirection implements OnChanges, OnInit {
                       this.markerOptions.destination,
                       _route.end_address,
                     );
+                    if (this.markerOptions.destination.draggable) {
+                      this.destinationMarker.addListener('dragend', () => {
+                        this.destination = this.destinationMarker.position;
+                        this.directionDraw();
+                        this.destinationDrag.emit(this.destination);
+                      });
+                    }
                   }
 
                   // Waypoints Marker
@@ -260,13 +250,13 @@ export class AgmDirection implements OnChanges, OnInit {
                   console.error('MarkerOptions error.', err);
                 }
               }
+
               break;
 
             default:
               // console.warn(status);
               break;
           } // End switch
-
         });
       }
     });
@@ -281,7 +271,7 @@ export class AgmDirection implements OnChanges, OnInit {
    * @returns new marker
    * @memberof AgmDirection
    */
-  private setMarker(map: GoogleMap, marker: any, markerOpts: any, content: string) {
+  private setMarker(map: GoogleMap, marker: any, markerOpts: any, content: string): Marker {
     if (typeof this.infoWindow === 'undefined') {
       this.infoWindow = new google.maps.InfoWindow({});
       this.sendInfoWindow.emit(this.infoWindow);
@@ -295,4 +285,59 @@ export class AgmDirection implements OnChanges, OnInit {
     return marker;
   }
 
+  /**
+   * This event is fired when remove markers
+   */
+  private removeMarkers(): void {
+    if (typeof this.originMarker !== 'undefined') {
+      this.originMarker.setMap(null);
+    }
+    if (typeof this.destinationMarker !== 'undefined') {
+      this.destinationMarker.setMap(null);
+    }
+    this.waypointsMarker.forEach((w: any) => {
+      if (typeof w !== 'undefined') {
+        w.setMap(null);
+      }
+    });
+  }
+
+  /**
+   * This event is fired when remove directions
+   */
+  private removeDirections(): void {
+    this.directionsDisplay.setPanel(null);
+    this.directionsDisplay.setMap(null);
+    this.directionsDisplay = undefined;
+  }
+
+  /**
+   * This event is fired when destroy markers
+   */
+  private destroyMarkers(): void {
+    // Remove origin markers
+    try {
+      if (typeof this.originMarker !== 'undefined') {
+        google.maps.event.clearListeners(this.originMarker, 'click');
+        if (this.markerOptions.origin.draggable) {
+          google.maps.event.clearListeners(this.originMarker, 'dragend');
+        }
+      }
+      if (typeof this.destinationMarker !== 'undefined') {
+        google.maps.event.clearListeners(this.destinationMarker, 'click');
+        if (this.markerOptions.origin.draggable) {
+          google.maps.event.clearListeners(this.destinationMarker, 'dragend');
+        }
+      }
+      this.waypointsMarker.forEach((w: any) => {
+        if (typeof w !== 'undefined') {
+          google.maps.event.clearListeners(w, 'click');
+        }
+      });
+      this.removeMarkers();
+
+    } catch (err) {
+      console.error('Can not reset custom marker.', err);
+    }
+  }
 }
