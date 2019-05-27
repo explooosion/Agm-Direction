@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -68,6 +65,7 @@
             <p class="comment">
                         <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
                         <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                        <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
             </p>
 
 
@@ -135,13 +133,28 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#destroyMarkers">destroyMarkers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#directionDraw">directionDraw</a>
                             </li>
                             <li>
                                 <a href="#ngOnChanges">ngOnChanges</a>
                             </li>
                             <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#removeDirections">removeDirections</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#removeMarkers">removeMarkers</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -220,10 +233,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#destinationDrag">destinationDrag</a>
+                            </li>
+                            <li>
                                 <a href="#onChange">onChange</a>
                             </li>
                             <li>
                                 <a href="#onResponse">onResponse</a>
+                            </li>
+                            <li>
+                                <a href="#originDrag">originDrag</a>
                             </li>
                             <li>
                                 <a href="#sendInfoWindow">sendInfoWindow</a>
@@ -252,7 +271,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/directive/agm-direction.directive.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/directive/agm-direction.directive.ts:62</a></div>
                             </td>
                         </tr>
 
@@ -662,6 +681,25 @@
             <tbody>
                 <tr>
                     <td class="col-md-2">
+                        <a name="destinationDrag"></a>
+                        <code>destinationDrag</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/directive/agm-direction.directive.ts:51</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
                         <a name="onChange"></a>
                         <code>onChange</code>
                     </td>
@@ -692,6 +730,25 @@
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/directive/agm-direction.directive.ts:41</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="originDrag"></a>
+                        <code>originDrag</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/directive/agm-direction.directive.ts:50</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -746,6 +803,48 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="destroyMarkers"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            destroyMarkers
+                            </b>
+                            <a href="#destroyMarkers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>destroyMarkers()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="319" class="link-to-prism">src/directive/agm-direction.directive.ts:319</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>This event is fired when destroy markers</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="directionDraw"></a>
                         <span class="name">
                             <b>
@@ -766,7 +865,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">src/directive/agm-direction.directive.ts:120</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/directive/agm-direction.directive.ts:116</a></div>
                             </td>
                         </tr>
 
@@ -806,7 +905,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/directive/agm-direction.directive.ts:70</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/directive/agm-direction.directive.ts:74</a></div>
                             </td>
                         </tr>
 
@@ -857,6 +956,44 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="ngOnDestroy"></a>
+                        <span class="name">
+                            <b>
+                            ngOnDestroy
+                            </b>
+                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/directive/agm-direction.directive.ts:108</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="ngOnInit"></a>
                         <span class="name">
                             <b>
@@ -875,13 +1012,97 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/directive/agm-direction.directive.ts:64</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/directive/agm-direction.directive.ts:68</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeDirections"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            removeDirections
+                            </b>
+                            <a href="#removeDirections"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>removeDirections()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="308" class="link-to-prism">src/directive/agm-direction.directive.ts:308</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>This event is fired when remove directions</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeMarkers"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            removeMarkers
+                            </b>
+                            <a href="#removeMarkers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>removeMarkers()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="291" class="link-to-prism">src/directive/agm-direction.directive.ts:291</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>This event is fired when remove markers</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -915,7 +1136,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="284" class="link-to-prism">src/directive/agm-direction.directive.ts:284</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="274" class="link-to-prism">src/directive/agm-direction.directive.ts:274</a></div>
                             </td>
                         </tr>
 
@@ -1007,7 +1228,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Marker</code>
 
                             </div>
                                 <div class="io-description">
@@ -1053,7 +1274,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/directive/agm-direction.directive.ts:54</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/directive/agm-direction.directive.ts:58</a></div>
                             </td>
                         </tr>
 
@@ -1093,7 +1314,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/directive/agm-direction.directive.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/directive/agm-direction.directive.ts:54</a></div>
                             </td>
                         </tr>
 
@@ -1133,7 +1354,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/directive/agm-direction.directive.ts:49</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/directive/agm-direction.directive.ts:53</a></div>
                             </td>
                         </tr>
 
@@ -1173,7 +1394,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/directive/agm-direction.directive.ts:58</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/directive/agm-direction.directive.ts:62</a></div>
                             </td>
                         </tr>
 
@@ -1208,7 +1429,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/directive/agm-direction.directive.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/directive/agm-direction.directive.ts:57</a></div>
                             </td>
                         </tr>
 
@@ -1248,7 +1469,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/directive/agm-direction.directive.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/directive/agm-direction.directive.ts:59</a></div>
                             </td>
                         </tr>
 
@@ -1262,15 +1483,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input, Output, OnChanges, OnInit, EventEmitter } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input, Output, OnChanges, OnInit, EventEmitter, OnDestroy } from &#x27;@angular/core&#x27;;
 import { GoogleMapsAPIWrapper } from &#x27;@agm/core&#x27;;
-import { InfoWindow, GoogleMap } from &#x27;@agm/core/services/google-maps-types&#x27;;
+import { InfoWindow, GoogleMap, Marker } from &#x27;@agm/core/services/google-maps-types&#x27;;
 
 declare var google: any;
 @Directive({
   selector: &#x27;agm-direction&#x27;,
 })
-export class AgmDirection implements OnChanges, OnInit {
+export class AgmDirection implements OnChanges, OnInit, OnDestroy {
 
   // LatLng | String | google.maps.Place
   @Input() origin: any;
@@ -1310,6 +1531,10 @@ export class AgmDirection implements OnChanges, OnInit {
   // Status of Directions Query (google.maps.DirectionsStatus.OVER_QUERY_LIMIT)
   @Output() status: EventEmitter&lt;string&gt; &#x3D; new EventEmitter&lt;string&gt;();
 
+  // Marker drag event handler
+  @Output() originDrag: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+  @Output() destinationDrag: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+
   public directionsService: any &#x3D; undefined;
   public directionsDisplay: any &#x3D; undefined;
 
@@ -1337,14 +1562,8 @@ export class AgmDirection implements OnChanges, OnInit {
      */
     if (!this.visible) {
       try {
-        if (typeof this.originMarker !&#x3D;&#x3D; &#x27;undefined&#x27;) {
-          this.originMarker.setMap(null);
-          this.destinationMarker.setMap(null);
-          this.waypointsMarker.forEach((w: any) &#x3D;&gt; w.setMap(null));
-        }
-        this.directionsDisplay.setPanel(null);
-        this.directionsDisplay.setMap(null);
-        this.directionsDisplay &#x3D; undefined;
+        this.removeMarkers();
+        this.removeDirections();
       } catch (e) { }
     } else {
       if (this.isFirstChange) {
@@ -1363,26 +1582,23 @@ export class AgmDirection implements OnChanges, OnInit {
        */
       if (typeof obj.renderOptions !&#x3D;&#x3D; &#x27;undefined&#x27;) {
         if (obj.renderOptions.firstChange &#x3D;&#x3D;&#x3D; false) {
-          if (typeof this.originMarker !&#x3D;&#x3D; &#x27;undefined&#x27;) {
-            this.originMarker.setMap(null);
-            this.destinationMarker.setMap(null);
-            this.waypointsMarker.forEach((w: any) &#x3D;&gt; w.setMap(null));
-          }
-          this.directionsDisplay.setPanel(null);
-          this.directionsDisplay.setMap(null);
-          this.directionsDisplay &#x3D; undefined;
+          this.removeMarkers();
+          this.removeDirections();
         }
       }
       this.directionDraw();
     }
+  }
 
+  ngOnDestroy() {
+    this.destroyMarkers();
+    this.removeDirections();
   }
 
   /**
    * This event is fired when the user creating or updating this direction
    */
   private directionDraw() {
-
     this.gmapsApi.getNativeMap().then((map: GoogleMap) &#x3D;&gt; {
 
       if (typeof this.directionsDisplay &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27;) {
@@ -1440,30 +1656,10 @@ export class AgmDirection implements OnChanges, OnInit {
                * Emit The DirectionsResult Object
                * https://developers.google.com/maps/documentation/javascript/directions?hl&#x3D;en#DirectionsResults
                */
-
               // Custom Markers
               if (typeof this.markerOptions !&#x3D;&#x3D; &#x27;undefined&#x27;) {
 
-                // Remove origin markers
-                try {
-                  if (typeof this.originMarker !&#x3D;&#x3D; &#x27;undefined&#x27;) {
-                    google.maps.event.clearListeners(this.originMarker, &#x27;click&#x27;);
-                    this.originMarker.setMap(null);
-                  }
-                  if (typeof this.destinationMarker !&#x3D;&#x3D; &#x27;undefined&#x27;) {
-                    google.maps.event.clearListeners(this.destinationMarker, &#x27;click&#x27;);
-                    this.destinationMarker.setMap(null);
-                  }
-                  this.waypointsMarker.forEach((w: any) &#x3D;&gt; {
-                    if (typeof w !&#x3D;&#x3D; &#x27;undefined&#x27;) {
-                      google.maps.event.clearListeners(w, &#x27;click&#x27;);
-                      w.setMap(null);
-                    }
-                  });
-
-                } catch (err) {
-                  console.error(&#x27;Can not reset custom marker.&#x27;, err);
-                }
+                this.destroyMarkers();
 
                 // Set custom markers
                 const _route &#x3D; response.routes[0].legs[0];
@@ -1478,6 +1674,14 @@ export class AgmDirection implements OnChanges, OnInit {
                       this.markerOptions.origin,
                       _route.start_address,
                     );
+
+                    if (this.markerOptions.origin.draggable) {
+                      this.originMarker.addListener(&#x27;dragend&#x27;, () &#x3D;&gt; {
+                        this.origin &#x3D; this.originMarker.position;
+                        this.directionDraw();
+                        this.originDrag.emit(this.origin);
+                      });
+                    }
                   }
                   // Destination Marker
                   if (typeof this.markerOptions.destination !&#x3D;&#x3D; &#x27;undefined&#x27;) {
@@ -1489,6 +1693,13 @@ export class AgmDirection implements OnChanges, OnInit {
                       this.markerOptions.destination,
                       _route.end_address,
                     );
+                    if (this.markerOptions.destination.draggable) {
+                      this.destinationMarker.addListener(&#x27;dragend&#x27;, () &#x3D;&gt; {
+                        this.destination &#x3D; this.destinationMarker.position;
+                        this.directionDraw();
+                        this.destinationDrag.emit(this.destination);
+                      });
+                    }
                   }
 
                   // Waypoints Marker
@@ -1524,13 +1735,13 @@ export class AgmDirection implements OnChanges, OnInit {
                   console.error(&#x27;MarkerOptions error.&#x27;, err);
                 }
               }
+
               break;
 
             default:
               // console.warn(status);
               break;
           } // End switch
-
         });
       }
     });
@@ -1545,7 +1756,7 @@ export class AgmDirection implements OnChanges, OnInit {
    * @returns new marker
    * @memberof AgmDirection
    */
-  private setMarker(map: GoogleMap, marker: any, markerOpts: any, content: string) {
+  private setMarker(map: GoogleMap, marker: any, markerOpts: any, content: string): Marker {
     if (typeof this.infoWindow &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27;) {
       this.infoWindow &#x3D; new google.maps.InfoWindow({});
       this.sendInfoWindow.emit(this.infoWindow);
@@ -1559,6 +1770,63 @@ export class AgmDirection implements OnChanges, OnInit {
     return marker;
   }
 
+  /**
+   * This event is fired when remove markers
+   */
+  private removeMarkers(): void {
+    if (typeof this.originMarker !&#x3D;&#x3D; &#x27;undefined&#x27;) {
+      this.originMarker.setMap(null);
+    }
+    if (typeof this.destinationMarker !&#x3D;&#x3D; &#x27;undefined&#x27;) {
+      this.destinationMarker.setMap(null);
+    }
+    this.waypointsMarker.forEach((w: any) &#x3D;&gt; {
+      if (typeof w !&#x3D;&#x3D; &#x27;undefined&#x27;) {
+        w.setMap(null);
+      }
+    });
+  }
+
+  /**
+   * This event is fired when remove directions
+   */
+  private removeDirections(): void {
+    if (this.directionsDisplay !&#x3D;&#x3D; undefined) {
+      this.directionsDisplay.setPanel(null);
+      this.directionsDisplay.setMap(null);
+      this.directionsDisplay &#x3D; undefined;
+    }
+  }
+
+  /**
+   * This event is fired when destroy markers
+   */
+  private destroyMarkers(): void {
+    // Remove origin markers
+    try {
+      if (typeof this.originMarker !&#x3D;&#x3D; &#x27;undefined&#x27;) {
+        google.maps.event.clearListeners(this.originMarker, &#x27;click&#x27;);
+        if (this.markerOptions.origin.draggable) {
+          google.maps.event.clearListeners(this.originMarker, &#x27;dragend&#x27;);
+        }
+      }
+      if (typeof this.destinationMarker !&#x3D;&#x3D; &#x27;undefined&#x27;) {
+        google.maps.event.clearListeners(this.destinationMarker, &#x27;click&#x27;);
+        if (this.markerOptions.origin.draggable) {
+          google.maps.event.clearListeners(this.destinationMarker, &#x27;dragend&#x27;);
+        }
+      }
+      this.waypointsMarker.forEach((w: any) &#x3D;&gt; {
+        if (typeof w !&#x3D;&#x3D; &#x27;undefined&#x27;) {
+          google.maps.event.clearListeners(w, &#x27;click&#x27;);
+        }
+      });
+      this.removeMarkers();
+
+    } catch (err) {
+      console.error(&#x27;Can not reset custom marker.&#x27;, err);
+    }
+  }
 }
 </code></pre>
     </div>
@@ -1598,7 +1866,9 @@ export class AgmDirection implements OnChanges, OnInit {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -53,19 +50,17 @@
 <a href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally"><code>npm install</code> command</a>:</p>
 <ul>
 <li><p>Use npm</p>
-<div><pre class="line-numbers"><code class="language-bash">npm install --save &#64;agm/core
-npm install --save agm-direction</code></pre></div></li>
+<div><pre class="line-numbers"><code class="language-bash">npm install --save &#64;agm/core agm-direction</code></pre></div></li>
 <li><p>Use yarn</p>
-<div><pre class="line-numbers"><code class="language-bash">yarn add &#64;agm/core
-yarn add agm-direction</code></pre></div></li>
+<div><pre class="line-numbers"><code class="language-bash">yarn add &#64;agm/core agm-direction</code></pre></div></li>
 </ul>
 <h2 id="importing-modules">Importing Modules</h2>
-<div><pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &#39;&#64;angular/platform-browser&#39;
-import { NgModule } from &#39;&#64;angular/core&#39;
-import { AppComponent } from &#39;./app.component&#39;
+<div><pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &#39;&#64;angular/platform-browser&#39;;
+import { NgModule } from &#39;&#64;angular/core&#39;;
+import { AppComponent } from &#39;./app.component&#39;;
 
-import { AgmCoreModule } from &#39;&#64;agm/core&#39;            // &#64;agm/core
-import { AgmDirectionModule } from &#39;agm-direction&#39;   // agm-direction
+import { AgmCoreModule } from &#39;&#64;agm/core&#39;;            // &#64;agm/core
+import { AgmDirectionModule } from &#39;agm-direction&#39;;   // agm-direction
 
 &#64;NgModule({
   declarations: [
@@ -90,22 +85,22 @@ export class AppModule { }</code></pre></div><h2 id="usage">Usage</h2>
 <div><pre class="line-numbers"><code class="language-css">agm-map {
     height: 400px;
 }</code></pre></div><p>TS</p>
-<div><pre class="line-numbers"><code class="language-typescript">public lat: Number = 24.799448
-public lng: Number = 120.979021
+<div><pre class="line-numbers"><code class="language-typescript">public lat: Number = 24.799448;
+public lng: Number = 120.979021;
 
-public origin: any
-public destination: any
+public origin: any;
+public destination: any;
 
 ngOnInit() {
-  this.getDirection()
+  this.getDirection();
 }
 
 getDirection() {
-  this.origin = { lat: 24.799448, lng: 120.979021 }
-  this.destination = { lat: 24.799524, lng: 120.975017 }
+  this.origin = { lat: 24.799448, lng: 120.979021 };
+  this.destination = { lat: 24.799524, lng: 120.975017 };
 
-  // this.origin = &#39;Taipei Main Station&#39;
-  // this.destination = &#39;Taiwan Presidential Office&#39;
+  // this.origin = &#39;Taipei Main Station&#39;;
+  // this.destination = &#39;Taiwan Presidential Office&#39;;
 }</code></pre></div><h2 id="document">Document</h2>
 <ul>
 <li>Document <a href="https://robby570.tw/Agm-Direction-Docs/">Agm-Direction-Docs</a></li>
@@ -157,7 +152,9 @@ getDirection() {
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <script src="./js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 
