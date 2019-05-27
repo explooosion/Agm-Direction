@@ -306,9 +306,11 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
    * This event is fired when remove directions
    */
   private removeDirections(): void {
-    this.directionsDisplay.setPanel(null);
-    this.directionsDisplay.setMap(null);
-    this.directionsDisplay = undefined;
+    if (this.directionsDisplay !== undefined) {
+      this.directionsDisplay.setPanel(null);
+      this.directionsDisplay.setMap(null);
+      this.directionsDisplay = undefined;
+    }
   }
 
   /**
