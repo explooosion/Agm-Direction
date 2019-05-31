@@ -194,7 +194,6 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
-import { HttpModule } from &#x27;@angular/http&#x27;;
 
 import { AppComponent } from &#x27;./app.component&#x27;;
 
@@ -209,7 +208,6 @@ import { environment } from &#x27;../environments/environment&#x27;;
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleAPIKey,
     }),

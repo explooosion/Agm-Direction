@@ -10,7 +10,7 @@
 
 [Agm-Direction](https://github.com/explooosion/Agm-Direction) is the directive for [@agm/core](https://github.com/SebastianM/angular-google-maps) (not official)
 
-- Angular 2~7
+- Angular
 - Google Map API
 - [Playground](https://stackblitz.com/edit/agm-direction-demo)  
 
@@ -83,8 +83,8 @@ agm-map {
 TS
 
 ```typescript
-public lat: Number = 24.799448;
-public lng: Number = 120.979021;
+public lat = 24.799448;
+public lng = 120.979021;
 
 public origin: any;
 public destination: any;
