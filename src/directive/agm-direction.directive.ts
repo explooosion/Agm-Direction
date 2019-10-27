@@ -277,11 +277,14 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
       this.sendInfoWindow.emit(this.infoWindow);
     }
     marker = new google.maps.Marker(markerOpts);
-    marker.addListener('click', () => {
-      const infowindoContent: string = typeof markerOpts.infoWindow === 'undefined' ? content : markerOpts.infoWindow;
-      this.infoWindow.setContent(infowindoContent);
-      this.infoWindow.open(map, marker);
-    });
+    // https://developers.google.com/maps/documentation/javascript/reference/marker?hl=zh-tw#MarkerOptions.clickable
+    if (marker.clickable) {
+      marker.addListener('click', () => {
+        const infowindoContent: string = typeof markerOpts.infoWindow === 'undefined' ? content : markerOpts.infoWindow;
+        this.infoWindow.setContent(infowindoContent);
+        this.infoWindow.open(map, marker);
+      });
+    }
     return marker;
   }
 
