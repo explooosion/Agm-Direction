@@ -12,7 +12,6 @@
 
 - Angular
 - Google Map API
-- [Playground](https://stackblitz.com/edit/agm-direction-demo)  
 
 How to use?  
 👉 [Start Reading](https://robby570.tw/Agm-Direction-Docs/)
@@ -67,7 +66,10 @@ HTML
 
 ```html
 <agm-map [latitude]="lat" [longitude]="lng">
-  <agm-direction [origin]="origin" [destination]="destination">
+  <agm-direction 
+    [origin]="origin" 
+    [destination]="destination"
+  >
   </agm-direction>
 </agm-map>
 ```
@@ -97,6 +99,7 @@ getDirection() {
   this.origin = { lat: 24.799448, lng: 120.979021 };
   this.destination = { lat: 24.799524, lng: 120.975017 };
 
+  // Location within a string
   // this.origin = 'Taipei Main Station';
   // this.destination = 'Taiwan Presidential Office';
 }
@@ -108,10 +111,18 @@ getDirection() {
 
 ## Development
 
-👉 [Playground](https://github.com/explooosion/Agm-Direction/tree/master/playground)
+👉 [Playground Project](https://github.com/explooosion/Agm-Direction/tree/master/playground)
 
 ```bash
 git clone https://github.com/explooosion/Agm-Direction.git
+```
+
+```bash
+npm install
+```
+
+```bash
+npm run pack:build
 ```
 
 ```bash
@@ -119,7 +130,11 @@ cd playground
 ```
 
 ```bash
-yarn start
+# Add gmap api key in environment.ts
+```
+
+```bash
+npm start
 ```
 
 ## Generator 
