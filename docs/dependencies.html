@@ -43,8 +43,16 @@
 
 
 
+    <ol class="breadcrumb">
+        <li>Dependencies</li>
+    </ol>
+    <ul class="dependencies-list">
+        <li>
+            <b>tslib</b> : ^1.10.0</li>
+    </ul>
 
 
+    <br/>
     <ol class="breadcrumb">
         <li>Peer dependencies</li>
     </ol>
@@ -52,12 +60,13 @@
         <li>
             <b>@agm/core</b> : ^1.0.0-beta.2</li>
         <li>
-            <b>@angular/common</b> : &gt;&#x3D; 8.0.0</li>
+            <b>@angular/common</b> : ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0</li>
         <li>
-            <b>@angular/core</b> : &gt;&#x3D; 8.0.0</li>
+            <b>@angular/core</b> : ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0</li>
         <li>
             <b>rxjs</b> : &gt;&#x3D; 6.4.0</li>
     </ul>
+                   
 
 
 
@@ -80,6 +89,7 @@
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'package-dependencies';
             var COMPODOC_CURRENT_PAGE_URL = 'dependencies.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>
