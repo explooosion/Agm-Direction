@@ -137,7 +137,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
 
                     </div>
                 </td>
@@ -176,7 +176,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;unknown&gt;</code>
 
                     </div>
                 </td>
@@ -196,12 +196,12 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { browser, by, element } from &#x27;protractor&#x27;;
 
 export class AppPage {
-  navigateTo() {
-    return browser.get(browser.baseUrl) as Promise&lt;any&gt;;
+  navigateTo(): Promise&lt;unknown&gt; {
+    return browser.get(browser.baseUrl) as Promise&lt;unknown&gt;;
   }
 
-  getTitleText() {
-    return element(by.css(&#x27;app-root h1&#x27;)).getText() as Promise&lt;string&gt;;
+  getTitleText(): Promise&lt;string&gt; {
+    return element(by.css(&#x27;app-root .content span&#x27;)).getText() as Promise&lt;string&gt;;
   }
 }
 </code></pre>
@@ -210,6 +210,7 @@ export class AppPage {
 
 
 
+                   
 
 
 
@@ -232,6 +233,7 @@ export class AppPage {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'AppPage.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

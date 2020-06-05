@@ -10,5 +10,7 @@
  * Entry point for all public APIs of the package.
  */
 export * from './src/agm-direction';
+export * from './src/modules/agm-direction.module';
+export * from './src/directive/agm-direction.directive';
 
 // This file only reexports content of the `src` folder. Keep it that way.

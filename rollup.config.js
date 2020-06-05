@@ -3,7 +3,7 @@ import sourcemaps from 'rollup-plugin-sourcemaps';
 
 /**
  * Add here external dependencies that actually you use.
- * 
+ *
  * Angular dependencies
  * - '@angular/animations' => 'ng.animations'
  * - '@angular/animations/browser': 'ng.animations.browser'
@@ -17,19 +17,19 @@ import sourcemaps from 'rollup-plugin-sourcemaps';
  * - '@angular/platform-browser/animations' => 'ng.platformBrowser.animations'
  * - '@angular/platform-server' => 'ng.platformServer'
  * - '@angular/router' => 'ng.router'
- * 
+ *
  * RxJS dependencies
  * From RxJS v6 you need only 'rxjs' and 'rxjs.operators'.
- * 
+ *
  * Other dependencies
  * - Angular libraries: refer to their global namespace
  * - TypeScript/JavaScript libraries:
  *      e.g. lodash: 'lodash' => 'lodash'
- *      
+ *
  * Also, if the dependency uses CommonJS modules, such as lodash,
  * you should also use a plugin like rollup-plugin-commonjs,
  * to explicitly specify unresolvable "named exports".
- * 
+ *
  */
 const globals = {
     '@angular/core': 'ng.core',
@@ -41,11 +41,11 @@ const globals = {
 export default {
     external: Object.keys(globals),
     plugins: [resolve(), sourcemaps()],
-    onwarn: () => { return },
+    onwarn: () => null,
     output: {
         format: 'umd',
-        name: 'ng.angularLibraryStarter',
-        globals: globals,
+        name: 'ng.agmDirection',
+        globals,
         sourcemap: true,
         exports: 'named',
         amd: { id: 'agm-direction' }

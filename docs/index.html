@@ -33,7 +33,7 @@
 <h1 id="agm-direction">Agm-Direction</h1>
 <p><a href="https://badge.fury.io/js/agm-direction"><img src="https://badge.fury.io/js/agm-direction.svg" alt="npm version" class="img-responsive"></a>
 <a href="https://github.com/explooosion/Agm-Direction"><img src="https://img.shields.io/npm/dm/localeval.svg" alt="npm" class="img-responsive"></a>
-<a href="https://david-dm.org/explooosion/Agm-Direction"><img src="https://david-dm.org/explooosion/Agm-Direction.svg?theme=shields.io" alt="Dependency Status" class="img-responsive"></a>
+<a href="https://david-dm.org/explooosion/Agm-Direction?type=peer"><img src="https://david-dm.org/explooosion/Agm-Direction/peer-status.svg" alt="peerDependencies Status" class="img-responsive"></a>
 <a href="https://travis-ci.org/explooosion/Agm-Direction"><img src="https://travis-ci.org/explooosion/Agm-Direction.svg?branch=master" alt="Build Status" class="img-responsive"></a>
 <a href="https://github.com/explooosion/Agm-Direction"><img src="https://img.shields.io/github/license/explooosion/Agm-Direction.svg" alt="GitHub license" class="img-responsive"></a>
 <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome" class="img-responsive"></a></p>
@@ -41,7 +41,6 @@
 <ul>
 <li>Angular</li>
 <li>Google Map API</li>
-<li><a href="https://stackblitz.com/edit/agm-direction-demo">Playground</a>  </li>
 </ul>
 <p>How to use?<br>👉 <a href="https://robby570.tw/Agm-Direction-Docs/">Start Reading</a></p>
 <p><img src="https://i.imgur.com/DCIoXqS.jpg" alt="Agm-Direction" class="img-responsive"></p>
@@ -49,29 +48,26 @@
 <p>Installation is done using the
 <a href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally"><code>npm install</code> command</a>:</p>
 <ul>
-<li><p>Use npm
-<code>bash
-npm install --save @agm/core agm-direction</code></p>
-</li>
-<li><p>Use yarn
-<code>bash
-yarn add @agm/core agm-direction</code></p>
-</li>
+<li><p>Use npm</p>
+<div><pre class="line-numbers"><code class="language-bash">npm install --save &#64;agm/core agm-direction</code></pre></div></li>
+<li><p>Use yarn</p>
+<div><pre class="line-numbers"><code class="language-bash">yarn add &#64;agm/core agm-direction</code></pre></div></li>
 </ul>
 <h2 id="importing-modules">Importing Modules</h2>
-<p>```typescript
-import { BrowserModule } from &#39;@angular/platform-browser&#39;;
-import { NgModule } from &#39;@angular/core&#39;;
-import { AppComponent } from &#39;./app.component&#39;;</p>
-<p>import { AgmCoreModule } from &#39;@agm/core&#39;;            // @agm/core
-import { AgmDirectionModule } from &#39;agm-direction&#39;;   // agm-direction</p>
-<p>@NgModule({
+<div><pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &#39;&#64;angular/platform-browser&#39;;
+import { NgModule } from &#39;&#64;angular/core&#39;;
+import { AppComponent } from &#39;./app.component&#39;;
+
+import { AgmCoreModule } from &#39;&#64;agm/core&#39;;            // &#64;agm/core
+import { AgmDirectionModule } from &#39;agm-direction&#39;;   // agm-direction
+
+&#64;NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AgmCoreModule.forRoot({ // @agm/core
+    AgmCoreModule.forRoot({ // &#64;agm/core
       apiKey: &#39;your key&#39;,
     }),
     AgmDirectionModule,     // agm-direction
@@ -79,50 +75,43 @@ import { AgmDirectionModule } from &#39;agm-direction&#39;;   // agm-direction</
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-```</p>
-<h2 id="usage">Usage</h2>
+export class AppModule { }</code></pre></div><h2 id="usage">Usage</h2>
 <p>HTML</p>
-<p><code>html
-&lt;agm-map [latitude]=&quot;lat&quot; [longitude]=&quot;lng&quot;&gt;
-  &lt;agm-direction [origin]=&quot;origin&quot; [destination]=&quot;destination&quot;&gt;
+<div><pre class="line-numbers"><code class="language-html">&lt;agm-map [latitude]=&quot;lat&quot; [longitude]=&quot;lng&quot;&gt;
+  &lt;agm-direction 
+    [origin]=&quot;origin&quot; 
+    [destination]=&quot;destination&quot;
+  &gt;
   &lt;/agm-direction&gt;
-&lt;/agm-map&gt;</code></p>
-<p>CSS</p>
-<p><code>css
-agm-map {
+&lt;/agm-map&gt;</code></pre></div><p>CSS</p>
+<div><pre class="line-numbers"><code class="language-css">agm-map {
     height: 400px;
-}</code></p>
-<p>TS</p>
-<p>```typescript
-public lat = 24.799448;
-public lng = 120.979021;</p>
-<p>public origin: any;
-public destination: any;</p>
-<p>ngOnInit() {
+}</code></pre></div><p>TS</p>
+<div><pre class="line-numbers"><code class="language-typescript">public lat = 24.799448;
+public lng = 120.979021;
+
+public origin: any;
+public destination: any;
+
+ngOnInit() {
   this.getDirection();
-}</p>
-<p>getDirection() {
-  this.origin = { lat: 24.799448, lng: 120.979021 };
-  this.destination = { lat: 24.799524, lng: 120.975017 };</p>
-<p>  // this.origin = &#39;Taipei Main Station&#39;;
-  // this.destination = &#39;Taiwan Presidential Office&#39;;
 }
-```</p>
-<h2 id="document">Document</h2>
+
+getDirection() {
+  this.origin = { lat: 24.799448, lng: 120.979021 };
+  this.destination = { lat: 24.799524, lng: 120.975017 };
+
+  // Location within a string
+  // this.origin = &#39;Taipei Main Station&#39;;
+  // this.destination = &#39;Taiwan Presidential Office&#39;;
+}</code></pre></div><h2 id="document">Document</h2>
 <ul>
 <li>Document <a href="https://robby570.tw/Agm-Direction-Docs/">Agm-Direction-Docs</a></li>
 <li>Less useful <a href="https://robby570.tw/Agm-Direction/">AgmDirectionModule</a></li>
 </ul>
 <h2 id="development">Development</h2>
-<p>👉 <a href="https://github.com/explooosion/Agm-Direction/tree/master/playground">Playground</a></p>
-<p><code>bash
-git clone https://github.com/explooosion/Agm-Direction.git</code></p>
-<p><code>bash
-cd playground</code></p>
-<p><code>bash
-yarn start</code></p>
-<h2 id="generator">Generator</h2>
+<p>👉 <a href="https://github.com/explooosion/Agm-Direction/tree/master/playground">Playground Project</a></p>
+<div><pre class="line-numbers"><code class="language-bash">git clone https://github.com/explooosion/Agm-Direction.git</code></pre></div><div><pre class="line-numbers"><code class="language-bash">npm install</code></pre></div><div><pre class="line-numbers"><code class="language-bash">npm run build</code></pre></div><div><pre class="line-numbers"><code class="language-bash">npm run pack:lib</code></pre></div><div><pre class="line-numbers"><code class="language-bash">cd playground &amp;&amp; npm install</code></pre></div><div><pre class="line-numbers"><code class="language-bash"># Add gmap api key in environment.ts</code></pre></div><div><pre class="line-numbers"><code class="language-bash">npm start</code></pre></div><h2 id="generator">Generator</h2>
 <p>This library generated by <a href="https://github.com/robisim74/angular-library-starter">angular-library-starter</a>.</p>
 <h2 id="license">License</h2>
 <p><a href="http://opensource.org/licenses/MIT">MIT</a></p>
@@ -140,6 +129,7 @@ yarn start</code></p>
 
 
 
+                   
 
 
 
@@ -162,6 +152,7 @@ yarn start</code></p>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
             var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>

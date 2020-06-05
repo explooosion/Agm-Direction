@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { AgmCoreModule } from '@agm/core';
-import { AgmDirectionModule } from '../../../dist';
+import { AgmDirectionModule } from 'agm-direction';
 
 import { environment } from '../environments/environment';
 

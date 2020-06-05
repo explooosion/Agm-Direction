@@ -122,11 +122,15 @@ npm install
 ```
 
 ```bash
-npm run pack:build
+npm run build
 ```
 
 ```bash
-cd playground
+npm run pack:lib
+```
+
+```bash
+cd playground && npm install
 ```
 
 ```bash
