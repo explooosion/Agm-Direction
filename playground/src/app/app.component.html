@@ -1,9 +1,10 @@
-<agm-map [latitude]="lat" [longitude]="lng">
+<agm-map [latitude]="lat" [longitude]="lng" (mapReady)="onMapReady($event)">
   <agm-direction
    [origin]="origin"
    [destination]="destination"
+   [waypoints]="waypoints"
    [renderOptions]="renderOptions"
-   [markerOptions]="markerOptions"
+   (onResponse)="onResponse($event)"
    >
   </agm-direction>
 </agm-map>
