@@ -1,6 +1,6 @@
 {
   "name": "agm-direction",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "directive for agm (not official)",
   "main": "./bundles/agm-direction.umd.js",
   "module": "./fesm5/agm-direction.js",
@@ -17,7 +17,7 @@
     "publish:lib": "npm run build && npm publish ./dist",
     "publish:lib:next": "npm run build && npm publish --tag next ./dist",
     "compodoc": "compodoc -p tsconfig.json -d docs",
-    "compodoc:serve": "compodoc -s"
+    "compodoc:serve": "compodoc -p tsconfig.json -s -d docs"
   },
   "author": {
     "name": "Robby",
@@ -58,6 +58,7 @@
     "@angular/platform-browser-dynamic": "9.1.7",
     "@angular/platform-server": "9.1.7",
     "@compodoc/compodoc": "^1.1.11",
+    "@types/googlemaps": "^3.39.9",
     "@types/jasmine": "3.5.0",
     "@types/node": "12.11.1",
     "angular2-template-loader": "0.6.2",

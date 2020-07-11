@@ -137,7 +137,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#markerOptions">markerOptions</a>
+                                <a href="#map">map</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -145,12 +145,40 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#polylines">polylines</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#renderOptions">renderOptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#waypoints">waypoints</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onMapReady">onMapReady</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#onResponse">onResponse</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -165,7 +193,157 @@
 
 
 
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onMapReady"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            onMapReady
+                        </b>
+                        <a href="#onMapReady"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onMapReady(event: google.maps.Map)</code>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">playground/src/app/app.component.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>google.maps.Map</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onResponse"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                            onResponse
+                        </b>
+                        <a href="#onResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onResponse(event: google.maps.DirectionsResult)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">playground/src/app/app.component.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>google.maps.DirectionsResult</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
     <section>
     
         <h3 id="inputs">
@@ -192,7 +370,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;No. 1 Guanqian Road, North District, Taichung City&#x27;</code>
+                            <i>Default value : </i><code>&#x27;Wenxin Forest Park, Taiwan&#x27;</code>
                         </td>
                     </tr>
                         <tr>
@@ -274,42 +452,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="markerOptions"></a>
+                        <a name="map"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            markerOptions</b>
-                            <a href="#markerOptions"><span class="icon ion-ios-link"></span></a>
+                            map</b>
+                            <a href="#map"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>    <code>google.maps.Map</code>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-    origin: {
-      icon: &#x27;https://i.imgur.com/7teZKif.png&#x27;,
-      draggable: true,
-    },
-    destination: {
-      icon: &#x27;https://i.imgur.com/7teZKif.png&#x27;,
-      draggable: true,
-      infoWindow: &#x60;
-        &lt;h4&gt;Hello&lt;h4&gt;
-        &lt;a href&#x3D;&#x27;http://www-e.ntust.edu.tw/home.php&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Taiwan Tech&lt;/a&gt;
-        &#x60;
-    },
-  }</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">playground/src/app/app.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">playground/src/app/app.component.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -337,12 +497,45 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;No. 1, Section 1, Taiwan Avenue, Central District, Taichung, Taiwan&#x27;</code>
+                            <i>Default value : </i><code>&#x27;Taichung Railway Station, Taiwan&#x27;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">playground/src/app/app.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="polylines"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            polylines</b>
+                            <a href="#polylines"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;google.maps.Polyline&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">playground/src/app/app.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -370,9 +563,43 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>{
-    suppressMarkers: true,
-  }</code>
+                            <i>Default value : </i><code>{ suppressPolylines: true }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">playground/src/app/app.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="waypoints"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            waypoints</b>
+                            <a href="#waypoints"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    { location: &#x27;Chung Shan Medical University, Taiwan&#x27;, stopover: true },
+    { location: &#x27;National Chung Hsing University, Taiwan&#x27;, stopover: true },
+  ]</code>
                         </td>
                     </tr>
                         <tr>
@@ -395,45 +622,79 @@
 @Component({
   selector: &#x27;app-root&#x27;,
   templateUrl: &#x27;./app.component.html&#x27;,
-  styleUrls: [&#x27;./app.component.css&#x27;]
+  styleUrls: [&#x27;./app.component.css&#x27;],
 })
 export class AppComponent {
 
   public lat &#x3D; 24.799448;
   public lng &#x3D; 120.979021;
 
-  public origin: any &#x3D; &#x27;No. 1, Section 1, Taiwan Avenue, Central District, Taichung, Taiwan&#x27;;
-  public destination: any &#x3D; &#x27;No. 1 Guanqian Road, North District, Taichung City&#x27;;
+  public origin: any &#x3D; &#x27;Taichung Railway Station, Taiwan&#x27;;
+  public destination: any &#x3D; &#x27;Wenxin Forest Park, Taiwan&#x27;;
 
-  public renderOptions &#x3D; {
-    suppressMarkers: true,
-  };
+  public waypoints: Array&lt;any&gt; &#x3D; [
+    { location: &#x27;Chung Shan Medical University, Taiwan&#x27;, stopover: true },
+    { location: &#x27;National Chung Hsing University, Taiwan&#x27;, stopover: true },
+  ];
 
-  public markerOptions &#x3D; {
-    origin: {
-      icon: &#x27;https://i.imgur.com/7teZKif.png&#x27;,
-      draggable: true,
-    },
-    destination: {
-      icon: &#x27;https://i.imgur.com/7teZKif.png&#x27;,
-      draggable: true,
-      infoWindow: &#x60;
-        &lt;h4&gt;Hello&lt;h4&gt;
-        &lt;a href&#x3D;&#x27;http://www-e.ntust.edu.tw/home.php&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Taiwan Tech&lt;/a&gt;
-        &#x60;
-    },
-  };
+  // Hide origin polylines
+  public renderOptions &#x3D; { suppressPolylines: true };
+
+  // Custom polylines
+  public polylines: Array&lt;google.maps.Polyline&gt; &#x3D; [];
+
+  // Current map
+  public map: google.maps.Map;
+
+  // Save GoogleMap instance
+  public onMapReady(event: google.maps.Map) {
+    this.map &#x3D; event;
+  }
+
+  public async onResponse(event: google.maps.DirectionsResult) {
+
+    // Default style
+    const polylineOptions: google.maps.PolygonOptions &#x3D; {
+      strokeWeight: 6,
+      strokeOpacity: 0.55,
+    };
+
+    // Polylines strokeColor
+    const colors &#x3D; [&#x27;#0000FF&#x27;, &#x27;#FF0000&#x27;, &#x27;#0000FF&#x27;];
+
+    // Clear exist polylines
+    this.polylines.forEach(polyline &#x3D;&gt; polyline.setMap(null));
+
+    const { legs } &#x3D; event.routes[0];
+
+    legs.forEach((leg, index) &#x3D;&gt; {
+
+      leg.steps.forEach(step &#x3D;&gt; {
+        const nextSegment &#x3D; step.path;
+        const stepPolyline &#x3D; new google.maps.Polyline(polylineOptions);
+
+        // Custom color
+        stepPolyline.setOptions({ strokeColor: colors[index] });
+
+        nextSegment.forEach(next &#x3D;&gt; stepPolyline.getPath().push(next));
+
+        this.polylines.push(stepPolyline);
+        stepPolyline.setMap(this.map);
+      });
+    });
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;agm-map [latitude]&#x3D;&quot;lat&quot; [longitude]&#x3D;&quot;lng&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;agm-map [latitude]&#x3D;&quot;lat&quot; [longitude]&#x3D;&quot;lng&quot; (mapReady)&#x3D;&quot;onMapReady($event)&quot;&gt;
   &lt;agm-direction
    [origin]&#x3D;&quot;origin&quot;
    [destination]&#x3D;&quot;destination&quot;
+   [waypoints]&#x3D;&quot;waypoints&quot;
    [renderOptions]&#x3D;&quot;renderOptions&quot;
-   [markerOptions]&#x3D;&quot;markerOptions&quot;
+   (onResponse)&#x3D;&quot;onResponse($event)&quot;
    &gt;
   &lt;/agm-direction&gt;
 &lt;/agm-map&gt;
@@ -475,7 +736,7 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><agm-map [latitude]="lat" [longitude]="lng">  <agm-direction   [origin]="origin"   [destination]="destination"   [renderOptions]="renderOptions"   [markerOptions]="markerOptions"   >  </agm-direction></agm-map></div>'
+        var COMPONENT_TEMPLATE = '<div><agm-map [latitude]="lat" [longitude]="lng" (mapReady)="onMapReady($event)">  <agm-direction   [origin]="origin"   [destination]="destination"   [waypoints]="waypoints"   [renderOptions]="renderOptions"   (onResponse)="onResponse($event)"   >  </agm-direction></agm-map></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'}];
     var DIRECTIVES = [{'name': 'AgmDirection', 'selector': 'agm-direction'}];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};

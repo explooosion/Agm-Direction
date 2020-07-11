@@ -1,65 +1,76 @@
+import 'googlemaps';
 import { Directive, Input, Output, OnChanges, OnInit, EventEmitter, OnDestroy } from '@angular/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
-import { InfoWindow, GoogleMap, Marker } from '@agm/core/services/google-maps-types';
 
-declare var google: any;
 @Directive({
   selector: 'agm-direction',
 })
 export class AgmDirection implements OnChanges, OnInit, OnDestroy {
 
-  // LatLng | String | google.maps.Place
-  @Input() origin: any;
+  @Input() origin?: string | google.maps.Place | google.maps.LatLng | google.maps.LatLngLiteral;
 
-  // LatLng | String | google.maps.Place
-  @Input() destination: any;
+  @Input() destination?: string | google.maps.Place | google.maps.LatLng | google.maps.LatLngLiteral;
 
-  // Options
-  @Input() travelMode: String = 'DRIVING';
-  @Input() transitOptions: any = undefined;
-  @Input() drivingOptions: any = undefined;
-  @Input() waypoints: any = [];
-  @Input() optimizeWaypoints: Boolean = true;
-  @Input() provideRouteAlternatives: Boolean = false;
-  @Input() avoidHighways: Boolean = false;
-  @Input() avoidTolls: Boolean = false;
-  @Input() renderOptions: any;
-  @Input() panel: object | undefined;
-  @Input() markerOptions: { origin: any, destination: any, waypoints: any };
-  @Input() infoWindow: InfoWindow;
+  @Input() travelMode: google.maps.TravelMode;
+
+  @Input() transitOptions: google.maps.TransitOptions;
+
+  @Input() drivingOptions: google.maps.DrivingOptions;
+
+  @Input() waypoints: google.maps.DirectionsWaypoint[];
+
+  @Input() optimizeWaypoints = true;
+
+  @Input() provideRouteAlternatives = false;
+
+  @Input() avoidHighways = false;
+
+  @Input() avoidTolls = false;
+
+  @Input() renderOptions: google.maps.DirectionsRendererOptions;
+
+  @Input() panel?: Element;
+
+  @Input() markerOptions: {
+    origin: google.maps.MarkerOptions,
+    destination: google.maps.MarkerOptions,
+    waypoints: google.maps.MarkerOptions,
+  };
+
+  @Input() infoWindow: google.maps.InfoWindow;
 
   // Remove or draw direction
-  @Input() visible: Boolean = true;
+  @Input() visible = true;
 
   // Render exist direction
   @Input() renderRoute: any;
 
   // Direction change event handler
-  @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onChange: EventEmitter<google.maps.DirectionsResult> = new EventEmitter<google.maps.DirectionsResult>();
 
   // Direction response for the new request
-  @Output() onResponse: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onResponse: EventEmitter<google.maps.DirectionsResult> = new EventEmitter<google.maps.DirectionsResult>();
 
   // Send a custom infowindow
-  @Output() sendInfoWindow: EventEmitter<InfoWindow> = new EventEmitter<InfoWindow>();
+  @Output() sendInfoWindow: EventEmitter<google.maps.InfoWindow> = new EventEmitter<google.maps.InfoWindow>();
 
   // Status of Directions Query (google.maps.DirectionsStatus.OVER_QUERY_LIMIT)
-  @Output() status: EventEmitter<string> = new EventEmitter<string>();
+  @Output() status: EventEmitter<google.maps.DirectionsStatus> = new EventEmitter<google.maps.DirectionsStatus>();
 
   // Marker drag event handler
   @Output() originDrag: EventEmitter<any> = new EventEmitter<any>();
   @Output() destinationDrag: EventEmitter<any> = new EventEmitter<any>();
 
-  public directionsService: any = undefined;
-  public directionsDisplay: any = undefined;
+  public directionsService: google.maps.DirectionsService;
+  public directionsRenderer: google.maps.DirectionsRenderer;
 
   // Use for custom marker
   private originMarker: any;
   private destinationMarker: any;
-  private waypointsMarker: any = [];
+  private waypointsMarker: Array<google.maps.Marker> = [];
 
   // Use for visible flag
-  private isFirstChange: Boolean = true;
+  private isFirstChange = true;
 
   constructor(
     private gmapsApi: GoogleMapsAPIWrapper,
@@ -85,7 +96,7 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
         /**
          * When visible is false at the first time
          */
-        if (typeof this.directionsDisplay === 'undefined') {
+        if (typeof this.directionsRenderer === 'undefined') {
           this.directionDraw();
         }
         this.isFirstChange = false;
@@ -114,29 +125,33 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
    * This event is fired when the user creating or updating this direction
    */
   private directionDraw() {
-    this.gmapsApi.getNativeMap().then((map: GoogleMap) => {
+    this.gmapsApi.getNativeMap().then(_map => {
 
-      if (typeof this.directionsDisplay === 'undefined') {
-        this.directionsDisplay = new google.maps.DirectionsRenderer(this.renderOptions);
-        this.directionsDisplay.setMap(map);
-        this.directionsDisplay.addListener('directions_changed', () => {
-          this.onChange.emit(this.directionsDisplay.getDirections());
+      const map = _map as unknown as google.maps.Map<Element>;
+
+      if (typeof this.directionsRenderer === 'undefined') {
+        this.directionsRenderer = new google.maps.DirectionsRenderer(this.renderOptions);
+        // @ts-ignore
+        this.directionsRenderer.setMap(map);
+        this.directionsRenderer.addListener('directions_changed', () => {
+          this.onChange.emit(this.directionsRenderer.getDirections());
         });
       }
 
       if (typeof this.directionsService === 'undefined') {
-        this.directionsService = new google.maps.DirectionsService;
+        this.directionsService = new google.maps.DirectionsService();
       }
 
       if (typeof this.panel === 'undefined') {
-        this.directionsDisplay.setPanel(null);
+        // @ts-ignore
+        this.directionsRenderer.setPanel(null);
       } else {
-        this.directionsDisplay.setPanel(this.panel);
+        this.directionsRenderer.setPanel(this.panel);
       }
 
       // Render exist direction
       if (typeof this.renderRoute === 'object' && this.renderRoute !== null) {
-        this.directionsDisplay.setDirections(this.renderRoute);
+        this.directionsRenderer.setDirections(this.renderRoute);
         this.renderRoute = null; // or set undefined, ''
       } else {
 
@@ -152,7 +167,7 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
           provideRouteAlternatives: this.provideRouteAlternatives,
           avoidHighways: this.avoidHighways,
           avoidTolls: this.avoidTolls,
-        }, (response: any, status: any) => {
+        }, (response, status) => {
 
           this.onResponse.emit(response);
 
@@ -164,8 +179,9 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
            * https://developers.google.com/maps/documentation/javascript/directions#DirectionsStatus
            */
           switch (status) {
-            case 'OK':
-              this.directionsDisplay.setDirections(response);
+            case google.maps.DirectionsStatus.OK:
+
+              this.directionsRenderer.setDirections(response);
 
               /**
                * Emit The DirectionsResult Object
@@ -220,7 +236,7 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
                   // Waypoints Marker
                   if (typeof this.markerOptions.waypoints !== 'undefined') {
 
-                    this.waypoints.forEach((waypoint: any, index: number) => {
+                    this.waypoints.forEach((waypoint, index) => {
 
                       // If waypoints are not array then set all the same
                       if (!Array.isArray(this.markerOptions.waypoints)) {
@@ -253,6 +269,9 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
 
               break;
 
+            case google.maps.DirectionsStatus.OVER_QUERY_LIMIT:
+              console.warn('The webpage has sent too many requests within the allowed time period.');
+              break;
             default:
               // console.warn(status);
               break;
@@ -271,17 +290,25 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
    * @returns new marker
    * @memberof AgmDirection
    */
-  private setMarker(map: GoogleMap, marker: any, markerOpts: any, content: string): Marker {
+  private setMarker(
+    map: google.maps.Map,
+    marker: google.maps.Marker | google.maps.DirectionsWaypoint,
+    markerOpts: any,
+    content: google.maps.LatLng | string
+  ): google.maps.Marker {
     if (typeof this.infoWindow === 'undefined') {
-      this.infoWindow = new google.maps.InfoWindow({});
+      this.infoWindow = new google.maps.InfoWindow();
       this.sendInfoWindow.emit(this.infoWindow);
     }
+
     marker = new google.maps.Marker(markerOpts);
     // https://developers.google.com/maps/documentation/javascript/reference/marker?hl=zh-tw#MarkerOptions.clickable
+    // @ts-ignore
     if (marker.clickable) {
       marker.addListener('click', () => {
         const infowindoContent: string = typeof markerOpts.infoWindow === 'undefined' ? content : markerOpts.infoWindow;
         this.infoWindow.setContent(infowindoContent);
+        // @ts-ignore
         this.infoWindow.open(map, marker);
       });
     }
@@ -309,10 +336,12 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
    * This event is fired when remove directions
    */
   private removeDirections(): void {
-    if (this.directionsDisplay !== undefined) {
-      this.directionsDisplay.setPanel(null);
-      this.directionsDisplay.setMap(null);
-      this.directionsDisplay = undefined;
+    if (this.directionsRenderer !== undefined) {
+      // @ts-ignore
+      this.directionsRenderer.setPanel(null);
+      this.directionsRenderer.setMap(null);
+      // @ts-ignore
+      this.directionsRenderer = undefined;
     }
   }
 

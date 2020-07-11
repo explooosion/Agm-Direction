@@ -18,6 +18,9 @@
         ],
         "typeRoots": [
             "node_modules/@types/"
+        ],
+        "types": [
+          "googlemaps"
         ]
     },
     "exclude": [
