@@ -3,7 +3,7 @@
  * Build an Angular library compatible with AoT compilation & Tree shaking like an official package
  * Copyright Roberto Simonetti
  * MIT license
- * https://github.com/robisim74/agm-direction
+ * https://github.com/robisim74/angular-library-starter
  */
 
 /**
