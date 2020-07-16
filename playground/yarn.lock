@@ -1339,12 +1339,6 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-"agm-direction@file:../agm-direction-0.8.0.tgz":
-  version "0.8.0"
-  resolved "file:../agm-direction-0.8.0.tgz#a517052f1abcedb52ebbd0d75effab41f9f68461"
-  dependencies:
-    tslib "^1.10.0"
-
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"

@@ -1,6 +1,6 @@
 {
   "name": "agm-direction",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "directive for agm (not official)",
   "main": "./bundles/agm-direction.umd.js",
   "module": "./fesm5/agm-direction.js",
@@ -13,9 +13,7 @@
   "scripts": {
     "build": "node build.js",
     "pack:lib": "npm pack ./dist",
-    "pack:build": "npm run build && npm pack ./dist",
-    "publish:lib": "npm run build && npm publish ./dist",
-    "publish:lib:next": "npm run build && npm publish --tag next ./dist",
+    "pack:build": "npm run build && npm pack ./dist && cd ./dist && yarn link",
     "compodoc": "compodoc -p tsconfig.json -d docs",
     "compodoc:serve": "compodoc -p tsconfig.json -s -d docs"
   },
@@ -43,10 +41,10 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@agm/core": "^1.1.0",
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
+    "@agm/core": "^1.1.0",
     "@angular/common": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
     "@angular/core": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
     "rxjs": "~6.6.0"
