@@ -173,7 +173,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                    <span class="modifier">Async</span>
                                 <a href="#onResponse">onResponse</a>
                             </li>
                         </ul>
@@ -278,7 +277,6 @@
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            <span class="modifier">Async</span>
                             onResponse
                         </b>
                         <a href="#onResponse"><span class="icon ion-ios-link"></span></a>
@@ -333,7 +331,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -622,7 +620,7 @@
 @Component({
   selector: &#x27;app-root&#x27;,
   templateUrl: &#x27;./app.component.html&#x27;,
-  styleUrls: [&#x27;./app.component.css&#x27;],
+  styleUrls: [&#x27;./app.component.css&#x27;]
 })
 export class AppComponent {
 
@@ -647,11 +645,11 @@ export class AppComponent {
   public map: google.maps.Map;
 
   // Save GoogleMap instance
-  public onMapReady(event: google.maps.Map) {
+  public onMapReady(event: google.maps.Map): void {
     this.map &#x3D; event;
   }
 
-  public async onResponse(event: google.maps.DirectionsResult) {
+  public onResponse(event: google.maps.DirectionsResult): void {
 
     // Default style
     const polylineOptions: google.maps.PolygonOptions &#x3D; {
@@ -706,7 +704,7 @@ export class AppComponent {
                     <code>./app.component.css</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">agm-map {
-  height: 80vh;
+  height: 90vh;
 }
 </code></pre>
     </div>
