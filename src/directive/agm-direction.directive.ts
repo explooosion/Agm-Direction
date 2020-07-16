@@ -1,4 +1,3 @@
-import 'googlemaps';
 import { Directive, Input, Output, OnChanges, OnInit, EventEmitter, OnDestroy } from '@angular/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 
