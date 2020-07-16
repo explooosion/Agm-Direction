@@ -6,17 +6,17 @@ import { GoogleMapsAPIWrapper } from '@agm/core';
 })
 export class AgmDirection implements OnChanges, OnInit, OnDestroy {
 
-  @Input() origin?: string | google.maps.Place | google.maps.LatLng | google.maps.LatLngLiteral;
+  @Input() origin: string | google.maps.Place | google.maps.LatLng | google.maps.LatLngLiteral;
 
-  @Input() destination?: string | google.maps.Place | google.maps.LatLng | google.maps.LatLngLiteral;
+  @Input() destination: string | google.maps.Place | google.maps.LatLng | google.maps.LatLngLiteral;
 
-  @Input() travelMode: google.maps.TravelMode;
+  @Input() travelMode?: google.maps.TravelMode;
 
-  @Input() transitOptions: google.maps.TransitOptions;
+  @Input() transitOptions?: google.maps.TransitOptions;
 
-  @Input() drivingOptions: google.maps.DrivingOptions;
+  @Input() drivingOptions?: google.maps.DrivingOptions;
 
-  @Input() waypoints: google.maps.DirectionsWaypoint[];
+  @Input() waypoints: google.maps.DirectionsWaypoint[] = [];
 
   @Input() optimizeWaypoints = true;
 
@@ -26,7 +26,7 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
 
   @Input() avoidTolls = false;
 
-  @Input() renderOptions: google.maps.DirectionsRendererOptions;
+  @Input() renderOptions?: google.maps.DirectionsRendererOptions;
 
   @Input() panel?: Element;
 
@@ -34,7 +34,7 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
     origin: google.maps.MarkerOptions,
     destination: google.maps.MarkerOptions,
     waypoints: google.maps.MarkerOptions,
-  };
+  } = { origin: {}, destination: {}, waypoints: {} };
 
   @Input() infoWindow: google.maps.InfoWindow;
 
@@ -42,7 +42,7 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
   @Input() visible = true;
 
   // Render exist direction
-  @Input() renderRoute: any;
+  @Input() renderRoute?: google.maps.DirectionsResult | null;
 
   // Direction change event handler
   @Output() onChange: EventEmitter<google.maps.DirectionsResult> = new EventEmitter<google.maps.DirectionsResult>();
@@ -64,8 +64,8 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
   public directionsRenderer: google.maps.DirectionsRenderer;
 
   // Use for custom marker
-  private originMarker: any;
-  private destinationMarker: any;
+  private originMarker?: any;
+  private destinationMarker?: any;
   private waypointsMarker: Array<google.maps.Marker> = [];
 
   // Use for visible flag
@@ -149,16 +149,16 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
       }
 
       // Render exist direction
-      if (typeof this.renderRoute === 'object' && this.renderRoute !== null) {
+      if (this.renderRoute) {
         this.directionsRenderer.setDirections(this.renderRoute);
-        this.renderRoute = null; // or set undefined, ''
+        this.renderRoute = undefined;
       } else {
 
         // Request new direction
         this.directionsService.route({
           origin: this.origin,
           destination: this.destination,
-          travelMode: this.travelMode,
+          travelMode: this.travelMode || google.maps.TravelMode.DRIVING,
           transitOptions: this.transitOptions,
           drivingOptions: this.drivingOptions,
           waypoints: this.waypoints,
@@ -302,13 +302,11 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
 
     marker = new google.maps.Marker(markerOpts);
     // https://developers.google.com/maps/documentation/javascript/reference/marker?hl=zh-tw#MarkerOptions.clickable
-    // @ts-ignore
-    if (marker.clickable) {
+    if (marker.getClickable()) {
       marker.addListener('click', () => {
         const infowindoContent: string = typeof markerOpts.infoWindow === 'undefined' ? content : markerOpts.infoWindow;
         this.infoWindow.setContent(infowindoContent);
-        // @ts-ignore
-        this.infoWindow.open(map, marker);
+        this.infoWindow.open(map, marker as google.maps.MVCObject);
       });
     }
     return marker;
