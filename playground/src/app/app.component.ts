@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 
@@ -28,11 +28,11 @@ export class AppComponent {
   public map: google.maps.Map;
 
   // Save GoogleMap instance
-  public onMapReady(event: google.maps.Map) {
+  public onMapReady(event: google.maps.Map): void {
     this.map = event;
   }
 
-  public async onResponse(event: google.maps.DirectionsResult) {
+  public onResponse(event: google.maps.DirectionsResult): void {
 
     // Default style
     const polylineOptions: google.maps.PolygonOptions = {
