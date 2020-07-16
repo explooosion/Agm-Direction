@@ -15,14 +15,16 @@
         "strict": true,
         "strictPropertyInitialization": false,
         "moduleResolution": "node",
-        "module": "es2015",
+        "module": "es2020",
         "target": "es2015",
         "lib": [
-            "es2015",
+            "es2018",
             "dom"
         ],
         "skipLibCheck": true,
-        "types": [],
+        "types": [
+            "googlemaps"
+        ],
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "sourceMap": true,

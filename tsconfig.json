@@ -5,23 +5,20 @@
         "experimentalDecorators": true,
         "strict": true,
         "strictPropertyInitialization": false,
-        "module": "commonjs",
+        "module": "es2020",
         "moduleResolution": "node",
         "rootDir": ".",
         "sourceMap": true,
         "inlineSources": true,
-        "target": "es5",
+        "target": "es2015",
         "skipLibCheck": true,
         "lib": [
-            "es2015",
+            "es2018",
             "dom"
         ],
         "typeRoots": [
             "node_modules/@types/"
         ],
-        "types": [
-          "googlemaps"
-        ]
     },
     "exclude": [
         "node_modules"
