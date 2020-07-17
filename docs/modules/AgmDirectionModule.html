@@ -201,7 +201,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://angular.io/api/core/ModuleWithProviders" target="_blank" >ModuleWithProviders</a></code>
+                        <b>Returns : </b>    <code>ModuleWithProviders&lt;AgmDirectionModule&gt;</code>
 
                     </div>
                 </td>
@@ -242,7 +242,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://angular.io/api/core/ModuleWithProviders" target="_blank" >ModuleWithProviders</a></code>
+                        <b>Returns : </b>    <code>ModuleWithProviders&lt;AgmDirectionModule&gt;</code>
 
                     </div>
                 </td>
@@ -266,13 +266,13 @@ import { AgmDirection } from &#x27;../directive/agm-direction.directive&#x27;;
   ]
 })
 export class AgmDirectionModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders&lt;AgmDirectionModule&gt; {
     return {
       ngModule: AgmDirectionModule,
     };
   }
 
-  public static forChild(): ModuleWithProviders {
+  public static forChild(): ModuleWithProviders&lt;AgmDirectionModule&gt; {
     return {
       ngModule: AgmDirectionModule,
     };

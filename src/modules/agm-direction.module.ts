@@ -10,13 +10,13 @@ import { AgmDirection } from '../directive/agm-direction.directive';
   ]
 })
 export class AgmDirectionModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<AgmDirectionModule> {
     return {
       ngModule: AgmDirectionModule,
     };
   }
 
-  public static forChild(): ModuleWithProviders {
+  public static forChild(): ModuleWithProviders<AgmDirectionModule> {
     return {
       ngModule: AgmDirectionModule,
     };
