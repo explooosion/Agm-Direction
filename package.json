@@ -40,6 +40,9 @@
     "ng"
   ],
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "@types/googlemaps": "^3.39.9",
     "tslib": "^2.0.0"
