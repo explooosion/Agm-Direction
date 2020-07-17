@@ -1,6 +1,6 @@
 {
   "name": "agm-direction",
-  "version": "0.8.3",
+  "version": "0.8.6",
   "description": "directive for agm (not official)",
   "main": "./bundles/agm-direction.umd.js",
   "module": "./fesm5/agm-direction.js",
@@ -41,6 +41,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@types/googlemaps": "^3.39.9",
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
