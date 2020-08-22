@@ -44,17 +44,17 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "@types/googlemaps": "^3.39.9",
+    "@types/googlemaps": "^3.39.8",
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@agm/core": "^1.1.0",
+    "@agm/core": "^1.1.0 || ^3.0.0-beta.0",
     "@angular/common": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
     "@angular/core": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
-    "rxjs": "~6.6.0"
+    "rxjs": "~6.5.5 || ~6.6.0"
   },
   "devDependencies": {
-    "@agm/core": "^1.1.0",
+    "@agm/core": "1.1.0",
     "@angular/animations": "10.0.0",
     "@angular/common": "10.0.0",
     "@angular/compiler": "10.0.0",
@@ -64,7 +64,7 @@
     "@angular/platform-browser-dynamic": "10.0.0",
     "@angular/platform-server": "10.0.0",
     "@compodoc/compodoc": "^1.1.11",
-    "@types/googlemaps": "^3.39.9",
+    "@types/googlemaps": "^3.39.8",
     "@types/jasmine": "3.5.0",
     "@types/node": "^14.0.22",
     "angular2-template-loader": "0.6.2",
@@ -88,7 +88,7 @@
     "rollup-plugin-license": "2.0.1",
     "rollup-plugin-node-resolve": "5.0.0",
     "rollup-plugin-sourcemaps": "0.4.2",
-    "rxjs": "~6.6.0",
+    "rxjs": "~6.5.5",
     "sass-loader": "7.1.0",
     "shelljs": "0.8.3",
     "source-map-loader": "0.2.4",
