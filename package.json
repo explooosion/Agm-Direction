@@ -1,5 +1,5 @@
 {
-  "name": "@explooosion/agm-direction",
+  "name": "agm-direction",
   "version": "0.8.7",
   "description": "directive for agm (not official)",
   "main": "./bundles/agm-direction.umd.js",
@@ -40,9 +40,6 @@
     "ng"
   ],
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "dependencies": {
     "@types/googlemaps": "^3.39.8",
     "tslib": "^2.0.0"
