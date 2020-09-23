@@ -430,11 +430,6 @@
 
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>{ origin: {}, destination: {}, waypoints: {} }</code>
-                    </td>
-                </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/directive/agm-direction.directive.ts:33</a></div>
@@ -1462,7 +1457,7 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
     origin: google.maps.MarkerOptions,
     destination: google.maps.MarkerOptions,
     waypoints: google.maps.MarkerOptions,
-  } &#x3D; { origin: {}, destination: {}, waypoints: {} };
+  };
 
   @Input() infoWindow: google.maps.InfoWindow;
 

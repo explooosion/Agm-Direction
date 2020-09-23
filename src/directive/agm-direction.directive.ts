@@ -34,7 +34,7 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
     origin: google.maps.MarkerOptions,
     destination: google.maps.MarkerOptions,
     waypoints: google.maps.MarkerOptions,
-  } = { origin: {}, destination: {}, waypoints: {} };
+  };
 
   @Input() infoWindow: google.maps.InfoWindow;
 
