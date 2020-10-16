@@ -18,6 +18,10 @@ How to use?
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
 
+## Credit
+
+#### [SebastianM/angular-google-maps](https://github.com/SebastianM/angular-google-maps) - [Directions service #495](https://github.com/SebastianM/angular-google-maps/issues/495)
+
 ## Installation
 
 Installation is done using the
