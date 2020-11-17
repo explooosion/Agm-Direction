@@ -26,6 +26,10 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
 
   @Input() avoidTolls = false;
 
+  @Input() avoidFerries = false;
+
+  @Input() unitSystem?: google.maps.UnitSystem;
+
   @Input() renderOptions?: google.maps.DirectionsRendererOptions;
 
   @Input() panel?: Element;
@@ -166,6 +170,8 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
           provideRouteAlternatives: this.provideRouteAlternatives,
           avoidHighways: this.avoidHighways,
           avoidTolls: this.avoidTolls,
+          avoidFerries: this.avoidFerries,
+          unitSystem: this.unitSystem,
         }, (response, status) => {
 
           this.onResponse.emit(response);
