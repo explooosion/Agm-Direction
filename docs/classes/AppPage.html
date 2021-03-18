@@ -81,9 +81,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getTitleText">getTitleText</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#navigateTo">navigateTo</a>
                             </li>
                         </ul>
@@ -112,6 +114,7 @@
                     <a name="getTitleText"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Async</span>
                             getTitleText
                         </b>
                         <a href="#getTitleText"><span class="icon ion-ios-link"></span></a>
@@ -120,7 +123,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getTitleText()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTitleText()</code>
                 </td>
             </tr>
 
@@ -151,6 +155,7 @@
                     <a name="navigateTo"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Async</span>
                             navigateTo
                         </b>
                         <a href="#navigateTo"><span class="icon ion-ios-link"></span></a>
@@ -159,7 +164,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>navigateTo()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>navigateTo()</code>
                 </td>
             </tr>
 
@@ -196,12 +202,12 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { browser, by, element } from &#x27;protractor&#x27;;
 
 export class AppPage {
-  navigateTo(): Promise&lt;unknown&gt; {
-    return browser.get(browser.baseUrl) as Promise&lt;unknown&gt;;
+  async navigateTo(): Promise&lt;unknown&gt; {
+    return browser.get(browser.baseUrl);
   }
 
-  getTitleText(): Promise&lt;string&gt; {
-    return element(by.css(&#x27;app-root .content span&#x27;)).getText() as Promise&lt;string&gt;;
+  async getTitleText(): Promise&lt;string&gt; {
+    return element(by.css(&#x27;app-root .content span&#x27;)).getText();
   }
 }
 </code></pre>
