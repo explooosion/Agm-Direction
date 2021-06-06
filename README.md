@@ -15,6 +15,8 @@
 
 How to use?  
 👉 [Start Reading](https://robby570.tw/Agm-Direction-Docs/)
+👉 [Build With Ionic](https://github.com/explooosion/ionic-agm-direction-example)
+
 
 ![Agm-Direction](https://i.imgur.com/DCIoXqS.jpg)
 
