@@ -37,7 +37,7 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
   @Input() markerOptions: {
     origin: google.maps.MarkerOptions,
     destination: google.maps.MarkerOptions,
-    waypoints: google.maps.MarkerOptions,
+    waypoints?: google.maps.MarkerOptions,
   };
 
   @Input() infoWindow: google.maps.InfoWindow;
@@ -245,8 +245,8 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
 
                       // If waypoints are not array then set all the same
                       if (!Array.isArray(this.markerOptions.waypoints)) {
-                        this.markerOptions.waypoints.map = map;
-                        this.markerOptions.waypoints.position = _route.via_waypoints[index];
+                        this.markerOptions.waypoints!.map = map;
+                        this.markerOptions.waypoints!.position = _route.via_waypoints[index];
                         this.waypointsMarker.push(this.setMarker(
                           map,
                           waypoint,
