@@ -6,8 +6,9 @@ node_js:
   - "16"
 before_install:
   - npm i npm@^8 -g
+  - npm i yarn -g
 install:
-  - npm install
+  - yarn
 script:
   - npm run build
 services:
