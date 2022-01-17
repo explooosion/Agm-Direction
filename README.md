@@ -2,9 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/js/agm-direction)
 [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://github.com/explooosion/Agm-Direction)
-[![peerDependencies Status](https://david-dm.org/explooosion/Agm-Direction/peer-status.svg)](https://david-dm.org/explooosion/Agm-Direction?type=peer)
 [![Build Status](https://travis-ci.org/explooosion/Agm-Direction.svg?branch=master)](https://travis-ci.org/explooosion/Agm-Direction)
-[![GitHub license](https://img.shields.io/github/license/explooosion/Agm-Direction.svg)](https://github.com/explooosion/Agm-Direction)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 
