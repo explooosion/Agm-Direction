@@ -3,13 +3,12 @@ sudo: required
 addons:
   chrome: stable
 node_js:
-  - "10"
+  - "16"
 before_install:
-  - npm i npm@^6 -g
+  - npm i npm@^8 -g
 install:
   - npm install
 script:
-  - npm test
   - npm run build
 services:
   - xvfb
