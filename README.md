@@ -1,3 +1,9 @@
+# ⚠️ **DEPRECATION NOTICE: This repository is no longer maintained.**
+
+This project has been officially archived and will no longer receive updates, bug fixes, or feature additions. We will not be reviewing new issues or pull requests. 
+
+A huge thank you to all the contributors and developers who have supported, used, and helped maintain this project over the years. Your efforts and contributions are deeply appreciated!
+
 # Agm-Direction
 
 [![npm version](https://badge.fury.io/js/agm-direction.svg)](https://badge.fury.io/js/agm-direction)
